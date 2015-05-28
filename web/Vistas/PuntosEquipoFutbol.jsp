@@ -15,7 +15,7 @@
         <h1 ALIGN="center">Puntos por Equipo</h1>
         <fieldset>
             <center>            
-              <table class="table-bordered" border="1">
+              <table class="table-bordered" border="2">
                 <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
