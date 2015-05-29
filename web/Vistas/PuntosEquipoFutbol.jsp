@@ -18,7 +18,8 @@
         <center>
         <div style="width: 600px;">
             <br>
-            <table class="table table-bordered">
+         <table class="table table-bordered">
+             <thead>
                 <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
@@ -31,6 +32,8 @@
                     <th>Puntos</th>
                     <th></th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
                     <td></td>    
                     <td></td>    
@@ -46,8 +49,9 @@
                         <a href="" class="btn btn-primary btn-sm">Eliminar</a>
                     </td>
                 </tr>
+                </tbody>
             </table>
-        </div>
+            </div>
         </center>
         </div>
         <%@include file="../WEB-INF/jspf/bottom.jspf" %>

@@ -18,7 +18,7 @@
         <center>
         <div style="width: 600px;">
             <br>
-            <table class="table table-bordered">
+             <table class="table table-bordered">
                 <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
