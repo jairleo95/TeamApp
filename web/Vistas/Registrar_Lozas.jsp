@@ -41,7 +41,7 @@
         <![endif]-->
     </head>
     <body> 
-        <form>
+        <form align="center">
             <div class="box box-warning" align="center">
                 <div class="box-header">
                     <h3 class="box-title">Registro de Lozas Deportivas</h3>
@@ -54,9 +54,12 @@
                     <OPTION VALUE="1">FUTSAL</OPTION>
                     <OPTION VALUE="2">BASQUET</OPTION>
                     <OPTION VALUE="3">VOLEY</OPTION>
-                </select>
+                </select>      
+                <br>
+                <button class="btn btn-info btn-flat" type="button">Agregar</button>
             </div>
         </form>
+        <br>
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Tadas la lozas registradas</h3>
@@ -89,35 +92,27 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 111px;">Rendering engine</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 140px;">Browser</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 122px;">Platform(s)</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 94px;">Engine version</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 65px;">CSS grade</th></tr>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 20px;">#</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 140px;">Nombre de la loza</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 122px;">Categoria</th>
                                 </thead>
                                 <tbody>
-                                    <tr role="row" class="odd">
-                                        <td class="sorting_1">Gecko</td>
-                                        <td>Netscape Navigator 9</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
                                     <tr role="row" class="even">
-                                        <td class="sorting_1">Gecko</td>
+                                        <td class="sorting_1">1</td>
                                         <td>Mozilla 1.0</td>
                                         <td>Win 95+ / OSX.1+</td>
-                                        <td>1</td>
-                                        <td>A</td>
-                                    </tr></tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th rowspan="1" colspan="1">Rendering engine</th>
-                                        <th rowspan="1" colspan="1">Browser</th>
-                                        <th rowspan="1" colspan="1">Platform(s)</th>
-                                        <th rowspan="1" colspan="1">Engine version</th>
-                                        <th rowspan="1" colspan="1">CSS grade</th></tr>
-                                </tfoot>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">2</td>
+                                        <td>Mozilla 2.0</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">3</td>
+                                        <td>Mozilla 3.0</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div></div>
                     <div class="row">
