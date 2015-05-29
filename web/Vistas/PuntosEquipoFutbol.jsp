@@ -9,13 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="../WEB-INF/jspf/jscss.jspf" %>
         <title>JSP Page</title>
     </head>
-    <body>
-        <h1 ALIGN="center">Puntos por Equipo</h1>
-        <fieldset>
-            <center>            
-              <table class="table-bordered" border="2">
+    <body role="document">
+        <%@include file="../WEB-INF/jspf/top.jspf" %>
+        <div class="jumbotron">
+        <center>
+        <div style="width: 600px;">
+            <br>
+            <table class="table table-bordered">
                 <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
@@ -39,12 +42,14 @@
                     <td></td>  
                     <td></td>
                     <td>
-                        <a href="" class="btn-primary">Editar</a>
-                        <a href="" class="btn-primary">Eliminar</a>
+                        <a href="" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="" class="btn btn-primary btn-sm">Eliminar</a>
                     </td>
                 </tr>
             </table>
-           </center>
-        </fieldset>
+        </div>
+        </center>
+        </div>
+        <%@include file="../WEB-INF/jspf/bottom.jspf" %>
         </body>
 </html>
