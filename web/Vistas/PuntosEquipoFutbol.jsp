@@ -55,27 +55,9 @@
                     <th>Puntos</th>
                     <th></th>
                 </tr>
-<<<<<<< HEAD
               </thead>
               <tbody>
-                <tr>
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>  
-                    <td></td>
-                    <td>
-                        <a href="" class="btn btn-primary btn-sm">Editar</a>
-                        <a href="" class="btn btn-primary btn-sm">Eliminar</a>
-                    </td>
-                </tr>
-                </tbody>
-=======
-                <%for (int i=0;i<3;i++){%>
+                    <%for (int i=0;i<3;i++){%>
                     <tr>  
                         <td><%if(equipos[i][0]==1){out.println("Alemania");}
                               if(equipos[i][0]==2){out.println("Brazil");}
@@ -86,8 +68,8 @@
                                     <a href="" class="btn btn-primary btn-sm">Editar</a>
                                     <a href="" class="btn btn-primary btn-sm">Eliminar</a>
                             </td>
-                    </tr> <%}%>                                                                            
->>>>>>> origin/master
+                    </tr> <%}%> 
+              </tbody>                                                                   
             </table>
             </div>
         </center>
