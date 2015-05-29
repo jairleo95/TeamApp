@@ -4,9 +4,25 @@
         <servlet-name>CMenu</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CMenu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CProgramacion_Partido</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CProgramacion_Partido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CDireccionar</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CDireccionar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CProgramacion_Partido</servlet-name>
+        <url-pattern>/programacion_partido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CDireccionar</servlet-name>
+        <url-pattern>/direccionar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
