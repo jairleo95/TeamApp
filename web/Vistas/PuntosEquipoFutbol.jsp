@@ -41,7 +41,8 @@
                         
         <div style="width: 600px;">
             <br>
-            <table class="table table-bordered">
+         <table class="table table-bordered">
+             <thead>
                 <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
@@ -54,6 +55,26 @@
                     <th>Puntos</th>
                     <th></th>
                 </tr>
+<<<<<<< HEAD
+              </thead>
+              <tbody>
+                <tr>
+                    <td></td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>  
+                    <td></td>
+                    <td>
+                        <a href="" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="" class="btn btn-primary btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+=======
                 <%for (int i=0;i<3;i++){%>
                     <tr>  
                         <td><%if(equipos[i][0]==1){out.println("Alemania");}
@@ -66,8 +87,9 @@
                                     <a href="" class="btn btn-primary btn-sm">Eliminar</a>
                             </td>
                     </tr> <%}%>                                                                            
+>>>>>>> origin/master
             </table>
-        </div>
+            </div>
         </center>
         </div>
         <%@include file="../WEB-INF/jspf/bottom.jspf" %>
