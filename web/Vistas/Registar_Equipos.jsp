@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -75,7 +76,7 @@
             </form>
         </fieldset>
         <fieldset>
-        <table>
+            <table class="input">
             <tr>
                 <td>Nombre equipo</td><td>Categorias</td><td>Nombre del Delegado</td><td>Celular</td>
             </tr>
