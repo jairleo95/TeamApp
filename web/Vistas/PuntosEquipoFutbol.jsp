@@ -42,8 +42,7 @@
         <div style="width: 600px;">
             <br>
          <table class="table table-bordered">
-             <thead>
-                <tr>
+               <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
                     <th>PG</th>
@@ -56,9 +55,8 @@
                     <th></th>
                 </tr>
 <<<<<<< HEAD
-              </thead>
-              <tbody>
-                <tr>
+              
+              <tr>
                     <td></td>    
                     <td></td>    
                     <td></td>    
@@ -73,8 +71,7 @@
                         <a href="" class="btn btn-primary btn-sm">Eliminar</a>
                     </td>
                 </tr>
-                </tbody>
-=======
+                =======
                 <%for (int i=0;i<3;i++){%>
                     <tr>  
                            <% for(int j=0;j<9;j++){%>                            
