@@ -12,7 +12,7 @@
         <%@include file="../WEB-INF/jspf/jscss.jspf" %>
         <title>JSP Page</title>
     </head>
-    <body role="document">
+    <body>
         <%@include file="../WEB-INF/jspf/top.jspf" %>
         <div class="jumbotron">
         <center>
