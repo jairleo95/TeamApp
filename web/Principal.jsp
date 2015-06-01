@@ -338,8 +338,9 @@
                                 <i class="fa fa-dashboard"></i> <span>Programación Partido</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="direccionar?opc=Horario_Cancha_pp"><i class="fa fa-circle-o"></i> Item 1</a></li>
-                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Item 2</a></li>
+                                <li class="active"><a href="direccionar?opc=Champion_FIA"><i class="fa fa-circle-o"></i> Champion FIA</a></li>
+                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Eliminatorias</a></li>
+                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Series</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

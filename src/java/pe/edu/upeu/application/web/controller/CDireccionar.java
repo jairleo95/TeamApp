@@ -33,8 +33,8 @@ public class CDireccionar extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
         try {
-            if (opc.equals("Horario_Cancha_pp")) {
-                response.sendRedirect("Vistas/Partido/Programacion_Partido/Horario_Cancha.jsp");
+            if (opc.equals("Champion_FIA")) {
+                response.sendRedirect("Vistas/Partido/Programacion_Partido/Champion_FIA.jsp");
             }
 
         } finally {
