@@ -11,12 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.EquiposDAO;
+import pe.edu.upeu.application.interfaces.InterfaceEquiposDAO;
 
 /**
  *
- * @author Jairleo95
+ * @author Alex
  */
-public class CDireccionar extends HttpServlet {
+public class CEquipos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,14 +29,19 @@ public class CDireccionar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    InterfaceEquiposDAO eqp = new InterfaceEquiposDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
         String opc = request.getParameter("opc");
         try {
-            if (opc.equals("Champion_FIA")) {
-                response.sendRedirect("Vistas/Partido/Programacion_Partido/Champion_FIA.jsp");
+            if (opc.equals("Cantidad_Equipos")) {
+                String id_torneo = request.getParameter("id_torneo");
+                int can_equipos = eqp.Cantidad_Equipos(id_torneo);
+                out.print(can_equipos);
             }
         } finally {
             out.close();

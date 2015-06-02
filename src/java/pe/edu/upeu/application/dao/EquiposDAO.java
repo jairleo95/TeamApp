@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pe.edu.upeu.application.interfaces;
+
+package pe.edu.upeu.application.dao;
 
 /**
  *
- * @author alum.fial8
+ * @author Alex
  */
-public interface InterfacePuntos {
-   
+public interface EquiposDAO {
+     public int Cantidad_Equipos(String id_torneo);
 }

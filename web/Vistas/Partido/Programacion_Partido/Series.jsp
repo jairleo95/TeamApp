@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Horario_Cancha
-    Created on : 28-may-2015, 22:47:02
-    Author     : Jairleo95
+    Document   : Series
+    Created on : 01/06/2015, 10:20:52 AM
+    Author     : Alex
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
