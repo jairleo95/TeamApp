@@ -5,35 +5,18 @@
  */
 package pe.edu.upeu.application.interfaces;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import pe.edu.upeu.application.dao.EquiposDAO;
-import pe.edu.upeu.application.factory.ConexionBD;
-import pe.edu.upeu.application.factory.FactoryConnectionDB;
+import java.util.List;
+import java.util.Map;
+
+
 
 /**
  *
  * @author Alex
  */
-public class InterfaceEquiposDAO implements EquiposDAO {
+public interface InterfaceEquiposDAO  {
 
-    ConexionBD conn;
-
-    @Override
-    public int Cantidad_Equipos(String id) {
-        this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-        String sql =  "select count(*) from TATD_EQUIPO where ID_TORNEO = '"+id+"'";
-        int nro = 0;
-        try {
-            ResultSet rs = this.conn.query(sql);
-            while (rs.next()){
-                nro = rs.getInt(1);
-            }
-        } catch (SQLException e)  {
-        } finally {
-        this.conn.close();
-        }
-        return nro;
-    }
-
+     public int Cantidad_Equipos(String id_torneo);
+     public List<Map<String, ?>> Listar_Cronograma();
+     
 }
