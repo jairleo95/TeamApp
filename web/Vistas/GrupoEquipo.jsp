@@ -17,7 +17,7 @@
         <center>
            <table border="1">
                 <tr>
-                    <td>GRUPOA</td>
+                    <td><a href="FechasEncuentros.jsp">GRUPO A</a></td>
                 </tr>
                 <% int tope=4;
                    List <String> clubes=new ArrayList<String>();
@@ -77,7 +77,7 @@
                 
                 <table>
                     <tr>
-                        <td colspan="3" align="center"><h1><b>ENCUENTROS</b></h1></td>
+                        <td colspan="3" align="center"><h1><b>FIXTURE</b></h1></td>
                     </tr>
                     <%for(int i=0;i<totalP;i++){%>
                     <tr>
