@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pe.edu.upeu.application.dao.Integrantes_Equipos;
+import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
@@ -34,17 +36,15 @@ public class CIntegrantes_Equipos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesion = request.getSession(true);
-        String user = (String) sesion.getAttribute("IDUSER");
-        String opc = request.getParameter("opc");        
 
-        //InterfaceIntegrantes_Equipos h = new Integrantes_Equipos();
+        InterfaceIntegrantes_Equipos h = new Integrantes_Equipos();
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CIntegrantes_Equipos</title>");            
+            out.println("<title>Servlet CIntegrantes_Equipos</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CIntegrantes_Equipos at " + request.getContextPath() + "</h1>");

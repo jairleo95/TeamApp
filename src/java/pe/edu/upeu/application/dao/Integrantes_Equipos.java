@@ -14,22 +14,19 @@ import java.util.Map;
 import pe.edu.upeu.application.factory.ConexionBD;
 import pe.edu.upeu.application.factory.FactoryConnectionDB;
 import pe.edu.upeu.application.interfaces.InterfaceEquiposDAO;
+import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
  * @author Alex
  */
-public class Integrantes_Equipos implements InterfaceEquiposDAO {
+public class Integrantes_Equipos implements InterfaceIntegrantes_Equipos {
 
     ConexionBD conn;
 
     @Override
-    public int Cantidad_Equipos(String id_torneo) {
+    public void INSERT_DATOS_Integrantes_equipo(String ID, String Nombnre, String APELLIDO, String CAMISETA, String NUMERO, String CORREO) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List<Map<String, ?>> Listar_Cronograma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
