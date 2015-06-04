@@ -5,24 +5,23 @@
  */
 package pe.edu.upeu.application.web.controller;
 
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pe.edu.upeu.application.dao.EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceEquiposDAO;
+import javax.servlet.http.HttpSession;
+import pe.edu.upeu.application.dao.Integrantes_Equipos;
+import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
- * @author Alex
+ * @author Alexander
  */
-public class CEquipos extends HttpServlet {
+@WebServlet(name = "CIntegrantes_Equipos", urlPatterns = {"/CIntegrantes_Equipos"})
+public class CIntegrantes_Equipos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,34 +32,27 @@ public class CEquipos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceEquiposDAO iq = new EquiposDAO();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("UTF-8");
-          response.setContentType("application/json");
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession sesion = request.getSession(true);
+
+        InterfaceIntegrantes_Equipos h = new Integrantes_Equipos();
         PrintWriter out = response.getWriter();
-        Map<String, Object> rpta = new HashMap<String, Object>();
-        String opc = request.getParameter("opc");
         try {
-            if (opc.equals("Cant_Torneo")) {
-                String id_torneo = request.getParameter("id_torneo");
-                int can_equipos = iq.Cantidad_Equipos(id_torneo);
-               // out.print(can_equipos);
-            }
-            if("ListarLozas_Horario".equals(opc)){
-                List<Map<String,?>> list = iq.Listar_Cronograma();
-                rpta.put("rpta","1");
-                rpta.put("lista",list);
-            }
-         } catch (Exception e) {
-            rpta.put("rpta", "-1");
-            rpta.put("mensaje", e.getMessage());
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CIntegrantes_Equipos</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CIntegrantes_Equipos at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
         }
-         Gson gson = new Gson();
-        out.println(gson.toJson(rpta));
-        out.flush();
-        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
