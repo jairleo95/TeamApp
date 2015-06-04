@@ -72,16 +72,24 @@
             indiceInverso=auxT-2;
          }
       }
-   }
-   for(int i=0;i<totalP;i++){
-                %>
-                <div>
-                <input type="text" name="gollocal>"/>
-                <%if(local[i]!=null){
-                 out.println(local[i]+" vs "+visita[i]+"\n");}%>
-                <input type="text" name="golvisita>"/>
-                </div>
-                <%}%>
+   }%>
+   
+                
+                <table>
+                    <tr>
+                        <td colspan="3" align="center"><h1><b>ENCUENTROS</b></h1></td>
+                    </tr>
+                    <%for(int i=0;i<totalP;i++){%>
+                    <tr>
+                        <td><input type="text" name="gollocal>" size="3"/></td>
+                        <td align="center">
+                        <%if(local[i]!=null){
+                        out.println(local[i]+" vs "+visita[i]+"\n");}%>
+                        </td>
+                        <td><input type="text" name="golvisita" size="3"/></td>
+                   </tr>
+                   <%}%>
+                </table>                
     </center>
     </body>
 </html>
