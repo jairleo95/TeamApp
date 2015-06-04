@@ -193,7 +193,9 @@
             var apellido = $(".Apellido").val();
             var camiseta = $(".Camiseta").val();
             var numero = $(".Numero").val();
+            var dni=$(".dni").val();
             var Correo = $(".correro").val();
+            $.post("")
            // $.post("../../", "opc=reporte_datos_genereales&nombre=" + nombre + "&apellido=" + apellido + "&correo=" + correo + "&numero=" + numero, function (objJson) {
 
             }
