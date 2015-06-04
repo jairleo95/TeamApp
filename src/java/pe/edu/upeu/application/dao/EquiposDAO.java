@@ -45,7 +45,7 @@ public class EquiposDAO implements InterfaceEquiposDAO {
         List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS";
+            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS order by ID_LOZA_DEPORTIVA";
 
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {
@@ -53,7 +53,7 @@ public class EquiposDAO implements InterfaceEquiposDAO {
                 rec.put("id_cro", rs.getString("ID_CRONOGRMA_JUEGO"));
                 rec.put("de_cro", rs.getString("DE_CRONOGRAMA_JUEGO"));
                 rec.put("ho_ini", rs.getString("HO_INICIO"));
-                rec.put("ho_fin", rs.getString("HO_FIN"));
+                rec.put("ho_ini", rs.getString("HO_FIN"));
                 rec.put("id_jue", rs.getString("ID_JUEGO"));
                 rec.put("es_cro", rs.getString("ES_CRONOGRAMA_JUEGO"));
                 rec.put("id_loza", rs.getString("ID_LOZA_DEPORTIVA"));
