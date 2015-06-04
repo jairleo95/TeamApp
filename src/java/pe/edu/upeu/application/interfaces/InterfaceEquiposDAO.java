@@ -5,10 +5,18 @@
  */
 package pe.edu.upeu.application.interfaces;
 
+import java.util.List;
+import java.util.Map;
+
+
+
 /**
  *
- * @author alum.fial8
+ * @author Alex
  */
-public interface InterfacePuntos {
-   
+public interface InterfaceEquiposDAO  {
+
+     public int Cantidad_Equipos(String id_torneo);
+     public List<Map<String, ?>> Listar_Cronograma();
+     
 }

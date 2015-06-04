@@ -12,6 +12,10 @@
         <servlet-name>CDireccionar</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CDireccionar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CEquipos</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CEquipos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CDireccionar</servlet-name>
         <url-pattern>/direccionar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CEquipos</servlet-name>
+        <url-pattern>/equipos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -8,15 +8,20 @@ package pe.edu.upeu.application.web.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import pe.edu.upeu.application.dao.Integrantes_Equipos;
+import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
- * @author Jairleo95
+ * @author Alexander
  */
-public class CDireccionar extends HttpServlet {
+@WebServlet(name = "CIntegrantes_Equipos", urlPatterns = {"/CIntegrantes_Equipos"})
+public class CIntegrantes_Equipos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,12 +35,21 @@ public class CDireccionar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession sesion = request.getSession(true);
+
+        InterfaceIntegrantes_Equipos h = new Integrantes_Equipos();
         PrintWriter out = response.getWriter();
-        String opc = request.getParameter("opc");
         try {
-            if (opc.equals("Champion_FIA")) {
-                response.sendRedirect("Vistas/Partido/Programacion_Partido/Champion_FIA.jsp");
-            }
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CIntegrantes_Equipos</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CIntegrantes_Equipos at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         } finally {
             out.close();
         }
