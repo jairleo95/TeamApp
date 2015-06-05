@@ -53,7 +53,7 @@ public class EquiposDAO implements InterfaceEquiposDAO {
                 rec.put("id_cro", rs.getString("ID_CRONOGRAMA_JUEGO"));
                 rec.put("de_cro", rs.getString("DE_CRONOGRAMA_JUEGO"));
                 rec.put("ho_ini", rs.getString("HO_INICIO"));
-                rec.put("ho_ini", rs.getString("HO_FIN"));
+                rec.put("ho_fin", rs.getString("HO_FIN"));
                 rec.put("id_jue", rs.getString("ID_JUEGO"));
                 rec.put("es_cro", rs.getString("ES_CRONOGRAMA_JUEGO"));
                 rec.put("id_loza", rs.getString("ID_LOZA_DEPORTIVA"));

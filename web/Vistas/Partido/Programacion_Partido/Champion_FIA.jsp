@@ -63,7 +63,7 @@
                     texto += '<td>' + lista[i].id_equi_2 + '</td>';
                     texto += '<td> 20 min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
-                    texto += '<td>' + lista[i].ho_ini + '</td>';
+                    texto += '<td>' + lista[i].ho_fin + '</td>';
                     texto += '</tr>';
                     if ((lista.length - 1) !== i) {
                         var cadena = lista[i + 1].id_loza;
