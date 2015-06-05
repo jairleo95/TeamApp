@@ -50,7 +50,7 @@ public class EquiposDAO implements InterfaceEquiposDAO {
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {
                 Map<String, Object> rec = new HashMap<String, Object>();
-                rec.put("id_cro", rs.getString("ID_CRONOGRMA_JUEGO"));
+                rec.put("id_cro", rs.getString("ID_CRONOGRAMA_JUEGO"));
                 rec.put("de_cro", rs.getString("DE_CRONOGRAMA_JUEGO"));
                 rec.put("ho_ini", rs.getString("HO_INICIO"));
                 rec.put("ho_ini", rs.getString("HO_FIN"));
