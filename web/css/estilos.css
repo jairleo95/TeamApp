@@ -1,0 +1,91 @@
+  body { 
+      font: 400 1em 'Open Sans', serif;
+      background: #FFF;
+
+  }
+
+  #div_crono {
+  
+	  float: left;
+	  padding:10px;
+	  margin: 10px;
+	  
+	  border: solid 5px #000000;
+	  -moz-border-radius-topleft: 20px;
+	  -moz-border-radius-topright:20px;
+	  -moz-border-radius-bottomleft:20px;
+	  -moz-border-radius-bottomright:20px;
+	  -webkit-border-top-left-radius:20px;
+	  -webkit-border-top-right-radius:20px;
+	  -webkit-border-bottom-left-radius:20px;
+	  -webkit-border-bottom-right-radius:20px;
+	  border-top-left-radius:20px;
+	  border-top-right-radius:20px;
+	  border-bottom-left-radius:20px;
+	  border-bottom-right-radius:20px;
+	  
+	  box-shadow: 5px 5px 5px #000000;
+	  
+	  background: url(crono.png) top right no-repeat;
+
+	  
+  }
+  
+  #parones {
+	  padding:10px;
+	  margin:10px;
+  }
+  
+  #reloj {
+  	  font-size: 1em;
+	  text-shadow:1px 1px 1px #000000;
+  }
+
+  
+  .tipohora {
+	  border: solid 1px #000000;
+	  float: left;
+	  font-size: 1em;
+	  margin:20px;
+	  display: inline;
+	  box-shadow: 5px 5px 5px #000000;
+	  text-shadow:1px 1px 1px #000000;
+	  color: white;
+	  background:linear-gradient(#E9003A,#FF9900);
+	  padding:5px;
+	  margin:10px;
+
+  }
+  
+  .botonaco {
+	  font-size: 1em;
+	  padding:1px;
+	  background:linear-gradient(#AAAAAA,#646464);
+	  color: white;
+	  text-shadow:1px 1px 1px #000000;
+          alignment-adjust: central;
+  }
+  
+  
+  #autor {
+      clear:both;
+      display:block;
+      float:left;
+      top:0px;
+      left:0px;
+      position: absolute;
+      text-align:left;
+  }
+  #autor p {
+      font-size: 0.9em;
+      display: inline-block;
+      background-color:#000;
+      color:yellow;
+  }
+  #autor a {
+      font-size: 0.9em;
+      display: inline-block;
+      background-color:yellow;
+      color:#000;
+  }  
+
