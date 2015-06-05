@@ -81,6 +81,7 @@
                         for (int j=1;j<num_equipos+1;j++){
                     %>
                     <tr>
+                        <td style=" border:none;"></td>
                         <td>Equipo <% out.println(j); %></td> 
                         <td></td> 
                         <td></td>    
@@ -88,8 +89,7 @@
                         <td></td>    
                         <td></td>    
                         <td></td>    
-                        <td></td>
-                        <td></td>
+                        <td></td>                        
                     </tr><%}%>
                         </table>
                 </div>  <%}%>                         
