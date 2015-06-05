@@ -8,20 +8,17 @@ package pe.edu.upeu.application.web.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import pe.edu.upeu.application.dao.Integrantes_Equipos;
+import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
 import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
- * @author Alexander
+ * @author Erick Alexander
  */
-@WebServlet(name = "CIntegrantes_Equipos", urlPatterns = {"/CIntegrantes_Equipos"})
-public class CIntegrantes_Equipos extends HttpServlet {
+public class CIntegrantes extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +29,30 @@ public class CIntegrantes_Equipos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession sesion = request.getSession(true);
-
-        InterfaceIntegrantes_Equipos h = new Integrantes_Equipos();
         PrintWriter out = response.getWriter();
+        String opc = request.getParameter("opc");
         try {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CIntegrantes_Equipos</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CIntegrantes_Equipos at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            if (opc.equals("Registrar_Integrantes")) {
+               String nombre = request.getParameter("nombre");
+               String ap_pater = request.getParameter("ape_apterno");
+               String ap_mater = request.getParameter("ape_materno");
+               String co_est = request.getParameter("co_estudiante");
+               String cel = request.getParameter("cell");
+               String nu_cam = request.getParameter("nu_camiseta");
+               String dni = request.getParameter("dni");
+               String correo = request.getParameter("email");
+               
+               iie.INSERT_DATOS_Integrantes_equipo(null , nombre, ap_pater, ap_mater, co_est,cel, dni,correo);
+               String id_per = iie.ID_MAX_PER();
+               String id_cte = "CTE-00000000000001";
+               iie.INSER_DET_CAT(null,id_cte,id_per,nu_cam);
+            }
+
         } finally {
             out.close();
         }

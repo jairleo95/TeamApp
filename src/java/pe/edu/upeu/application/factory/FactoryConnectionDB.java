@@ -20,7 +20,7 @@ public class FactoryConnectionDB {
     public static final int ORACLE = 2;
     public static String[] configMYSQL = {"bd_almacen", "root", "root"};
     //public static String[] configORACLE = {"teamapp", "alfa", "192.168.217.3", "1521", "orcl"};
-    public static String[] configORACLE = {"teamapp", "gestionapp", "localhost", "1521", "orcl"};
+    public static String[] configORACLE = {"fixture", "fixture", "localhost", "1521", "orcl"};
     //public static String[] configORACLE = {"procesosrh", "gestionrrhh", "localhost", "1521", "xe"};
     public static final String url = "/var/lib/tomcat7/webapps/TALENTO_HUMANO/";
 
