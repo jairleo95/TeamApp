@@ -555,13 +555,13 @@
                     if (typeof lista[i].id_equi_1 === 'undefined') {
                         texto += '<td>winner</td>';
                     } else {
-                        texto += '<td>' + lista[i].id_equi_1 + '</td>';
+                        texto += '<td>' + lista[i].no_equipo_1 + '</td>';
                     }
                     texto += '<td>vs</td>';
                     if (typeof lista[i].id_equi_2 === 'undefined') {
                         texto += '<td>winner</td>';
                     } else {
-                        texto += '<td>' + lista[i].id_equi_2 + '</td>';
+                        texto += '<td>' + lista[i].no_equipo_2 + '</td>';
                     }
                     texto += '<td> 20 min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
