@@ -106,6 +106,7 @@
                 <tr>
                     <th>EQUIPO1</th>
                     <th>EQUIPO2</th>
+                    
                 </tr>
             </thead>
             <tbody>
