@@ -29,9 +29,7 @@
             %>
             
             CANTIDAD DE EQUIPOS: <% out.println(equipos[cant_equipos]);%>
-            <%
-               
-                
+            <%                               
                 if (equipos[cant_equipos] == 6){
                    cant_tablas = 2;
                 }
@@ -43,11 +41,8 @@
                 }
                 if (equipos[cant_equipos] == 48){
                    cant_tablas = 8;
-                }
-                
-                for (int i=0;i<cant_tablas;i++){         
-                    
-                    
+                }                
+                for (int i=0;i<cant_tablas;i++){       
             %>
             <div>
                 
