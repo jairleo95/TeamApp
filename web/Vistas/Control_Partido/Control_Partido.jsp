@@ -97,6 +97,7 @@
                 width: 40%;
                 height: 14em;
             }
+            
         </style>
     </head>
     <body>
@@ -104,121 +105,49 @@
         <table border="1" align="Center" id="table1">
             <thead>
                 <tr>
-                    <th>EQUIPO1</th>
-                    <th>EQUIPO2</th>
+                    <th colspan="2">EQUIPO1</th>
                     
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>dfsd</td>
-                    <td>sfsd</td>
+                    <td>Categoria de Equipo</td>
+                    <td>Nombre Equipo</td>
                 </tr>
                 <tr>
-                    <td>dfsf</td>
-                    <td>fdsfds</td>
+                    <td>
+                        <div id="wins">
+                            <th1>Futsal</th1>
+                        </div>
+                    </td>
+                    <td>
+                    <th2>Barcelona</th2>
+                    </td>
                 </tr>
-            </tbody>
+            </tbody
         </table>
-        <table border="1" align="center" id="table2">
+        <table border="1" align="Center" id="table2">
             <thead>
                 <tr>
-                    <th>EQUIPO1</th>
-                    <th>EQUIPO2</th>
+                    <th colspan="2">EQUIPO1</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                    <th1>Maicol</th1>
-                    <th1>10</th1>
-                    </td>
-                    <td>
-                    <th2>Maicol</th2>
-                    <th2>10</th2>
-                    </td>
+                    <td>Categoria de Equipo</td>
+                    <td>Nombre Equipo</td>
                 </tr>
                 <tr>
                     <td>
-                    <th1>juan</th1>
-                    <th1>9</th1>
-                    <input type="submit" value="Editar" />
+                        <div id="wins">
+                            <th1>Futsal</th1>
+                        </div>
                     </td>
                     <td>
-                    <th2>gutierrz</th2>
-                    <th2>9</th2>
+                    <th2>Real Madrid</th2>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                    <th1>enoc</th1>
-                    <th1>8</th1>
-                    </td>
-                    <td>
-                    <th2>noe</th2>
-                    <th2>8</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>wilson</th1>
-                    <th1>6</th1>
-                    </td>
-                    <td>
-                    <th2>marco</th2>
-                    <th2>6</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>abel</th1>
-                    <th1>5</th1>
-                    </td>
-                    <td>
-                    <th2>jose</th2>
-                    <th2>5</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>jorge</th1>
-                    <th1>3</th1>
-                    </td>
-                    <td>
-                    <th2>manuel</th2>
-                    <th2>3</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>saul</th1>
-                    <th1>7</th1>
-                    </td>
-                    <td>
-                    <th2>pedro</th2>
-                    <th2>7</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>anthony</th1>
-                    <th1>2</th1>
-                    </td>
-                    <td>
-                    <th2>Martin</th2>
-                    <th2>2</th2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <th1>juan</th1>
-                    <th1>4</th1>
-                    </td>
-                    <td>
-                    <th2>wins</th2>
-                    <th2>4</th2>
-                    </td>
-                </tr>               
             </tbody>
         </table>
         <table border="1" align="center" id="table3">
@@ -249,5 +178,7 @@
                 </tr>
             </tbody>
         </table>
+        <img src="../../Imagen/fc.png" width="170" height="170" alt="fc" align="left"/>
+        <img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/>
     </body>
 </html>
