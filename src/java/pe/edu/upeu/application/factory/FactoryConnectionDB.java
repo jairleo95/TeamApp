@@ -18,10 +18,12 @@ public class FactoryConnectionDB {
 
     public static final int MYSQL = 1;
     public static final int ORACLE = 2;
+    
     public static String[] configMYSQL = {"bd_almacen", "root", "root"};
     //public static String[] configORACLE = {"teamapp", "alfa", "192.168.217.3", "1521", "orcl"};
     public static String[] configORACLE = {"BD_FIXTURE", "alfa", "localhost", "1521", "xe"};
     //public static String[] configORACLE = {"procesosrh", "gestionrrhh", "localhost", "1521", "xe"};
+    
     public static final String url = "/var/lib/tomcat7/webapps/TALENTO_HUMANO/";
 
     public static ConexionBD open(int typeDB) {
@@ -31,7 +33,7 @@ public class FactoryConnectionDB {
 
             case FactoryConnectionDB.ORACLE:
                 return new ORACLEConnectionDB(configORACLE);
-            default:
+                default:
                 return null;
         }
     }
