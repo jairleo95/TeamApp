@@ -18,7 +18,7 @@
         <center>
         <%      
                         
-            int[][] equipos = {{1,9,7,1,1,10,3,0,0},{2,9,6,2,1,8,4,0,0},{3,8,5,2,1,6,3,0,0}};
+            int[][] equipos = {{1,9,8,0,1,10,3,0,0},{2,9,6,2,1,8,4,0,0},{3,8,5,2,1,6,3,0,0}};
         // Calculo de la Diferencia de Goles y puntaje
             
             for (int i=0;i<3;i++){
@@ -42,7 +42,8 @@
         <div style="width: 600px;">
             <br>
          <table class="table table-bordered">
-               <tr>
+             <thead>  
+             <tr>
                     <th>Equipo</th>
                     <th>PJ</th>
                     <th>PG</th>
@@ -54,35 +55,17 @@
                     <th>Puntos</th>
                     <th></th>
                 </tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
               
-              <tr>
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>    
-                    <td></td>  
-                    <td></td>
-                    <td>
-                        <a href="" class="btn btn-primary btn-sm">Editar</a>
-                        <a href="" class="btn btn-primary btn-sm">Eliminar</a>
-                    </td>
-                </tr>
-                =======
-                <%for (int i=0;i<3;i++){%>
-=======
               </thead>
               <tbody>
                     <%for (int i=0;i<3;i++){%>
->>>>>>> origin/master
                     <tr>  
-                        <td><%if(equipos[i][0]==1){out.println("Alemania");}
-                              if(equipos[i][0]==2){out.println("Brazil");}
-                              if(equipos[i][0]==3){out.println("Argentina");}%></td>
+                        <td>
+                            <% if(equipos[i][0]==1){out.println("Alemania");}
+                               if(equipos[i][0]==2){out.println("Brazil");}
+                               if(equipos[i][0]==3){out.println("Argentina");}
+                            %>
+                        </td>
                         <% for(int j=1;j<9;j++){%>
                             <td><%out.println(equipos[i][j]);}%></td>
                             <td>
