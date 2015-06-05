@@ -6,15 +6,27 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
+
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Control de Partidos</title>
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700|Open+Sans:700,400,300" type="text/css" rel="stylesheet" ></link>
         <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
         <script type="text/javascript" src="../../js/zepto.min.js">
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    
+         </script>
+        <script>
+            var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+            var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+            var f = new Date();
+            document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
         </script>
-
         <script type="text/javascript">
 
             $(function() {
@@ -127,7 +139,7 @@
     </tr>
 </tbody
 </table>
-<table border="1" align="Center" id="table2">
+<table class="table-responsive" border="1" align="Center" id="table2">
     <thead>
         <tr>
             <th colspan="2">EQUIPO1</th>
@@ -151,16 +163,16 @@
 </tr>
 </tbody>
 </table>
-<table border="1" align="center" id="table3">
+<table class="table table-responsive" <%--border="1" --%>align="center" id="table3">
     <thead>
         <tr>
-            <th colspan="2">TIEMPO DE JUEGO</th>
+            <th class="responsive" colspan="2">TIEMPO DE JUEGO</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td colspan="2">
-                <div id="div_crono">
+                <div id="div_crono" class="responsive">
                     <h2>Cronómetro</h2>
                     <h2><span id="reloj"> 0.00 </span> segundos.</h2>
 
@@ -178,22 +190,39 @@
             </td>
         </tr>
     </tbody>
+
 </table>
 
 <img src="../../Imagen/fc.png" width="170" height="170" alt="fc" align="left"/>
 <img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/>
-<table >
-    <tr>
-        <td><input type="submit" value="WIN" name="WIN" size="500"style='width:100px; height:50px' />
-        </td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="golea" name="goles" size="500"style='width:100px; height:50px' />
-        </td>
-    </tr>
-
+<center >
+    <div class="table-responsive" style="border: 1pt solid #fbb; text-align:center;">
+        <table class="table " width="900" height="10">
+            <TR> 
+                <TD><input type="button" class="btn-danger"value="WIN" name="WIN" size="500" /> </TD> <TD><input type="submit" value="LOSE" name="goles" size="500"style='width:100px; height:50px' /> </TD>
+            </TR> <TR>
+                <TD><input type="submit" value="GOL" name="gol" size="500"style='width:100px; height:50px' /></TD> <TD><input type="submit" value="GOL" name="gol" size="500"style='width:100px; height:50px' /></TD> 
+            </TR>
+        </table>
+    </div>
+</center>
+    <table style="border: 1pt solid #fbb; ">
+<tbody >
+  <!-- Aplicadas en las filas -->
+  <tr class="active">.444444..</tr>
+  <tr class="success">..444444.</tr>
+  <tr class="warning">..4444444.</tr>
+  <tr class="danger">.44..</tr>
+ 
+  <!-- Aplicadas en las celdas (<td> o <th>) -->
+  <tr>
+    <td class="active">.4444444444..</td>
+    <td class="success">.44444444..</td>
+    <td class="warning">4444444444444444444444444444444444444...</td>
+    <td class="danger">...</td>
+  </tr>
+</tbody>
 </table>
-
 
 </body>
 </html>
