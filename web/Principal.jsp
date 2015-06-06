@@ -47,9 +47,9 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="#" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>T</b>A</span>
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg"><b>Team</b>App</span>
                 </a>
@@ -279,10 +279,10 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -323,16 +323,6 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
-                        <!--  <li class="active treeview">-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                            </ul>
-                        </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i> <span>Programación Partido</span> <i class="fa fa-angle-left pull-right"></i>
@@ -343,6 +333,17 @@
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Series</a></li>
                             </ul>
                         </li>
+                        <!--  <li class="active treeview">-->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                            </ul>
+                        </li>
+                        
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-files-o"></i>
@@ -488,7 +489,7 @@
                         obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
                     }
                 </script>
-                <iframe id="myframe" name="myframe" width="100%" height="800" scrolling="NO" frameborder="0" src="pages/examples/blank.html" onload='javascript:resizeIframe(this);'></iframe>
+                <iframe id="myframe" name="myframe" width="100%" height="800" scrolling="NO" frameborder="0" src="Vistas/Inicio.jsp" onload='javascript:resizeIframe(this);'></iframe>
 
             </div><!-- /.content-wrapper -->
             <footer class="main-footer">

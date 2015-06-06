@@ -23,7 +23,7 @@
   <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
-          <a href="Principal.jsp"><b>Admin</b>LTE</a>
+          <a href="#"><b>Team</b>App</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -45,7 +45,7 @@
               </div>                        
             </div><!-- /.col -->
             <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
             </div><!-- /.col -->
           </div>
         </form>
