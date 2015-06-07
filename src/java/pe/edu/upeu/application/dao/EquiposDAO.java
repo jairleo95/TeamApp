@@ -45,7 +45,7 @@ public class EquiposDAO implements InterfaceEquiposDAO {
         List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS order by ID_LOZA_DEPORTIVA";
+            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS order by ID_LOZA_DEPORTIVA, id_juego asc";
 
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {
@@ -53,13 +53,20 @@ public class EquiposDAO implements InterfaceEquiposDAO {
                 rec.put("id_cro", rs.getString("ID_CRONOGRAMA_JUEGO"));
                 rec.put("de_cro", rs.getString("DE_CRONOGRAMA_JUEGO"));
                 rec.put("ho_ini", rs.getString("HO_INICIO"));
-                rec.put("ho_ini", rs.getString("HO_FIN"));
+                rec.put("ho_fin", rs.getString("HO_FIN"));
                 rec.put("id_jue", rs.getString("ID_JUEGO"));
                 rec.put("es_cro", rs.getString("ES_CRONOGRAMA_JUEGO"));
                 rec.put("id_loza", rs.getString("ID_LOZA_DEPORTIVA"));
                 rec.put("id_ca_ju", rs.getString("ID_CATEGORIA_JUEGO"));
+<<<<<<< HEAD
                 rec.put("id_equi_1", rs.getString("NO_EQ_1"));
                 rec.put("id_equi_2", rs.getString("NO_EQ_2"));
+=======
+                rec.put("id_equi_1", rs.getString("ID_EQUIPO_1"));
+                rec.put("id_equi_2", rs.getString("ID_EQUIPO_2"));
+                rec.put("no_equipo_1", rs.getString("no_equipo_1"));
+                rec.put("no_equipo_2", rs.getString("no_equipo_2"));
+>>>>>>> origin/master
                 lista.add(rec);
             }
             rs.close();
