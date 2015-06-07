@@ -15,7 +15,6 @@ import java.util.Map;
 import javax.print.DocFlavor;
 import pe.edu.upeu.application.factory.ConexionBD;
 import pe.edu.upeu.application.factory.FactoryConnectionDB;
-import pe.edu.upeu.application.interfaces.InterfaceEquiposDAO;
 import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**

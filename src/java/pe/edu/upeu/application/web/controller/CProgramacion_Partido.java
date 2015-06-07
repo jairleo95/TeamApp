@@ -15,8 +15,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pe.edu.upeu.application.dao.EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceEquiposDAO;
+import pe.edu.upeu.application.dao.ProgramacionPartidoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceProrgamacionPartidoDAO;
+
 
 /**
  *
@@ -33,7 +34,7 @@ public class CProgramacion_Partido extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceEquiposDAO iq = new EquiposDAO();
+    InterfaceProrgamacionPartidoDAO iq = new ProgramacionPartidoDAO();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
