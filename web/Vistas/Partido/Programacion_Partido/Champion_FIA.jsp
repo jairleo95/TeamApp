@@ -52,9 +52,7 @@
         <div class="content-wrapper" style="margin-left:0px;">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>
-                    Champion FIA
-                    <small>Programación Partidos</small>
+                <h1>Champion FIA<small>Programación Partidos</small>
                 </h1>
             </section>
             <!-- Main content -->
