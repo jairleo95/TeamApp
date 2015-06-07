@@ -19,4 +19,6 @@ public interface InterfaceEquiposDAO  {
      public int Cantidad_Equipos(String id_torneo);
      public List<Map<String, ?>> Listar_Cronograma();
      
+     public String INSERT_EQUIPO(String ID_EQUIPO, String NO_EQUIPO, String ID_TORNEO, String ES_EQUIPO, String LOGO_EQUIPO);
+     
 }
