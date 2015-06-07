@@ -49,7 +49,19 @@
                         </div><!-- /.col -->
                     </div>
                 </form>
-
+                <div class="box_cargando box box-primary" style="display:none">
+                    <div class="box-header">
+                        <h3 class="box-title texto_box_h">Conectando...</h3>
+                    </div>
+                    <!-- <div class="box-body">
+                         The body of the box
+                     </div><!-- /.box-body -->
+                    <!-- Loading (remove the following to stop the loading)-->
+                    <div class="overlay overlay_log" style="display:none">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                    <!-- end loading -->
+                </div><!-- /.box -->
                 <div class="social-auth-links text-center">
                     <p>- OR -</p>
                     <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
@@ -70,16 +82,16 @@
         <script src="plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <script src="js/index.js" type="text/javascript"></script>
         <script>
-            $(function() {
+            $(function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',
                     increaseArea: '20%' // optional
                 });
             });
-         
+
 
         </script>
- 
+
     </body>
 </html>
