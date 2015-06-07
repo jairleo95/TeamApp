@@ -32,14 +32,14 @@
         <!-- Theme style -->
         <link href="../../plugins/iCheck/all.css" rel="stylesheet" type="text/css">
     </head>
-    <body class="register-page">
-        <div class="register-box">
+    <body class="box box-primary">
+        <div class="box box-primary">
             <div class="register-logo">
                 <a href="../../index2.html"><b>TEAM</b>App</a>
             </div>
 
             <div >
-                <p >Registrar Nuevos Integrantes</p>
+                <p align="center">Registrar Nuevos Integrantes</p>
                 <form action="../../integrantes" id="checkout-form" class="smart-form" novalidate="novalidate">
                     <div class="form-group has-success">
                         <input type="text" class="form-control" name="nombre"placeholder="Nombres">
