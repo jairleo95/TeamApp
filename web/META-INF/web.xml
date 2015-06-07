@@ -20,6 +20,10 @@
         <servlet-name>CIntegrantes</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CValidar</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CValidar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CIntegrantes</servlet-name>
         <url-pattern>/integrantes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CValidar</servlet-name>
+        <url-pattern>/validar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
