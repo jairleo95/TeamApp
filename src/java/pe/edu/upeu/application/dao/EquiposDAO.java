@@ -66,6 +66,9 @@ public class EquiposDAO implements InterfaceEquiposDAO {
                 rec.put("id_equi_2", rs.getString("ID_EQUIPO_2"));
                 rec.put("no_equipo_1", rs.getString("no_equipo_1"));
                 rec.put("no_equipo_2", rs.getString("no_equipo_2"));
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                 lista.add(rec);
             }
