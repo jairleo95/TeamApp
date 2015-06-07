@@ -17,8 +17,18 @@
         <servlet-class>pe.edu.upeu.application.web.controller.CEquipos</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <servlet-name>CControl_Punto</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CControl_Punto</servlet-class>
+=======
         <servlet-name>CIntegrantes</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
+>>>>>>> origin/master
+=======
+        <servlet-name>CIntegrantes</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
+>>>>>>> origin/master
     </servlet>
     <servlet>
         <servlet-name>CValidar</servlet-name>
@@ -41,8 +51,18 @@
         <url-pattern>/equipos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <servlet-name>CControl_Punto</servlet-name>
+        <url-pattern>/control_punto</url-pattern>
+=======
         <servlet-name>CIntegrantes</servlet-name>
         <url-pattern>/integrantes</url-pattern>
+>>>>>>> origin/master
+=======
+        <servlet-name>CIntegrantes</servlet-name>
+        <url-pattern>/integrantes</url-pattern>
+>>>>>>> origin/master
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CValidar</servlet-name>
