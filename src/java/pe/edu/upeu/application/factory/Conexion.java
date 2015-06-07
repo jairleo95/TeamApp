@@ -15,18 +15,17 @@ import java.sql.DriverManager;
 public class Conexion {
 
     public static Connection getConex() throws Exception {
-        String usuario = "procesosrh";
-        String password = "gestionrrhh";
+        String usuario = "bd_fixture";
+        String password = "fixture";
         //String host = "localhost";
-        String host = "procesrh-db.upeu";
-        String puerto = "1521";
-        //String sid = "orcl";
-        String sid = "upeu";
-        /**String usuario = "TeamApp";
-        String password = "TeamApp";
         String host = "localhost";
         String puerto = "1521";
-        String sid = "xe"; */
+        //String sid = "orcl";
+        String sid = "orcl";
+        /**
+         * String usuario = "TeamApp"; String password = "TeamApp"; String host
+         * = "localhost"; String puerto = "1521"; String sid = "xe";
+         */
         String driver = "oracle.jdbc.driver.OracleDriver";
         String url = "jdbc:oracle:thin:" + usuario + "/" + password + "@" + host + ":" + puerto + ":" + sid;
 

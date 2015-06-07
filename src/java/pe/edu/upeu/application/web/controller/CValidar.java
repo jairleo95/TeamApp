@@ -7,17 +7,18 @@ package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.UsuarioDAO;
+import pe.edu.upeu.application.interfaces.InterfaceUsuarioDAO;
 
 /**
  *
- * @author Jairleo95
+ * @author ALFA
  */
-public class CMenu extends HttpServlet {
+public class CValidar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +33,22 @@ public class CMenu extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String opc = request.getParameter("opc");
+        InterfaceUsuarioDAO u = new UsuarioDAO();
+        String Usuario = request.getParameter("email");
+        String Clave = request.getParameter("password");
+       
         try {
-            /* TODO output your page here. You may use following sample code. */
-            // out.print("1");
-            if (opc == null) {
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
-                dispatcher.forward(request, response);
+            if (Usuario.equals("") && Clave.equals("")) {
+                out.print("0");
+
+            } else if (u.Validar_Logueo(Usuario, Clave).size() == 1) {
+                out.print("1");
+            } else {
+                out.print("0");
             }
+
+        } catch (Exception e) {
+            out.print(e.getMessage());
         } finally {
             out.close();
         }
