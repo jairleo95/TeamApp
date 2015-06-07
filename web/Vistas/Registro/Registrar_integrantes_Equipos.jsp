@@ -38,10 +38,10 @@
                 <a href="../../index2.html"><b>TEAM</b>App</a>
             </div>
 
-            <div class="register-box-body">
-                <p class="login-box-msg">Registrar Nuevos Integrantes</p>
+            <div >
+                <p >Registrar Nuevos Integrantes</p>
                 <form action="../../integrantes" id="checkout-form" class="smart-form" novalidate="novalidate">
-                    <div class="form-group has-feedback">
+                    <div class="form-group has-success">
                         <input type="text" class="form-control" name="nombre"placeholder="Nombres">
                         <span class="glyphicon glyphicon-user form-control-feedback nombre"></span>
                     </div>
