@@ -110,7 +110,7 @@
             var texto = '';
             $(".tbodys").empty();
             $(".tbodys").append('<tr><td colspan="7"><center> CARGANDO...<center> </td></tr>');
-            $.post("../../../equipos", d, function(objJson) {
+            $.post("../../../programacion_partido", d, function(objJson) {
                 var lista = objJson.lista;
                 $(".tbodys").empty();
 
