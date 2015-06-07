@@ -20,8 +20,10 @@
         <servlet-name>CControl_Punto</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CControl_Punto</servlet-class>
     </servlet>
-    <servlet-name>CIntegrantes</servlet-name>
-    <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
+    <servlet>
+        <servlet-name>CIntegrantes</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CValidar</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CValidar</servlet-class>
