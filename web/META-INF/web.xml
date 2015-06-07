@@ -45,20 +45,14 @@
         <url-pattern>/equipos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
         <servlet-name>CControl_Punto</servlet-name>
         <url-pattern>/control_punto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CIntegrantes</servlet-name>
         <url-pattern>/integrantes</url-pattern>
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CValidar</servlet-name>
