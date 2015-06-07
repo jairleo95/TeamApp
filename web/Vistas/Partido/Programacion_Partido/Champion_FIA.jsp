@@ -58,9 +58,17 @@
                 for (var i = 0; i < lista.length; i++) {
                     texto += '<tr>';
                     texto += '<td>' + (i + 1) + '</td>';
-                    texto += '<td>' + lista[i].id_equi_1 + '</td>';
+                    if(lista[i].id_equi_1 !=null){
+                       texto += '<td>' + lista[i].id_equi_1 + '</td>'; 
+                    }else{
+                        texto += '<td>no definido</td>';
+                    }
                     texto += '<td>vs</td>';
-                    texto += '<td>' + lista[i].id_equi_2 + '</td>';
+                    if(lista[i].id_equi_2!=null){
+                         texto += '<td>' + lista[i].id_equi_2 + '</td>';
+                    }else{
+                         texto += '<td> no definido</td>';
+                    }
                     texto += '<td> 20 min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
