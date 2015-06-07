@@ -58,18 +58,12 @@ public class EquiposDAO implements InterfaceEquiposDAO {
                 rec.put("es_cro", rs.getString("ES_CRONOGRAMA_JUEGO"));
                 rec.put("id_loza", rs.getString("ID_LOZA_DEPORTIVA"));
                 rec.put("id_ca_ju", rs.getString("ID_CATEGORIA_JUEGO"));
-<<<<<<< HEAD
                 rec.put("id_equi_1", rs.getString("NO_EQ_1"));
                 rec.put("id_equi_2", rs.getString("NO_EQ_2"));
-=======
                 rec.put("id_equi_1", rs.getString("ID_EQUIPO_1"));
                 rec.put("id_equi_2", rs.getString("ID_EQUIPO_2"));
                 rec.put("no_equipo_1", rs.getString("no_equipo_1"));
                 rec.put("no_equipo_2", rs.getString("no_equipo_2"));
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
                 lista.add(rec);
             }
             rs.close();
