@@ -6,7 +6,7 @@
 package pe.edu.upeu.application.interfaces;
 
 import java.util.List;
-import pe.edu.upeu.application.model.Usuario;
+import pe.edu.upeu.application.model.V_Usuario;
 
 /**
  *
@@ -14,5 +14,5 @@ import pe.edu.upeu.application.model.Usuario;
  */
 public interface InterfaceUsuarioDAO {
 
-    public List<Usuario> Validar_Logueo(String usuario, String clave);
+    public List<V_Usuario> Validar_Logueo(String usuario, String clave);
 }

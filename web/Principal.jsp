@@ -249,18 +249,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <%
+                                HttpSession sesion = request.getSession(true);
+                                String id_user = (String) sesion.getAttribute("ID_USER");
+                                String det_usuario = (String) sesion.getAttribute("NOMBRE") + " " + (String) sesion.getAttribute("AP_P") + " " + (String) sesion.getAttribute("AP_M");
+                            %>
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                                    <span class="hidden-xs">Jair Santos</span>
+                                    <span class="hidden-xs"><%=det_usuario%></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                                         <p>
-                                            Jair Santos - Web Developer
+                                            <%=det_usuario%> - Web Developer
                                             <small>Member since Nov. 2012</small>
                                         </p>
                                     </li>
@@ -305,7 +310,7 @@
                             <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Jair Santos</p>
+                            <p><%=det_usuario%></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -343,7 +348,7 @@
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-files-o"></i>
@@ -673,7 +678,7 @@
         <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-    $.widget.bridge('uibutton', $.ui.button);
+                    $.widget.bridge('uibutton', $.ui.button);
         </script>
         <!-- Bootstrap 3.3.2 JS -->
         <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>    
