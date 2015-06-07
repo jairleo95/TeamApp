@@ -7,6 +7,7 @@ package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,10 @@ public class CDireccionar extends HttpServlet {
         try {
             if (opc.equals("Champion_FIA")) {
                 response.sendRedirect("Vistas/Partido/Programacion_Partido/Champion_FIA.jsp");
+            }
+            if (opc.equals("Principal")) {
+                  RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
+                dispatcher.forward(request, response);
             }
         } finally {
             out.close();

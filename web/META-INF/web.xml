@@ -16,6 +16,10 @@
         <servlet-name>CEquipos</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CEquipos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CIntegrantes</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CIntegrantes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>CEquipos</servlet-name>
         <url-pattern>/equipos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CIntegrantes</servlet-name>
+        <url-pattern>/integrantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
