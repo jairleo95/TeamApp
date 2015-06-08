@@ -11,7 +11,7 @@ package pe.edu.upeu.application.interfaces;
  */
 public interface InterfaceIntegrantes_Equipos {
 
-    public void INSERT_DATOS_Integrantes_equipo(String ID,String nombre,String ap_pater,String ap_mater,String co_est,String cell,String dni,String correo);
+    public void INSERT_DATOS_Integrantes_equipo(String ID,String nombre,String ap_pater,String co_es,String cell,String dni,String ID_T_P, String ap_mater,String correo,String ca_equi ,String nu_camiseta);
     public String ID_MAX_PER ();
     public void INSER_DET_CAT (String id_detealle,String id_cte, String id_per,String nu_cam); 
 }

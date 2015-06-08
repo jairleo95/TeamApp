@@ -35,14 +35,14 @@
     <body class="box box-primary">
         <div class="box box-primary">
             <div class="register-logo">
-                <a href="../../index2.html"><b>TEAM</b>App</a>
+                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
             </div>
 
             <div >
                 <p align="center">Registrar Nuevos Integrantes</p>
                 <form action="../../integrantes" id="checkout-form" class="smart-form" novalidate="novalidate">
-                    <div class="form-group has-success">
-                        <input type="text" class="form-control" name="nombre"placeholder="Nombres">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" name="nombre"placeholder="Nombres" required="">
                         <span class="glyphicon glyphicon-user form-control-feedback nombre"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -75,8 +75,7 @@
                     </div>
                     <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">
                     <footer>
-                        <button type="submit" class="btn btn-primary" >
-                            Registrar
+                        <button type="submit" class="btn btn-primary" >Registrar
                         </button>
                     </footer>
                 </form>                  
