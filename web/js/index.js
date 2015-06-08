@@ -1,28 +1,33 @@
 $(document).ready(function () {
+
     $(".logueo_ta").submit(function () {
-        $("#mensaje").removeClass().addClass('myinfo').text('Validando Datos... ').fadeIn(50);
+        $(".texto_box_h").text('Validando Datos...').fadeIn(50);
+        $(".overlay_log").show();
         this.timer = setTimeout(function () {
             $.ajax({
                 type: 'POST',
                 url: 'validar',
                 data: $(".logueo_ta").serialize(),
                 success: function (msg) {
-                    if (msg === '1')
-                            //if (true)
+                    $(".box_cargando").show().fadeTo(1000, 1, function () {
 
-                            {
-                                $("#mensaje").html('Usuario Verificado!').addClass('myinfo').fadeTo(50, 1,
-                                        function ()
-                                        {
-                                            //document.location = 'menu?opc=p';
-                                        });
-                                document.location = 'menu';
-                            } else {
-                        $("#mensaje").fadeTo(20, 0.1, function ()
+                        if (msg === '1')
                         {
-                            $(this).html('Disculpe. USUARIO Y CLAVE INCORRECTO').removeClass().addClass('myerror').fadeTo(50, 1);
-                        });
-                    }
+                            $(".overlay_log").hide();
+                            $(".box_cargando").removeClass("box-primary").addClass("box-success");
+                            $(".texto_box_h").text('Usuario verificado!').fadeTo(1000, 1, function () {
+                                $(".texto_box_h").text("Redireccionando...");
+                                document.location = 'menu';
+                            });
+                        } else {
+                            $(".overlay_log").hide();
+                            $(".box_cargando").removeClass("box-primary").addClass("box-danger");
+                            $(".texto_box_h").text("Usuario o clave incorrecto");
+                        }
+
+
+                    });
+
                 }
             });
         }, 200);
