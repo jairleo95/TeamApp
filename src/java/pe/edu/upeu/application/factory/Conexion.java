@@ -21,7 +21,7 @@ public class Conexion {
         String host = "localhost";
         String puerto = "1521";
         //String sid = "orcl";
-        String sid = "orcl";
+        String sid = "xe";
         /**
          * String usuario = "TeamApp"; String password = "TeamApp"; String host
          * = "localhost"; String puerto = "1521"; String sid = "xe";

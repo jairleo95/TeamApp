@@ -79,7 +79,7 @@
                 int nom_id = 0;
                 int NUM_ID = 0;
                 out.print("<br>");
-                out.print("CREATE OR REPLACE PROCEDURE RHSP_INSERT" + List1[f][0].substring(4).toUpperCase() + " (");
+                out.print("CREATE OR REPLACE PROCEDURE TASP_INSERT" + List1[f][0].substring(4).toUpperCase() + " (");
 
                 for (int s = 0; s < List2.length; s++) {
 
