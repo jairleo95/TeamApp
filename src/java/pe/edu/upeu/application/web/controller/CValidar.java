@@ -7,12 +7,15 @@ package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import pe.edu.upeu.application.dao.UsuarioDAO;
 import pe.edu.upeu.application.interfaces.InterfaceUsuarioDAO;
+import pe.edu.upeu.application.model.V_Usuario;
 
 /**
  *
@@ -36,12 +39,20 @@ public class CValidar extends HttpServlet {
         InterfaceUsuarioDAO u = new UsuarioDAO();
         String Usuario = request.getParameter("email");
         String Clave = request.getParameter("password");
-       
+
         try {
             if (Usuario.equals("") && Clave.equals("")) {
                 out.print("0");
 
             } else if (u.Validar_Logueo(Usuario, Clave).size() == 1) {
+                List<V_Usuario> t_usuario = u.Validar_Logueo(Usuario, Clave);
+                V_Usuario user = new V_Usuario();
+                user = (V_Usuario) t_usuario.get(0);
+                HttpSession sesion = request.getSession(true);
+                sesion.setAttribute("ID_USER", user.getId_usuario());
+                sesion.setAttribute("NOMBRE", user.getNo_persona());
+                sesion.setAttribute("AP_P", user.getAp_paterno());
+                sesion.setAttribute("AP_M", user.getAp_materno());
                 out.print("1");
             } else {
                 out.print("0");

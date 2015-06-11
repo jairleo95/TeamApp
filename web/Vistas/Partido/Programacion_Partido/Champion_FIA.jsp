@@ -110,7 +110,7 @@
             var texto = '';
             $(".tbodys").empty();
             $(".tbodys").append('<tr><td colspan="7"><center> CARGANDO...<center> </td></tr>');
-            $.post("../../../equipos", d, function(objJson) {
+            $.post("../../../programacion_partido", d, function(objJson) {
                 var lista = objJson.lista;
                 $(".tbodys").empty();
 
@@ -118,44 +118,16 @@
 
                     texto += '<tr>';
                     texto += '<td>' + (i + 1) + '</td>';
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if(lista[i].id_equi_1 !=null){
-                       texto += '<td>' + lista[i].id_equi_1 + '</td>'; 
-                    }else{
-                        texto += '<td>no definido</td>';
-=======
                     if (typeof lista[i].id_equi_1 === 'undefined') {
                         texto += '<td>winner</td>';
                     } else {
                         texto += '<td>' + lista[i].no_equipo_1 + '</td>';
->>>>>>> origin/master
-=======
-                    if (typeof lista[i].id_equi_1 === 'undefined') {
-                        texto += '<td>winner</td>';
-                    } else {
-                        texto += '<td>' + lista[i].no_equipo_1 + '</td>';
->>>>>>> origin/master
                     }
                     texto += '<td>vs</td>';
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    if(lista[i].id_equi_2!=null){
-                         texto += '<td>' + lista[i].id_equi_2 + '</td>';
-                    }else{
-                         texto += '<td> no definido</td>';
-=======
                     if (typeof lista[i].id_equi_2 === 'undefined') {
                         texto += '<td>winner</td>';
                     } else {
                         texto += '<td>' + lista[i].no_equipo_2 + '</td>';
->>>>>>> origin/master
-=======
-                    if (typeof lista[i].id_equi_2 === 'undefined') {
-                        texto += '<td>winner</td>';
-                    } else {
-                        texto += '<td>' + lista[i].no_equipo_2 + '</td>';
->>>>>>> origin/master
                     }
                     texto += '<td> 20 min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
