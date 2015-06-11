@@ -39,7 +39,7 @@
             <div class="page-header">
                 <h1>Registro de Nuevos Usuarios</h1>
             </div>
-            <form action="../../nuevousuario"class="form-horizontal">
+            <form action="../../nuevousuario" class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-xs-3">Nombres:</label>
                     <div class="col-xs-9">
