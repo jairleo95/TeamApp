@@ -36,25 +36,10 @@
             <div class="register-logo">
                 <a href="../../Principal.jsp"><b>TEAM</b>App</a>
             </div>
+            <div class="page-header">
+                <h1>Registro de Nuevos Usuarios</h1>
+            </div>
             <form action="../../nuevousuario"class="form-horizontal">
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Email:</label>
-                    <div class="col-xs-9">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Password:</label>
-                    <div class="col-xs-9">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Confirmar Password:</label>
-                    <div class="col-xs-9">
-                        <input type="password" class="form-control" placeholder="Confirmar Password">
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="control-label col-xs-3">Nombres:</label>
                     <div class="col-xs-9">
@@ -86,32 +71,37 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Dirección:</label>
+                    <label class="control-label col-xs-3">Email:</label>
                     <div class="col-xs-9">
-                        <textarea rows="3" class="form-control" placeholder="Dirección"></textarea>
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-xs-offset-3 col-xs-9">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" value="agree">  Accepto <a href="#">Terminos y condiciones</a>.
-                        </label>
-                    </div>
-                </div>
-                <br>
-                <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">               
-                <div class="form-group">
-                    <footer>
-                        <div class="col-xs-offset-3 col-xs-9">
-                            <button type="submit" class="btn btn-primary"> Registrar</button>
-                            <input type="reset" class="btn btn-default" value="Limpiar">
+                    <label class="control-label col-xs-3">Tipo de Persona</label>
+                    <div class="form-group">
+                        <div class="control-label col-xs-3">
+                            <select name="puesto" class="form-control"> 
+                                <option value="">[Seleccione]</option>
+                                <option value="01">Delegado</option>
+                                <option value="02">Administrador</option>
+                                <option value="03">Secretaria</option>
+                            </select>
                         </div>
-                    </footer>
+                    </div>
                 </div>
+                    <br>
+                    <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">               
+                    <div class="form-group">
+                        <footer>
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button type="submit" class="btn btn-primary"> Registrar</button>
+                                <input type="reset" class="btn btn-default" value="Limpiar">
+                            </div>
+                        </footer>
+                    </div>
 
             </form>
         </div>
-    </div>
     <!-- Js vinculados -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="js/responsive.js"></script>

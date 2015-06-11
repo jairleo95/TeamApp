@@ -23,11 +23,14 @@
     </head>
     <body class="box box-primary">
         <div class="box box-primary">
-            <div class="register-logo">
-                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
-            </div>
+
             <div class="container">
-                <p align="center">Registrar Nuevos Integrantes</p>
+                <div class="register-logo">
+                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                </div>
+                <div class="page-header">
+                    <h1>Registro de Integrantes de Equipos</h1>
+                </div>
                 <form action="../../integrantes" id="checkout-form" class="form-horizontal">
                     <div class="form-group">
                         <label class="control-label col-xs-3">Nombres:</label>
@@ -62,13 +65,13 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° DNI:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="dni" placeholder="N° DNI" required="">
+                            <input type="number" class="form-control" name="dni" placeholder="N° DNI" pattern="[0-9]{8}" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° Celular:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="cell" placeholder="N° Celular" required="">
+                            <input type="number" class="form-control" name="cell" placeholder="N° Celular" pattern="[0-9]{9}" required="">
                         </div>
                     </div>
                     <div class="form-group">
