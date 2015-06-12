@@ -154,21 +154,26 @@
 
         </head>
         <body style="background: #E6E6E6">
+                <%
+                    String id_eq_1 = request.getParameter("id_eq_1");
+                    String id_eq_2 = request.getParameter("id_eq_2");
+                    String id_juego = request.getParameter("id_juego");
+                %>
                 <section class="content">
-                    <input type="hidden" class="id_jue" value="<%=request.getParameter("id_juego")%>">
-                    <input type="hidden" class="id_e_cat1" value="<%=request.getParameter("id_eq_1")%>">
-                    <input type="hidden" class="id_e_cat2" value="<%=request.getParameter("id_eq_2")%>">
+                    <input type="hidden" class="id_jue" value="<%=id_juego.trim()%>">
+                    <input type="hidden" class="id_e_cat1" value="<%=id_eq_1.trim()%>">
+                    <input type="hidden" class="id_e_cat2" value="<%=id_eq_2.trim()%>">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="box-body"  style="background: #E0F8F7" align="center">
                                 <div class="row" align="center">
-                                    <label><%out.print(p.Mostrar_nombre(request.getParameter("id_eq_1")));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
-                                    <label><%out.print(p.Mostrar_categoria_juego(request.getParameter("id_juego")));%></label>
+                                    <label><%out.println(p.Mostrar_nombre(id_eq_1.trim()));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
+                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>
 
                                 </div>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary" onclick="AgregarGol()">Sumar gol</button>
+                                <button type="button" class="btn btn-primary" onclick="AgregarGol(1)">Sumar gol</button>
                             </div>
                         </div>
                         <div class="col-md-6" >
@@ -235,15 +240,29 @@
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #81DAF5" align="center">
                                         <h1 id="nroGol" class="cant-e-1">
-                                            0
+
                                         </h1>
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #81DAF5" align="center">
                                         <h1 id="nroGol2" class="cant-e-2">
-                                            0
+
                                         </h1>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="box-body"  style="background: #E0F8F7" align="center">
+                                <div class="col-md-6">
+                                    <div class="box-body"  style="background: #81DAF5" align="center">
+                                        <a  data-toggle="modal" href="#myModal1" class="btn btn-labeled btn-danger">Tarjeta</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="box-body"  style="background: #81DAF5" align="center">
+                                        <a  data-toggle="modal" href="#myModal2" class="btn btn-labeled btn-danger">Tarjeta</a>
                                     </div>
                                 </div>
                             </div>
@@ -251,93 +270,178 @@
                         <div class="col-md-3">
                             <div class="box-body"  style="background: #E0F8F7" align="center">
                                 <div class="row" align="center">
-                                    <label><%out.print(p.Mostrar_nombre(request.getParameter("id_eq_2")));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
+                                    <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
                                     </label><br>
-                                    <label><%out.print(p.Mostrar_categoria_juego(request.getParameter("id_juego")));%></label>
+                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>
                                 </div>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary btn-sum-gol" onclick="AgregarGol()" >Sumar gol</button>
+                                <button type="button" class="btn btn-primary btn-sum-gol" onclick="AgregarGol(2)" >Sumar gol</button>
                             </div>
                         </div>  
                     </div>
 
                 </section>
-                <!-- <section class="content">
-                     <div class="row">
-                         <div class="col-md-3">
-                             <div class="box-body" align="center">
-                                 <div class="form-group">
-                                     <button type="submit" class="btn btn-primary">Sumar gol</button>
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content" align="center">
+                            <div class="smart-form">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body no-padding" align="center">
+                                    <fieldset>
+                                        <section>
+                                            <table class="table table-bordered" width="100%">
+                                                <thead>
+                                                <th>Nombres
+                                                </th>
+                                                <th>Nro camiseta
+                                                </th>
+                                                <th>Tarjetas
+                                                </th>
+                                                </thead>
+                                                <tbody class="contenido">
+
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                    </fieldset>
+                                    <footer align="center">
+                                        <button type="submit" class="btn btn-primary btn-conti">
+                                            Continuar
+                                        </button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" >
+                                            Cancel
+                                        </button>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content" align="center">
+                            <div class="smart-form">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body no-padding">
+                                    <fieldset>
+                                        <section>
+                                            <section>
+                                                <table class="table table-bordered" width="100%">
+                                                    <thead>
+                                                    <th>Nombres
+                                                    </th>
+                                                    <th>Nro camiseta
+                                                    </th>
+                                                    <th>Tarjetas
+                                                    </th>
+                                                    </thead>
+                                                    <tbody class="contenido2">
+
+                                                    </tbody>
+                                                </table>
+                                            </section>
+                                    </fieldset>
+                                    <footer align="center">
+                                        <button type="submit" class="btn btn-primary btn-conti">
+                                            Continuar
+                                        </button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" >
+                                            Cancel
+                                        </button>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <select >
+                    <label>tarjeta Amarila<input type="radio" name="gr"></label>
+                    <label>tarjeta Amarila<input type="radio" name="gr"></label>
+
+                    <!-- <section class="content">
+                         <div class="row">
+                             <div class="col-md-3">
+                                 <div class="box-body" align="center">
+                                     <div class="form-group">
+                                         <button type="submit" class="btn btn-primary">Sumar gol</button>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-md-6" align="center">
+                                 <div class="box-body" >
+                                     <div class="form-group"></div>
+                                 </div>
+                             </div>
+                             <div class="col-md-3" align="center">
+                                 <div class="box-body" >
+                                     <div class="form-group">
+                                         <button type="submit" class="btn btn-primary">Sumar gol</button>
+                                     </div>
                                  </div>
                              </div>
                          </div>
-                         <div class="col-md-6" align="center">
-                             <div class="box-body" >
-                                 <div class="form-group"></div>
-                             </div>
-                         </div>
-                         <div class="col-md-3" align="center">
-                             <div class="box-body" >
-                                 <div class="form-group">
-                                     <button type="submit" class="btn btn-primary">Sumar gol</button>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
- 
-                 </section>-->
-                <!--<table class="table" width="960" height="10" border="2px" border-color="#000">
-                    <TR>            
-                        <td>fff</td>
-                        <td><label>kkk</label></td>
-                        <td rowspan="3"><label id="nroGol"  width="80px" height="80px">hghgfh</label></td>
-                        <td><label>ggg</label></td>
-                        <td><label>ss</label></td>
-                        <td rowspan="3"><label>lbl2</label></td>
-                        <td><label>kk</label></td>
-                        <td><input id="nroGol2" type="text" name="GolEqui2" value="" style="float:right"/></td>            
-                    </TR>
-                    <TR>
-
-                        <TD><input onclick="AgregarGol()"  type="submit" value="GOL" name="gol" size="500" style="width:100px; height:50px" /><input onclick="TarjetaRoja()" id="tarRoja" type="submit" value="0" name="gol" size="500" style="width:40px; height:50px; background-color: red" /></TD>
-                        <td><label>kkk</label></td>
-                        <td colspan="2"><label>--</label></td>
-                        <td><label>ggg</label></td>
-                        <TD><input onclick="AgregarGol2()"  type="submit" value="GOL" name="gol" size="500" style="width:100px; height:50px;float:right" />&nbsp;&nbsp;&nbsp;<input onclick="AgregarGol()"  type="submit" value="0" name="gol" size="500" style="width:40px; height:50px; background-color: red;float:right" /></TD>
-
-                    </TR>
-                    <TR>
-
-                        <TD><input onclick=""  type="submit" value="TARJETA" name="##" size="500" style='width:100px; height:50px' /><input onclick=""  type="submit" value="0" name="##" size="500" style='width:40px; height:50px;background-color:yellow' /></TD>
-                        <td><label>kkk</label></td>
-                        <td><label>ytryt</label></td>
-                        <td><label>ggg</label></td>
-                        <td><label>kk</label></td>
-                        <TD><input onclick=""  type="submit" value="TARJETA" name="##" size="500" style="width:100px; height:50px;float:right" />&nbsp;&nbsp;&nbsp;<input onclick=""  type="submit" value="0" name="##" size="500" style='width:40px; height:50px;background-color: yellow;float:right'/></TD>
-                    </TR>
-                    <tr>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                    <TR>
-                        <TD><input onclick="AgregarGol()" align="right" type="submit" value="GOL" name="gol" size="500"/></TD>
-                        <td><label>kkk</label></td>
-                        <td><label>ytryt</label></td>
-                        <td><label>ggg</label></td>
-                        <td><label>ytryt</label></td>
-                        <td><label>ggg</label></td>
-                        <td><label>kk</label></td>
-                        <TD><input onclick="AgregarGol2()" type="submit" value="GOL" name="gol" size="500" style="float:right"/></TD>
-
-                    </TR>
-
-
-                </table>
-
-
-                <table class="table" width="900" height="10" align="right">-->
+        
+                     </section>-->
+                    <!--<table class="table" width="960" height="10" border="2px" border-color="#000">
+                        <TR>            
+                            <td>fff</td>
+                            <td><label>kkk</label></td>
+                            <td rowspan="3"><label id="nroGol"  width="80px" height="80px">hghgfh</label></td>
+                            <td><label>ggg</label></td>
+                            <td><label>ss</label></td>
+                            <td rowspan="3"><label>lbl2</label></td>
+                            <td><label>kk</label></td>
+                            <td><input id="nroGol2" type="text" name="GolEqui2" value="" style="float:right"/></td>            
+                        </TR>
+                        <TR>
+        
+                            <TD><input onclick="AgregarGol()"  type="submit" value="GOL" name="gol" size="500" style="width:100px; height:50px" /><input onclick="TarjetaRoja()" id="tarRoja" type="submit" value="0" name="gol" size="500" style="width:40px; height:50px; background-color: red" /></TD>
+                            <td><label>kkk</label></td>
+                            <td colspan="2"><label>--</label></td>
+                            <td><label>ggg</label></td>
+                            <TD><input onclick="AgregarGol2()"  type="submit" value="GOL" name="gol" size="500" style="width:100px; height:50px;float:right" />&nbsp;&nbsp;&nbsp;<input onclick="AgregarGol()"  type="submit" value="0" name="gol" size="500" style="width:40px; height:50px; background-color: red;float:right" /></TD>
+        
+                        </TR>
+                        <TR>
+        
+                            <TD><input onclick=""  type="submit" value="TARJETA" name="##" size="500" style='width:100px; height:50px' /><input onclick=""  type="submit" value="0" name="##" size="500" style='width:40px; height:50px;background-color:yellow' /></TD>
+                            <td><label>kkk</label></td>
+                            <td><label>ytryt</label></td>
+                            <td><label>ggg</label></td>
+                            <td><label>kk</label></td>
+                            <TD><input onclick=""  type="submit" value="TARJETA" name="##" size="500" style="width:100px; height:50px;float:right" />&nbsp;&nbsp;&nbsp;<input onclick=""  type="submit" value="0" name="##" size="500" style='width:40px; height:50px;background-color: yellow;float:right'/></TD>
+                        </TR>
+                        <tr>
+                        </tr>
+                        <tr>
+        
+                        </tr>
+                        <TR>
+                            <TD><input onclick="AgregarGol()" align="right" type="submit" value="GOL" name="gol" size="500"/></TD>
+                            <td><label>kkk</label></td>
+                            <td><label>ytryt</label></td>
+                            <td><label>ggg</label></td>
+                            <td><label>ytryt</label></td>
+                            <td><label>ggg</label></td>
+                            <td><label>kk</label></td>
+                            <TD><input onclick="AgregarGol2()" type="submit" value="GOL" name="gol" size="500" style="float:right"/></TD>
+        
+                        </TR>
+        
+        
+                    </table>
+        
+        
+                    <table class="table" width="900" height="10" align="right">-->
             </body>
 
             <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -350,21 +454,31 @@
             <!-- AdminLTE for demo purposes -->
             <script src="../../dist/js/demo.js" type="text/javascript"></script>
             <script>
-                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
-                var f = new Date();
-                document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                                    var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                                    var f = new Date();
+                                    document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
             </script>
             <script>
                 var goles = 0;
                 $("#nroGol").text(0);
-
-
-                function AgregarGol() {
-                    goles = goles + 1;
-                    $("#nroGol").text(goles);
+                function AgregarGol(id_equipo) {
+                    var b;
+                    var a;
+                    if (id_equipo === 1) {
+                        b = $(".id_e_cat" + id_equipo).val();
+                        a = $(".cant-e-" + id_equipo);
+                    }
+                    if (id_equipo === 2) {
+                        b = $(".id_e_cat" + id_equipo).val();
+                        a = $(".cant-e-" + id_equipo);
+                    }
+                    $.post("../../con_part_json", "opc=Agregar_gol&id_cat_equipo=" + b + "&id_juego=" + $(".id_jue").val(), function (objJson) {
+                        var lista = objJson.lista;
+                        a.text(lista);
+                    });
+                    Listar_puntos();
                 }
-
                 var goles2 = 0;
                 $("#nroGol2").val(0);
                 function AgregarGol2() {
@@ -380,16 +494,52 @@
                 }
             </script>
             <script>
-                function Listar_puntos(){
-                    var a=$(".cant-e-1");
-                    var a=$(".cant-e-2");
-                    var a=$(".cant-e-2");
-                    $.post("../../con_part_json","opc=Listar_puntos&id_cat_equipo="+$(".id_e_cat1").val()+"&id_juego="+$(".id_jue").val(),function (objJson){
-                        
+                function Listar_puntos() {
+                    var a = $(".cant-e-1");
+                    var b = $(".cant-e-2");
+                    $.post("../../con_part_json", "opc=Listar_puntos&id_cat_equipo=" + $(".id_e_cat1").val() + "&id_juego=" + $(".id_jue").val(), function (objJson) {
+                        var lista = objJson.lista;
+                        a.text(lista);
+                    });
+                    $.post("../../con_part_json", "opc=Listar_puntos&id_cat_equipo=" + $(".id_e_cat2").val() + "&id_juego=" + $(".id_jue").val(), function (objJson) {
+                        var lista = objJson.lista;
+                        b.text(lista);
                     });
                 }
-                $(document).ready(function (){
-                    
+                function Listar_jugadores() {
+                    $.post("../../con_part_json", "opc=Listar_Jugadores&id_cat_equipo=" + $(".id_e_cat1").val(), function (objJson) {
+                        var lista = objJson.lista;
+                        var texto = "";
+                        for (var i = 0; i < lista.length; i++) {
+                            texto += "<tr>"
+                            texto += "<td>" + lista[i].no_per + " " + lista[i].ap_pat + "</td>"
+                            texto += "<td>" + lista[i].nu_cam + "</td>"
+                            texto += "<td><label>tarjeta Amarila<input type='radio' name='gr" + i + "'></label><label>tarjeta Roja<input type='radio' name='gr" + i + "'></label></td>"
+                            texto += "</tr>"
+                        }
+                        $(".contenido").append(texto);
+                    });
+                    $.post("../../con_part_json", "opc=Listar_Jugadores&id_cat_equipo=" + $(".id_e_cat2").val(), function (objJson) {
+                        var lista = objJson.lista;
+                        var texto = "";
+                       // if (lista.length > 0)
+                            for (var i = 0; i < lista.length; i++) {
+                                texto += "<tr>"
+                                texto += "<td>" + lista[i].no_per + " " + lista[i].ap_pat + "</td>"
+                                texto += "<td>" + lista[i].nu_cam + "</td>"
+                                texto += "<td><label>tarjeta Amarila<input type='radio' name='gr" + i + "'></label><label>tarjeta Roja<input type='radio' name='gr" + i + "'></label></td>"
+                                texto += "</tr>"
+                            }
+                        //}else{
+                            //texto+="Ningun jugador no puede jugar";
+                        //}
+                        $(".contenido2").append(texto);
+                    });
+                }
+
+                $(document).ready(function () {
+                    Listar_puntos();
+                    Listar_jugadores();
                 });
             </script>
         </html>

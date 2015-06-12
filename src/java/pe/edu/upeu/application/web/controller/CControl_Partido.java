@@ -47,6 +47,7 @@ public class CControl_Partido extends HttpServlet {
             out.print(id_eq_1);
             out.print(id_eq_2);
             out.print(id_juego);
+            getServletContext().setAttribute("Listar_Partido", cl.Listar_Partido());
             response.sendRedirect("Vistas/Control_Partido/Control_Partido.jsp?id_juego=" + id_juego + "&id_eq_1=" + id_eq_1 + "&id_eq_2=" + id_eq_2);
         }
     }

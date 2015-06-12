@@ -22,4 +22,9 @@ public interface InterfaceControl_Partido {
     public String Mostrar_categoria_juego(String id_juego);
 
     public String listar_goles(String id_juego, String id_cat_juego);
+
+    public void Agregar_gol(String id_cat_equipo, String id_juego, String ti_control, String US_CREACION);
+
+    public List<Map<String, ?>> Listar_Jugadores(String id_cat_equipo);
+
 }
