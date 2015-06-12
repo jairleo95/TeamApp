@@ -266,7 +266,7 @@
                                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             <%=det_usuario%> - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            <small>Member since Nov. 2015</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
@@ -334,7 +334,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="direccionar?opc=Champion_FIA"  target="myframe" ><i class="fa fa-circle-o"></i> Champion FIA</a></li>
-                                <li class="active"><a href="torneo?opc=Listar_Torneos"  target="myframe2" ><i class="fa fa-circle-o"></i> Torneos</a></li>
+                                <li class="active"><a href="torneo?opc=Listar_Torneo"  target="myframe" ><i class="fa fa-circle-o"></i> Torneos</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Eliminatorias</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Series</a></li>
                             </ul>

@@ -3,7 +3,8 @@
     Created on : 22/05/2015, 10:36:09 AM
     Author     : Milton
 --%>
-
+<%@page import="pe.edu.upeu.application.model.V_Categoria_Juego"%>
+<jsp:useBean id="Listar_catgeria_juego" scope="application" class="java.util.ArrayList"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,43 +27,43 @@
         <link href="../../dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css">
     </head>    
     <body>
-        <div class="container">
-            <div class="register-logo">
-                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
-            </div>
-            <div class="page-header" align="center">
-                <h1>Registro de Equipo</h1>
-            </div>
-            <form align="center" class="form-horizontal">
+        <form action="../../equiposs" method="post">
+            <div class="container">
+                <input type="hidden" value="<%=request.getParameter("id_torneo")%>" name="id_torneo">
+                
+                <div class="register-logo">
+                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                </div>
+                <div class="page-header" align="center">
+                    <h1>Registro de Equipo</h1>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-xs-3">Nombre:</label>
                     <div class="col-xs-9">
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre del equipo a participar">
+                        <input type="text" class="form-control" name="nombre_t" placeholder="Nombre del equipo a participar">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Seleccione la Categoria</label>
                     <div class="checkbox" name="cbCategoria">
+                        <%for (int e = 0; e < Listar_catgeria_juego.size(); e++) {
+                                V_Categoria_Juego cj = new V_Categoria_Juego();
+                                cj = (V_Categoria_Juego) Listar_catgeria_juego.get(e);
+                        %>
                         <label>
-                            <input type="checkbox" name="var1" value=Futsal>Futsal</label>                    
-                        <label>
-                            <input type="checkbox" name="var1" value="Voleyball">Voleyboll</label>                    
-                        <label>
-                            <input type="checkbox" name="var1" value="Basquetball">Basquetball</label>
+                            <input type="checkbox" name="cat_juego" value="<%=cj.getId_categoria_juego()%>"><%=cj.getNo_categoria()%></label>
+                            <%}%>
                     </div>
                 </div>
                 <h3 class="box-title"></h3>                
                 <br>
-                <button type="submit" class="btn btn-primary" name="opc">Registrar</button>
-                <br>
-                <br>
                 <div>
-                    <button type="submit" class="btn btn-primary" name="opc">Registrar jugadores</button>
+                    <button type="submit" class="btn btn-primary btn-registrar" name="opc" value="Insertar_Equipo">Registrar</button>
+                    <input type="reset" class="btn btn-default" value="Limpiar">
                 </div>
-            </form>
-        </div>
+                <br>
+            </div>
+        </form>
     </body>
-    <script>        
-            
-    </script>
+    <script src="../../js/jquery-1.11.1.min.js" type="text/javascript"></script>
 </html>

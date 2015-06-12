@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
@@ -29,16 +30,15 @@ public class CTorneo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceTorneo to = new TorneoDAO();
-
+    InterfaceTorneo to= new TorneoDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-        if (opc.equals("Listar_Torneos")) {
-            getServletContext().setAttribute("Listar_torneo", to.Listar_torneo());
-            response.sendRedirect("Vistas/Registro/Listar_torneo.jsp")  ;
+        if (opc.equals("Listar_Torneo")) {
+            getServletContext().setAttribute("Listar_Torneo", to.Listar_Torneo());
+            response.sendRedirect("Vistas/Registro/Listar_Torneo.jsp")  ;
         }
     }
 

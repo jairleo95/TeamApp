@@ -28,6 +28,18 @@
         <servlet-name>CValidar</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CValidar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CTorneo</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CTorneo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CEquipo</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CEquipo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CEquiposs</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CEquiposs</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -45,19 +57,28 @@
         <url-pattern>/equipos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>CControl_Punto</servlet-name>
         <url-pattern>/control_punto</url-pattern>
-        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CIntegrantes</servlet-name>
         <url-pattern>/integrantes</url-pattern>
-
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CValidar</servlet-name>
         <url-pattern>/validar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CTorneo</servlet-name>
+        <url-pattern>/torneo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CEquipo</servlet-name>
+        <url-pattern>/equipo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CEquiposs</servlet-name>
+        <url-pattern>/equiposs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
