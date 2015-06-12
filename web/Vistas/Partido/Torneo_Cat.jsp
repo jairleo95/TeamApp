@@ -45,10 +45,19 @@
                 <div class="col-lg-12">
                     <div class="form-group col-lg-4">
                         <h3>Nombre del Torneo:</h3>
+                        <%String opc = request.getParameter("opc") ;%>
                         <select class="form-control">
+                            <%if(opc.equals("Champion_FIA")){%>
+                            <option  selected="">ChampionFIA</option>
+                            <%}else if(opc.equals("Eliminatorias")){%>
                             <option disabled="" selected="">[SELECCIONE]</option>
                             <option>Relampago</option>
                             <option>Champion</option>
+                            <%}else if (opc.equals("Series")){%>
+                             <option disabled="" selected="">[SELECCIONE]</option>
+                            <option>Sudamericano</option>
+                            <option>UPEU Copa</option>
+                            <%}%>
                         </select>
                     </div>
                 </div>
@@ -69,7 +78,7 @@
                             <div class="icon">
                                 <i class="fa fa-soccer-ball-o"></i>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="../Partido/Programacion_Partido/Champion_FIA.jsp" class="small-box-footer">
                                 Ingresar  <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
