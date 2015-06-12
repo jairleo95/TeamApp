@@ -90,5 +90,10 @@ ConexionBD conn;
         }
         return nom;
     }
+
+    @Override
+    public String listar_goles(String id_juego, String id_cat_juego) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

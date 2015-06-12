@@ -14,6 +14,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.Control_PartidoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceControl_Partido;
 
 /**
  *
@@ -30,6 +32,7 @@ public class CControl_Partido_json extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    InterfaceControl_Partido cl=new Control_PartidoDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
@@ -39,7 +42,8 @@ public class CControl_Partido_json extends HttpServlet {
         String opc = request.getParameter("opc");
         try {
             if (opc.equals("Listar_puntos")) {
-                
+                String id_equipo=request.getParameter("id_cat_equipo");
+                String id_juego=request.getParameter("id_juego");
             }
         } catch (Exception e) {
             rpta.put("rpta", "-1");
