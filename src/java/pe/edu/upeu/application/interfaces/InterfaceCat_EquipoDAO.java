@@ -6,13 +6,10 @@
 
 package pe.edu.upeu.application.interfaces;
 
-import java.util.List;
-import pe.edu.upeu.application.model.V_Torneo;
-
 /**
  *
  * @author MILTON
  */
-public interface InterfaceTorneo {
-    public List<V_Torneo> Listar_Torneo();
+public interface InterfaceCat_EquipoDAO {
+    public void Insertar_Cat_equipo(String id_equipo,String Id_cat_juego);
 }

@@ -11,14 +11,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.Cat_EquipoDAO;
 import pe.edu.upeu.application.dao.Categoria_JuegoDAO;
+import pe.edu.upeu.application.dao.EquipoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceCat_EquipoDAO;
 import pe.edu.upeu.application.interfaces.InterfaceCategoria_Juego;
+import pe.edu.upeu.application.interfaces.InterfaceEquipo;
+import pe.edu.upeu.application.model.V_Categoria_Juego;
 
 /**
  *
  * @author MILTON
  */
-public class CEquipo extends HttpServlet {
+public class CEquiposs extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,22 +34,37 @@ public class CEquipo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceCategoria_Juego cj = (InterfaceCategoria_Juego) new Categoria_JuegoDAO();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-        if (opc.equals("registrar_equipo")) {
+        InterfaceEquipo cj = new EquipoDAO();
+        InterfaceCat_EquipoDAO cae = new Cat_EquipoDAO();
+        InterfaceCategoria_Juego j = new Categoria_JuegoDAO();
 
-        }
-        if (opc.equals("ingresar_equipo")) {
+        if (opc.equals("Ingresar_registro")) {
             String id_torneo = request.getParameter("id_torneo");
-            out.print(id_torneo);
-            getServletContext().setAttribute("Listar_catgeria_juego", cj.Listar_catgeria_juego(id_torneo));
-            
-            response.sendRedirect("Vistas/Registro/Registrar_Equipos.jsp")  ;
+            String es_equipo = request.getParameter("es_equipo");
+            String logo_equipo = null;
+            getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
+            response.sendRedirect("Vistas/Registro/Registar_Equipos.jsp?id_torneo=" + id_torneo);
+        }
+        if (opc.equals("Insertar_Equipo")) {
+            String nombre_equipo = request.getParameter("nombre_t");
+            String id_torneo = request.getParameter("id_torneo");
+            String es_equipo = "1";
+            String logo_equipo = null;
+            String id_equi = cj.INSERT_EQUIPO(null, nombre_equipo, id_torneo, es_equipo, logo_equipo);
+            String check2[] = request.getParameterValues("cat_juego");
+            for (int i = 0; i < check2.length; i++) {
+                String q=check2[i];
+                  cae.Insertar_Cat_equipo(id_equi, q);
+                out.print(check2[i]);
+            }
+            out.print(id_equi);
+            getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
+            response.sendRedirect("Vistas/Registro/Registar_Equipos.jsp");
         }
     }
 

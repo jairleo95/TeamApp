@@ -266,7 +266,7 @@
                                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             <%=det_usuario%> - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            <small>Member since Nov. 2015</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->

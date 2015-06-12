@@ -13,10 +13,6 @@
         <servlet-class>pe.edu.upeu.application.web.controller.CDireccionar</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CEquipos</servlet-name>
-        <servlet-class>pe.edu.upeu.application.web.controller.CEquipos</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CControl_Punto</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CControl_Punto</servlet-class>
     </servlet>
@@ -29,13 +25,21 @@
         <servlet-class>pe.edu.upeu.application.web.controller.CValidar</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CTorneo</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CTorneo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CEquipo</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CEquipo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CEquiposs</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CEquiposs</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CControl_Partido</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CControl_Partido</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>CMenu</servlet-name>
-        <url-pattern>/menu</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CProgramacion_Partido</servlet-name>
         <url-pattern>/programacion_partido</url-pattern>
@@ -45,24 +49,36 @@
         <url-pattern>/direccionar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CEquipos</servlet-name>
-        <url-pattern>/equipos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CControl_Punto</servlet-name>
         <url-pattern>/control_punto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CIntegrantes</servlet-name>
-        <url-pattern>/integrantes</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CValidar</servlet-name>
         <url-pattern>/validar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CTorneo</servlet-name>
+        <url-pattern>/torneo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CEquipo</servlet-name>
+        <url-pattern>/equipo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CEquiposs</servlet-name>
+        <url-pattern>/equiposs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CControl_Partido</servlet-name>
         <url-pattern>/control_partido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CMenu</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CIntegrantes</servlet-name>
+        <url-pattern>/integrantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
