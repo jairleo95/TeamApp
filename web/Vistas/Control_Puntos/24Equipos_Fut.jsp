@@ -43,7 +43,7 @@
               <tbody>
                     <tr>
                         <% Connection cx=ConexPuntos.getConex();
-                           PreparedStatement ps=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=2 and c.NOM_GRUPO='A' order by a.PUNTAJE DESC");
+                           PreparedStatement ps=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=3 and c.NOM_GRUPO='A' order by a.PUNTAJE DESC");
                            ResultSet rs=ps.executeQuery();
                            while(rs.next())
                            {%>
@@ -77,7 +77,7 @@
               </thead>
               <tbody>
                     <tr>
-                        <% PreparedStatement ps1=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=2 and c.NOM_GRUPO='B' order by a.PUNTAJE DESC");
+                        <% PreparedStatement ps1=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=3 and c.NOM_GRUPO='B' order by a.PUNTAJE DESC");
                            ResultSet rs1=ps1.executeQuery();
                            while(rs1.next())
                            {%>
@@ -111,7 +111,7 @@
               </thead>
               <tbody>
                     <tr>
-                        <% PreparedStatement ps2=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=2 and c.NOM_GRUPO='C' order by a.PUNTAJE DESC");
+                        <% PreparedStatement ps2=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=3 and c.NOM_GRUPO='C' order by a.PUNTAJE DESC");
                            ResultSet rs2=ps2.executeQuery();
                            while(rs2.next())
                            {%>
@@ -145,7 +145,7 @@
               </thead>
               <tbody>
                     <tr>
-                        <% PreparedStatement ps3=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=2 and c.NOM_GRUPO='D' order by a.PUNTAJE DESC");
+                        <% PreparedStatement ps3=cx.prepareStatement("select b.NOM_EQUIP,a.PJ,a.PG,a.PE,a.PP,a.GF,a.GC,a.DG,a.PUNTAJE from resultado a, equipo b, grupos c, TORNEO D where a.ID_EQUIP = b.ID_EQUIP and c.ID_TORNEO = D.ID_TORNEO and c.ID_GRUPO=b.ID_GRUPO and  D.ID_TORNEO=3 and c.NOM_GRUPO='D' order by a.PUNTAJE DESC");
                            ResultSet rs3=ps3.executeQuery();
                            while(rs3.next())
                            {%>
