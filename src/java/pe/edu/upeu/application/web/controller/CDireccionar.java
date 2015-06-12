@@ -35,7 +35,7 @@ public class CDireccionar extends HttpServlet {
         String opc = request.getParameter("opc");
         try {
             if (opc.equals("Champion_FIA")) {
-                response.sendRedirect("Vistas/Partido/Programacion_Partido/Champion_FIA.jsp");
+                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp");
             }
             if (opc.equals("Principal")) {
                   RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
