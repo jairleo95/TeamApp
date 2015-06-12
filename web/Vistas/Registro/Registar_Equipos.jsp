@@ -32,7 +32,7 @@
                 <input type="hidden" value="<%=request.getParameter("id_torneo")%>" name="id_torneo">
                 
                 <div class="register-logo">
-                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                    <a><b>TEAM</b>App</a>
                 </div>
                 <div class="page-header" align="center">
                     <h1>Registro de Equipo</h1>
@@ -57,7 +57,7 @@
                 </div>
                 <h3 class="box-title"></h3>                
                 <br>
-                <div>
+                <div align="center">
                     <button type="submit" class="btn btn-primary btn-registrar" name="opc" value="Insertar_Equipo">Registrar</button>
                     <input type="reset" class="btn btn-default" value="Limpiar">
                 </div>
