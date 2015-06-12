@@ -45,6 +45,10 @@
         <servlet-class>pe.edu.upeu.application.web.controller.CControl_Partido_json</servlet-class>
     </servlet>
     <servlet-mapping>
+        <servlet-name>CMenu</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CProgramacion_Partido</servlet-name>
         <url-pattern>/programacion_partido</url-pattern>
     </servlet-mapping>
