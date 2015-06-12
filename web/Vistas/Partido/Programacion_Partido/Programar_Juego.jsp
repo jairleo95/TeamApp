@@ -63,8 +63,6 @@
                         <div class="col-lg-2 col-xs-10">
                             <button class="btn btn-block btn-success " id='btn_cal'>Calcular</button>
                         </div>
-                        <div class="col-lg-6 col-xs-10">
-                        </div>
                         <div class="col-lg-2 col-xs-10">
                             <button class="btn btn-block btn-primary " id='btn_cal'>Guardar</button>
                         </div>
