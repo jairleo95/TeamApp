@@ -53,7 +53,7 @@ public class CProgramacion_Partido extends HttpServlet {
                 rpta.put("rpta", "1");
                 rpta.put("lista", list);
             }
-            if (opc.equals("Porgamar_Juego")) {
+            if (opc.equals("Progamar_Juego")) {
                 String id_torneo = request.getParameter("id_torneo");
                 String id_cat_juego = request.getParameter("id_cat_juego");
                 String tipo_juego = request.getParameter("tipo_juego");
