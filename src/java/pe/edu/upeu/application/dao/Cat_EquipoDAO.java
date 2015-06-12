@@ -10,30 +10,26 @@ import java.sql.SQLException;
 import java.sql.Types;
 import pe.edu.upeu.application.factory.ConexionBD;
 import pe.edu.upeu.application.factory.FactoryConnectionDB;
-import pe.edu.upeu.application.interfaces.InterfaceEquipo;
+import pe.edu.upeu.application.interfaces.InterfaceCat_EquipoDAO;
 
 /**
  *
  * @author MILTON
  */
-public class EquipoDAO implements InterfaceEquipo {
+public class Cat_EquipoDAO implements InterfaceCat_EquipoDAO {
 
     ConexionBD conn;
 
     @Override
-    public String INSERT_EQUIPO(String ID_EQUIPO, String NO_EQUIPO, String ID_TORNEO, String ES_EQUIPO, String LOGO_EQUIPO) {
+    public void Insertar_Cat_equipo(String id_equipo, String Id_cat_juego) {
         String id = "";
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            CallableStatement cst = this.conn.conex.prepareCall("{CALL TASP_INSERT_EQUIPO( ?, ?, ?, ?, ?,?)}");
-            cst.setString(1, null);
-            cst.setString(2, NO_EQUIPO);
-            cst.setString(3, ID_TORNEO);
-            cst.setString(4, ES_EQUIPO);
-            cst.setString(5, null);
-            cst.registerOutParameter(6, Types.CHAR);
+            CallableStatement cst = this.conn.conex.prepareCall("{CALL TASP_INSERT_CAT_EQUIPO( ?, ?, ?)}");
+            cst.setString(1, id_equipo.trim());
+            cst.setString(2, Id_cat_juego.trim());
+            cst.setString(3, "1".trim());
             cst.execute();
-            id = cst.getString(6);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());
         } catch (Exception e) {
@@ -45,7 +41,6 @@ public class EquipoDAO implements InterfaceEquipo {
                 throw new RuntimeException(e.getMessage());
             }
         }
-        return id;
     }
 
 }

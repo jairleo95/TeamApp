@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Champions FIA</title>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="//code.jquery.com|/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="../../../css/jquery.datetimepicker.css">
 
         <!-- Bootstrap 3.3.4 -->
@@ -59,10 +59,22 @@
             <section class="content">
                 <div class="box">
                     <br>
-                    <div><button class="btn btn-block btn-success btn-lg " id='btn_cal'>Calcular</button></div>
-
+                    <div class="col-lg-12 col-xs-10">
+                        <div class="col-lg-2 col-xs-10">
+                            <button class="btn btn-block btn-success " id='btn_cal'>Calcular</button>
+                        </div>
+                        <div class="col-lg-6 col-xs-10">
+                        </div>
+                        <div class="col-lg-2 col-xs-10">
+                            <button class="btn btn-block btn-primary " id='btn_cal'>Guardar</button>
+                        </div>
+                        <div class="col-lg-2 col-xs-10">
+                            <button class="btn btn-block btn-danger  " id='btn_cal'>Cancelar</button>
+                        </div>
+                    </div>
+                    <br>
                     <div class="box-title" style="margin-left: 1%">
-                        <strong><h3 >Futsal</h3 ></strong>
+                        <br> <strong><h3 >Futsal</h3 ></strong>
                     </div><!-- /.box-header -->
                     <div class="box-body tablas">
                         <table class="table table-bordered ">

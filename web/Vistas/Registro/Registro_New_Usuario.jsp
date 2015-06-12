@@ -59,6 +59,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-xs-3" id="numero">Codigo Universitario:</label>
+                    <div class="col-xs-9">
+                        <input type="number" class="form-control" onkeypress="return  solonumeros(event)" name="c_uni"placeholder="Codigo Universitario" >
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-xs-3" id="numero">Celular:</label>
                     <div class="col-xs-9">
                         <input type="number" class="form-control" onkeypress="return  solonumeros(event)" name="cell"placeholder="Celular" >
@@ -77,16 +83,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Tipo de Persona</label>
-                    <div class="form-group">
-                        <div class="control-label col-xs-3">
-                            <select name="puesto" class="form-control"> 
-                                <option value="">[Seleccione]</option>
-                                <option value="01">Delegado</option>
-                                <option value="02">Administrador</option>
-                                <option value="03">Secretaria</option>
-                            </select>
-                        </div>
+                    <label class="control-label col-xs-3">Contraseña:</label>
+                    <div class="col-xs-9">
+                        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
                     </div>
                 </div>
                 <br>

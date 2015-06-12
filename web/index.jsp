@@ -69,9 +69,9 @@
                 </div><!-- /.social-auth-links -->
 
                 <a href="#">I forgot my password</a><br>
-                <a href="register.html" class="text-center">Register a new membership</a>
+                <a href="Vistas/Registro/Registro_New_Usuario.jsp" class="text-center">Register a new membership</a>
 
-            </div><!-- /.login-box-body -->
+            </div><!-- /.login-box-body --> 
         </div><!-- /.login-box -->
 
         <!-- jQuery 2.1.4 -->

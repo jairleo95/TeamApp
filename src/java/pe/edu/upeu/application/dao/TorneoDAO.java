@@ -23,7 +23,7 @@ public class TorneoDAO implements InterfaceTorneo {
     ConexionBD conn;
 
     @Override
-    public List<V_Torneo> Listar_torneo() {
+    public List<V_Torneo> Listar_Torneo() {
         this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
         String sql = "SELECT * FROM tatm_torneo";
         List<V_Torneo> list = new ArrayList<V_Torneo>();
