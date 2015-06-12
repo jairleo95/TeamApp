@@ -59,11 +59,11 @@
             <section class="content">
                 <div class="box">
                     <br> Tipo Juego: <select class="tipo_juego">
-                            <option value="1">Eliminatorias</option>
-                            <option value="2">Serie</option>
-                        </select>  
+                        <option value="1">Eliminatorias</option>
+                        <option value="2">Serie</option>
+                    </select>  
                     <div class="col-lg-2 col-xs-10">
-                       
+                        <input type="hidden" value="0" class="es_cronograma">
                         <button class="btn btn-block btn-success " id='btn_cal'>Calcular</button>
                     </div>
                     <br>
@@ -112,25 +112,39 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../../../dist/js/demo.js" type="text/javascript"></script>
     <script>
+
         function calcular_partidos() {
-            var d = "opc=Progamar_Juego&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val();
+            if ($(".es_cronograma").val() == "1") {
+                if (confirm("se perderán los datos ya calculados anteriormente, ¿desea volver a calcular?")) {
+                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val(), function(objJson) {
+                        listar_cronograma_loza();
+                    });
+                }
+            } else {
+                $.post("../../../programacion_partido", "opc=Progamar_Juego&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val(), function(objJson) {
+                    listar_cronograma_loza();
+                });
+            }
+
+        }
+        function listar_cronograma_loza() {
+            var d = "opc=ListarLozas_Horario&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val();
             var texto = '';
-            $(".tbodys").empty();
-            $(".tbodys").append('<tr><td colspan="7"><center> CARGANDO...<center> </td></tr>');
             $.post("../../../programacion_partido", d, function(objJson) {
                 var lista = objJson.lista;
                 $(".tbodys").empty();
                 for (var i = 0; i < lista.length; i++) {
+                    $(".es_cronograma").val("1");
                     texto += '<tr>';
                     texto += '<td>' + (i + 1) + '</td>';
                     if (typeof lista[i].id_equi_1 === 'undefined') {
-                        texto += '<td>winner</td>';
+                        texto += '<td>No definido</td>';
                     } else {
                         texto += '<td>' + lista[i].no_equipo_1 + '</td>';
                     }
                     texto += '<td>vs</td>';
                     if (typeof lista[i].id_equi_2 === 'undefined') {
-                        texto += '<td>winner</td>';
+                        texto += '<td>No definido</td>';
                     } else {
                         texto += '<td>' + lista[i].no_equipo_2 + '</td>';
                     }
@@ -150,13 +164,12 @@
                         }
                     }
                 }
-
                 $(".tbodys").append(texto);
                 texto = '';
             });
         }
         $(document).ready(function() {
-            $(".tablas").hide();
+            listar_cronograma_loza();
             $(".fe_inicio_t").datetimepicker();
             $("#").click(function() {
                 cal_can();

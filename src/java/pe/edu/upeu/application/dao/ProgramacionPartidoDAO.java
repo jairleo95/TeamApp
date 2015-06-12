@@ -138,4 +138,26 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
         }
         return true;
     }
+
+    @Override
+    public boolean Eliminar_Programacion(String id_torneo, String id_cat_juego) {
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            CallableStatement cst = this.conn.conex.prepareCall("{CALL tasp_eliminar_prog_juego( ?, ? )} ");
+            cst.setString(1, id_torneo);
+            cst.setString(2, id_cat_juego);
+            cst.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("ERROR :" + e.getMessage());
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
+        return true;
+    }
 }
