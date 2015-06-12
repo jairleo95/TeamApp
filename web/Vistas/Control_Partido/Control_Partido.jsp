@@ -186,7 +186,7 @@
                                 </table>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary">Sumar gol</button>
+                                <button type="button" class="btn btn-primary" onclick="AgregarGol()">Sumar gol</button>
                             </div>
                         </div>
                         <div class="col-md-6" >
@@ -298,7 +298,7 @@
                                 </table>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary btn-sum-gol">Sumar gol</button>
+                                <button type="button" class="btn btn-primary btn-sum-gol" onclick="AgregarGol()" >Sumar gol</button>
                             </div>
                         </div>  
                     </div>
