@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import pe.edu.upeu.application.dao.ProgramacionPartidoDAO;
 import pe.edu.upeu.application.interfaces.InterfaceProrgamacionPartidoDAO;
 
-
 /**
  *
  * @author Jairleo95
@@ -35,30 +34,39 @@ public class CProgramacion_Partido extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     InterfaceProrgamacionPartidoDAO iq = new ProgramacionPartidoDAO();
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          response.setContentType("UTF-8");
-          response.setContentType("application/json");
+        response.setContentType("UTF-8");
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         Map<String, Object> rpta = new HashMap<String, Object>();
         String opc = request.getParameter("opc");
-         try {
+        try {
             if (opc.equals("Cant_Torneo")) {
                 String id_torneo = request.getParameter("id_torneo");
                 int can_equipos = iq.Cantidad_Equipos(id_torneo);
-               // out.print(can_equipos);
+                // out.print(can_equipos);
             }
-            if("ListarLozas_Horario".equals(opc)){
-                List<Map<String,?>> list = iq.Listar_Cronograma();
-                rpta.put("rpta","1");
-                rpta.put("lista",list);
+            if ("ListarLozas_Horario".equals(opc)) {
+                List<Map<String, ?>> list = iq.Listar_Cronograma();
+                rpta.put("rpta", "1");
+                rpta.put("lista", list);
             }
-         } catch (Exception e) {
+            if (opc.equals("Porgamar_Juego")) {
+                String id_torneo = request.getParameter("id_torneo");
+                String id_cat_juego = request.getParameter("id_cat_juego");
+                String tipo_juego = request.getParameter("tipo_juego");
+                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego);
+                List<Map<String, ?>> list = iq.Listar_Cronograma();
+                rpta.put("rpta", "1");
+                rpta.put("lista", list);
+            }
+        } catch (Exception e) {
             rpta.put("rpta", "-1");
             rpta.put("mensaje", e.getMessage());
         }
-         Gson gson = new Gson();
+        Gson gson = new Gson();
         out.println(gson.toJson(rpta));
         out.flush();
         out.close();

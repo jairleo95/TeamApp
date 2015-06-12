@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pe.edu.upeu.application.dao;
 
 import java.sql.CallableStatement;
@@ -22,8 +21,8 @@ import pe.edu.upeu.application.interfaces.InterfaceProrgamacionPartidoDAO;
  *
  * @author Jairleo95
  */
-public class ProgramacionPartidoDAO implements  InterfaceProrgamacionPartidoDAO{
-    
+public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
+
     ConexionBD conn;
 
     @Override
@@ -107,5 +106,36 @@ public class ProgramacionPartidoDAO implements  InterfaceProrgamacionPartidoDAO{
             }
         }
         return id;
+    }
+
+    @Override
+    public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego) {
+        CallableStatement cst;
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            if (tipo_juego.equals("1")) {
+                cst = this.conn.conex.prepareCall("{CALL TASP_PROGRAMAR_PARTIDOS( ?, ?,? )} ");
+                cst.setString(1, id_torneo);
+                cst.setString(2, id_cat_juego);
+                cst.setString(3, tipo_juego);
+                cst.execute();
+            } else if (tipo_juego.equals("2")) {
+                cst = this.conn.conex.prepareCall("{CALL tasp_programar_partido_serie( ?, ? )} ");
+                cst.setString(1, id_torneo);
+                cst.setString(2, id_cat_juego);
+                cst.execute();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("ERROR :" + e.getMessage());
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
+        return true;
     }
 }
