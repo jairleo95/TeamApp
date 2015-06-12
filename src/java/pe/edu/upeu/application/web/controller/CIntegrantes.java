@@ -50,9 +50,11 @@ public class CIntegrantes extends HttpServlet {
                 String dni = request.getParameter("dni");
                 String correo = request.getParameter("email");
                 String id_ti_pe = null;
-                String id_cat_equi = "CTE-00000000000001";
+                String id_cat_equi = "categoria";
                 iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
                 response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
+            }if (opc.equals("listar_integrantes")) {
+                
             }
 
         } finally {
