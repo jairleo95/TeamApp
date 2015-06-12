@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../../WEB-INF/jspf/jscss.jspf" %>
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../../css/TablaPosicionamiento.css"/>
+        
     </head>
     <body>
         <%@include file="../../WEB-INF/jspf/top2.jspf" %>
