@@ -246,7 +246,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="box-body"  style="background: #00FF00" align="center">
+                                    <div class="box-body"  style="background: #20B2AA" align="center">
                                         <h1 id="nroGol2" class="cant-e-2">
 
                                         </h1>
@@ -254,7 +254,7 @@
                                 </div>
 
                             </div>
-                            <div class="box-body"  style="background: #E0F8F7" align="center">
+                            <div class="box-body"  style="background: #2F4F4F" align="center">
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #81DAF5" align="center">
                                         <a  data-toggle="modal" href="#myModal1" class="btn btn-labeled btn-danger">Tarjeta</a>
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #00FF00" align="center">
+                            <div class="box-body"  style="background: #48D1CC" align="center">
                                 <div class="row" align="center">
                                     <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
                                     </label><br>
