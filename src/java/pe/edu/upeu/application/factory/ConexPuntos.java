@@ -14,14 +14,30 @@ import java.sql.DriverManager;
  * @author SAMUEL
  */
 public class ConexPuntos {
-   private static  Connection conex=null;
-   public static  Connection getConex() throws Exception{
-   String url="jdbc:mysql://localhost/Futbol";      
-   String user="root";
-   String pwd="root";
-   Class.forName("com.mysql.jdbc.Driver").newInstance();
-   conex=DriverManager.getConnection(url, user, pwd);
-   return conex;
-   }
+    public static Connection getConex() throws Exception {
+        String usuario = "brandon256505";
+        String password = "Micronics135";
+        //String host = "localhost";
+        String host = "localhost";
+        String puerto = "1521";
+        String sid = "orcl";
+        //String sid = "";
+        /**
+         * String usuario = "TeamApp"; String password = "TeamApp"; String host
+         * = "localhost"; String puerto = "1521"; String sid = "xe";
+         */
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:" + usuario + "/" + password + "@" + host + ":" + puerto + ":" + sid;
+
+        Connection connection = null;
+
+        try {
+            Class.forName(driver).newInstance();
+            connection = DriverManager.getConnection(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
 }
 

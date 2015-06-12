@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Champions FIA</title>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="//code.jquery.com|/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="../../../css/jquery.datetimepicker.css">
 
         <!-- Bootstrap 3.3.4 -->

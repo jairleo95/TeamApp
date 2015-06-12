@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Jairleo95
+ * @author Laptop Sistemas
  */
-public class CDireccionar extends HttpServlet {
+public class CControl_Partido extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +32,9 @@ public class CDireccionar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String opc = request.getParameter("opc");
-        try {
-            if (opc.equals("Champion_FIA")) {
-                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp");
-            }
-            if (opc.equals("Principal")) {
-                  RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
-                dispatcher.forward(request, response);
-            }
-        } finally {
-            out.close();
+        String opc=request.getParameter("opc");
+        if(opc.equals("listar_partido")){
+            
         }
     }
 
