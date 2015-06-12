@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 public class Conexion {
 
     public static Connection getConex() throws Exception {
+       
         String usuario = "bd_fixture";
         String password = "fixture";
         //String host = "localhost";
@@ -39,5 +40,4 @@ public class Conexion {
         }
         return connection;
     }
-
 }
