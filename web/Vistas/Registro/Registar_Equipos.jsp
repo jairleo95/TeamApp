@@ -30,14 +30,14 @@
             <div class="register-logo">
                 <a href="../../Principal.jsp"><b>TEAM</b>App</a>
             </div>
-            <div class="page-header">
+            <div class="page-header" align="center">
                 <h1>Registro de Equipo</h1>
             </div>
             <form align="center" class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Nombres:</label>
+                    <label class="control-label col-xs-3">Nombre:</label>
                     <div class="col-xs-9">
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombres">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre del equipo a participar">
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,47 +51,14 @@
                             <input type="checkbox" name="var1" value="Basquetball">Basquetball</label>
                     </div>
                 </div>
-                <h3 class="box-title"></h3>
-                <div align="center">
-                    <label>Ingrese los nombres</label>                    
-                    <div class="box-header"> </div>                
-                    <div class="input-group">
-                        <input type="text" name="DelegadoNom" class="form-control">
-                    </div>
-                </div>
-                <div align="center">
-                    <label>Ingrese los apellidos</label>                    
-                    <div class="box-header"></div>                
-                    <div class="input-group">
-                        <input type="text" name="DelegadoApell" class="form-control">
-                    </div>
-                </div>
-                <div align="center">
-                    <label>Ingrese el numero de celular</label>
-                    <div class="box-header">
-                    </div>                
-                    <div class="input-group">
-                        <input type="text" name="DelegadoCel" class="form-control">
-                    </div>
-                </div>
-                <div align="center">
-                    <label>Ingrese el numero de DNI</label>
-                    <div class="box-header">
-                    </div>                
-                    <div class="input-group">
-                        <input type="text" name="DelegadoDni" class="form-control">
-                    </div>
-                </div>
-                <div align="center">
-                    <label>Ingrese su correo electronico</label>
-                    <div class="box-header">
-                    </div>                
-                    <div class="input-group">
-                        <input type="text" name="DelegadoEmail" class="form-control">
-                    </div>
-                </div>
+                <h3 class="box-title"></h3>                
                 <br>
-                <button type="submit" class="btn btn-primary" name="opc">Registrar</button>  
+                <button type="submit" class="btn btn-primary" name="opc">Registrar</button>
+                <br>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary" name="opc">Registrar jugadores</button>
+                </div>
             </form>
         </div>
     </body>
