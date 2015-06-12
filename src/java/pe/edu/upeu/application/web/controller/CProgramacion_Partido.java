@@ -49,18 +49,24 @@ public class CProgramacion_Partido extends HttpServlet {
                 // out.print(can_equipos);
             }
             if ("ListarLozas_Horario".equals(opc)) {
-                List<Map<String, ?>> list = iq.Listar_Cronograma();
+                String id_torneo = request.getParameter("id_torneo");
+                String id_cat_juego = request.getParameter("id_cat_juego");
+                List<Map<String, ?>> list = iq.Listar_Cronograma(id_torneo, id_cat_juego);
                 rpta.put("rpta", "1");
                 rpta.put("lista", list);
             }
-            if (opc.equals("Porgamar_Juego")) {
+            if (opc.equals("Progamar_Juego")) {
                 String id_torneo = request.getParameter("id_torneo");
                 String id_cat_juego = request.getParameter("id_cat_juego");
                 String tipo_juego = request.getParameter("tipo_juego");
                 iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego);
-                List<Map<String, ?>> list = iq.Listar_Cronograma();
-                rpta.put("rpta", "1");
-                rpta.put("lista", list);
+            }
+            if (opc.equals("Nuevo_Calculo")) {
+                String id_torneo = request.getParameter("id_torneo");
+                String id_cat_juego = request.getParameter("id_cat_juego");
+                String tipo_juego = request.getParameter("tipo_juego");
+                iq.Eliminar_Programacion(id_torneo, id_cat_juego);
+                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego);
             }
         } catch (Exception e) {
             rpta.put("rpta", "-1");

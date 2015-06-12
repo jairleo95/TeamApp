@@ -16,9 +16,11 @@ public interface InterfaceProrgamacionPartidoDAO {
 
     public int Cantidad_Equipos(String id_torneo);
 
-    public List<Map<String, ?>> Listar_Cronograma();
+    public List<Map<String, ?>> Listar_Cronograma(String id_torneo, String id_cat_juego );
 
     public String INSERT_EQUIPO(String ID_EQUIPO, String NO_EQUIPO, String ID_TORNEO, String ES_EQUIPO, String LOGO_EQUIPO);
 
     public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego);
+
+    public boolean Eliminar_Programacion(String id_torneo, String id_cat_juego);
 }

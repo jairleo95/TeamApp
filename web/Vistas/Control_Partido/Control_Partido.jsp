@@ -165,7 +165,7 @@
                     <input type="hidden" class="id_e_cat2" value="<%=id_eq_2.trim()%>">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #E0F8F7" align="center">
+                            <div class="box-body"  style="background: #48D1CC" align="center">
                                 <div class="row" align="center">
                                     <label><%out.println(p.Mostrar_nombre(id_eq_1.trim()));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
                                     <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="col-md-6" >
-                            <div class="box box-primary"  style="background: #E0F8F7">
+                            <div class="box box-primary"  style="background:#48D1CC">
 
                                 <table class="table table-responsive" <%--border="1" --%>align="center">
                                     <thead>
@@ -236,9 +236,9 @@
 
                                 </table>
                             </div>
-                            <div class="box-body"  style="background: #E0F8F7" align="center">
+                            <div class="box-body"  style="background:#2F4F4F" align="center">
                                 <div class="col-md-6">
-                                    <div class="box-body"  style="background: #81DAF5" align="center">
+                                    <div class="box-body"  style="background: #20B2AA" align="center">
                                         <h1 id="nroGol" class="cant-e-1">
 
                                         </h1>
@@ -246,7 +246,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="box-body"  style="background: #81DAF5" align="center">
+                                    <div class="box-body"  style="background: #00FF00" align="center">
                                         <h1 id="nroGol2" class="cant-e-2">
 
                                         </h1>
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #E0F8F7" align="center">
+                            <div class="box-body"  style="background: #00FF00" align="center">
                                 <div class="row" align="center">
                                     <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
                                     </label><br>
