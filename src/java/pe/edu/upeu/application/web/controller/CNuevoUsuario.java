@@ -31,14 +31,15 @@ public class CNuevoUsuario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   // InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
-    InterfaceNuevoUsuario nuu=(InterfaceNuevoUsuario) new NuevoUsuarioDAO();
+    // InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
+    InterfaceNuevoUsuario nuu = (InterfaceNuevoUsuario) new NuevoUsuarioDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");        
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-        
+
         try {
             if (opc.equals("Registrar_Integrantes")) {
                 String nombre = request.getParameter("nombre");
@@ -47,7 +48,13 @@ public class CNuevoUsuario extends HttpServlet {
                 String cel = request.getParameter("cell");
                 String dni = request.getParameter("dni");
                 String correo = request.getParameter("email");
-                out.print(nombre+" "+ap_mater+" "+ap_pater+" "+cel+" "+dni+" "+correo);
+                String correo_user = request.getParameter("email");
+                String pss = request.getParameter("pass");
+                String co_un = request.getParameter("c_uni");
+                String id_ti_p = null;
+                String id_user = null;
+                nuu.Insert_USUARIOS(null, nombre, ap_pater, co_un, cel, dni, id_ti_p, ap_mater, correo, id_user,correo_user, pss);
+                response.sendRedirect("index.jsp");
             }
 
         } finally {
