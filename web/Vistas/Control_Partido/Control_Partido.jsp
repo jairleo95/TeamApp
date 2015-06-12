@@ -290,7 +290,7 @@
     
     
         </table>
-<table class="table" width="900" height="10" align="right">
+<table class="table " width="900" height="10" align="right">
     <%--<TR>
         <td><input type="text" align="right" name="GolEqui2" value="" /></td>
     </TR>
