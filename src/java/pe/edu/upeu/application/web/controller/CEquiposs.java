@@ -58,13 +58,16 @@ public class CEquiposs extends HttpServlet {
             String id_equi = cj.INSERT_EQUIPO(null, nombre_equipo, id_torneo, es_equipo, logo_equipo);
             String check2[] = request.getParameterValues("cat_juego");
             for (int i = 0; i < check2.length; i++) {
-                String q=check2[i];
-                  cae.Insertar_Cat_equipo(id_equi, q);
-                out.print(check2[i]);
+                String q = check2[i];
+                cae.Insertar_Cat_equipo(id_equi, q);
+                //out.print(check2[i]);
             }
-            out.print(id_equi);
+            //out.print(id_equi);
+            //getServletContext().setAttribute(id_equi);
             getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
-            response.sendRedirect("Vistas/Registro/Registar_Equipos.jsp");
+            
+            response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
+            
         }
     }
 
