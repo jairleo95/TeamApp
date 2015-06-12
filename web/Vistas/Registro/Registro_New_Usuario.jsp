@@ -59,15 +59,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Celular:</label>
+                    <label class="control-label col-xs-3" id="numero">Celular:</label>
                     <div class="col-xs-9">
-                        <input type="tel" class="form-control" name="cell"placeholder="Celular" >
+                        <input type="number" class="form-control" onkeypress="return  solonumeros(event)" name="cell"placeholder="Celular" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-xs-3">N. Documento:</label>
                     <div class="col-xs-9">
-                        <input type="tel" class="form-control" name="dni" placeholder="N° Documento">
+                        <input type="number" class="form-control" onkeypress="return solonumeros(event)" onpaste="return false" name="dni" required="" placeholder="N° Documento">
                     </div>
                 </div>
                 <div class="form-group">
@@ -89,30 +89,54 @@
                         </div>
                     </div>
                 </div>
-                    <br>
-                    <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">               
-                    <div class="form-group">
-                        <footer>
-                            <div class="col-xs-offset-3 col-xs-9">
-                                <button type="submit" class="btn btn-primary"> Registrar</button>
-                                <input type="reset" class="btn btn-default" value="Limpiar">
-                            </div>
-                        </footer>
-                    </div>
+                <br>
+                <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">               
+                <div class="form-group">
+                    <footer>
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <button type="submit" class="btn btn-primary"> Registrar</button>
+                            <input type="reset" class="btn btn-default" value="Limpiar">
+                        </div>
+                    </footer>
+                </div>
 
             </form>
         </div>
-    <!-- Js vinculados -->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/responsive.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Js vinculados -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/responsive.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
 
-    <div id="window-resizer-tooltip" style="display: none;">
-        <a href="#" title="Edit settings"></a>
-        <span class="tooltipTitle">Window size: </span>
-        <span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">1050</span>
-        <br><span class="tooltipTitle">Viewport size: </span>
-        <span class="tooltipWidth" id="vpWidth">1362</span> x <span class="tooltipHeight" id="vpHeight">989</span>
-    </div></body>
+        <div id="window-resizer-tooltip" style="display: none;">
+            <a href="#" title="Edit settings"></a>
+            <span class="tooltipTitle">Window size: </span>
+            <span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">1050</span>
+            <br><span class="tooltipTitle">Viewport size: </span>
+            <span class="tooltipWidth" id="vpWidth">1362</span> x <span class="tooltipHeight" id="vpHeight">989</span>
+        </div>
+    </body>
+    <script>
+                            function validarSiNumero(object)
+                            {
+                                numero = object.value;
+                                if (!/^([0-9])*$/.test(numero))
+                                    object.value = numero.substring(0, numero.length - 1);
+                            }
+                            function solonumeros(e) {
+                                key = e.keyCode || e.which;
+                                teclado = String.fromCharCode(key);
+                                numeros = "0123456789";
+                                especiales = "8-37-38-46";//array
+                                teclado_especial = false;
+                                for (var i in especiales) {
+                                    if (key == especiales[i]) {
+                                        teclado_especial = true;
+                                    }
+                                }
+                                if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+                                    return false;
+                                }
+                            }
+    </script>
 </html>
