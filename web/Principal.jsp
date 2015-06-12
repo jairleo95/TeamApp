@@ -334,6 +334,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="direccionar?opc=Programar_Juego"  target="myframe" ><i class="fa fa-circle-o"></i> Programar Juegos</a></li>
+                                <li class="active"><a href="direccionar?opc=Champion_FIA"  target="myframe" ><i class="fa fa-circle-o"></i> Champion FIA</a></li>
+                                <li class="active"><a href="torneo?opc=Listar_Torneos"  target="myframe2" ><i class="fa fa-circle-o"></i> Torneos</a></li>
+                                <li class="active"><a href="control_partido?opc=listar_partido"  target="myframe2" ><i class="fa fa-circle-o"></i> Listar_partido</a></li>
                             </ul>
                         </li>
                         <!--  <li class="active treeview">-->

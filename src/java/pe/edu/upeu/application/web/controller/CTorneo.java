@@ -36,7 +36,7 @@ public class CTorneo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-        if (opc.equals("Listar_Torneo")) {
+        if (opc.equals("Listar_Torneos")) {
             getServletContext().setAttribute("Listar_Torneo", to.Listar_Torneo());
             response.sendRedirect("Vistas/Registro/Listar_Torneo.jsp")  ;
         }
