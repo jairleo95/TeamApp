@@ -23,7 +23,25 @@
     </head>
     <body class="box box-primary">
         <div class="box box-primary">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <div class="register-logo">
+                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+            </div>
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <div >
+                <p align="center">Registrar Nuevos Integrantes</p>
+                <form action="../../integrantes" id="checkout-form" class="smart-form" novalidate="novalidate">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" name="nombre"placeholder="Nombres" required="">
+                        <span class="glyphicon glyphicon-user form-control-feedback nombre"></span>
+=======
             <div class="container">
                 <div class="register-logo">
                     <a href="../../Principal.jsp"><b>TEAM</b>App</a>
@@ -37,6 +55,22 @@
                         <div class="col-xs-9">
                             <input type="text" class="form-control" name="nombre" placeholder="Nombres" required="">
                         </div>
+>>>>>>> origin/master
+=======
+            <div class="container">
+                <div class="register-logo">
+                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                </div>
+                <div class="page-header">
+                    <h1>Registro de Integrantes de Equipos</h1>
+                </div>
+                <form action="../../integrantes" id="checkout-form" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Nombres:</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombres" required="">
+                        </div>
+>>>>>>> origin/master
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Apellido Paterno</label>
@@ -81,6 +115,13 @@
                         </div>
                     </div>
                     <input type="hidden" name="opc"  class="submit" value="Registrar_Integrantes">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <footer>
+                        <button type="submit" class="btn btn-primary" >Registrar
+                        </button>
+                    </footer>
+=======
                     <div class="form-group">
                         <footer>
                             <div class="col-xs-offset-3 col-xs-9">
@@ -89,6 +130,17 @@
                             </div>
                         </footer>
                     </div>
+>>>>>>> origin/master
+=======
+                    <div class="form-group">
+                        <footer>
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                <input type="reset" class="btn btn-default" value="Limpiar">
+                            </div>
+                        </footer>
+                    </div>
+>>>>>>> origin/master
                 </form>                  
             </div>
         </div>  

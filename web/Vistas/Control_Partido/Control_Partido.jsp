@@ -269,7 +269,7 @@
 </tbody>
 
 </table>
-    <table class="table " width="900" height="10">
+    <table class="table" width="900" height="10">
         <TR>
             <td><input id="nroGol" type="text" name="GolEqui1" value="" /></td>
         </TR>
@@ -290,7 +290,7 @@
     
     
         </table>
-<table class="table " width="900" height="10" align="right">
+<table class="table" width="900" height="10" align="right">
     <%--<TR>
         <td><input type="text" align="right" name="GolEqui2" value="" /></td>
     </TR>
