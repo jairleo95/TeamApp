@@ -10,11 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@include file="../WEB-INF/jspf/jscss.jspf" %>
+        <%@include file="../../WEB-INF/jspf/jscss.jspf" %>
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="../WEB-INF/jspf/top1.jspf" %>
+        <%@include file="../../WEB-INF/jspf/top1.jspf" %>
         <div class="jumbotron">
         <center>
         <div style="width: 800px;">
@@ -95,6 +95,6 @@
         </div>
         </center>
         </div>
-        <%@include file="../WEB-INF/jspf/bottom.jspf" %>
+        <%@include file="../../WEB-INF/jspf/bottom.jspf" %>
         </body>
 </html>
