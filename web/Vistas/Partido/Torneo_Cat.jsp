@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>AdminLTE 2 | Widgets</title>
+        <title>Programar Torneo</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.4 -->
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -45,16 +45,16 @@
                 <div class="col-lg-12">
                     <div class="form-group col-lg-4">
                         <h3>Nombre del Torneo:</h3>
-                        <%String opc = request.getParameter("opc") ;%>
+                        <%String opc = request.getParameter("opc");%>
                         <select class="form-control">
-                            <%if(opc.equals("Champion_FIA")){%>
+                            <%if (opc.equals("Champion_FIA")) {%>
                             <option  selected="">ChampionFIA</option>
-                            <%}else if(opc.equals("Eliminatorias")){%>
+                            <%} else if (opc.equals("Eliminatorias")) {%>
                             <option disabled="" selected="">[SELECCIONE]</option>
                             <option>Relampago</option>
                             <option>Champion</option>
-                            <%}else if (opc.equals("Series")){%>
-                             <option disabled="" selected="">[SELECCIONE]</option>
+                            <%} else if (opc.equals("Series")) {%>
+                            <option disabled="" selected="">[SELECCIONE]</option>
                             <option>Sudamericano</option>
                             <option>UPEU Copa</option>
                             <%}%>
@@ -78,7 +78,7 @@
                             <div class="icon">
                                 <i class="fa fa-soccer-ball-o"></i>
                             </div>
-                            <a href="../Partido/Programacion_Partido/Champion_FIA.jsp" class="small-box-footer">
+                            <a href="../../direccionar?opc=Programar_Futsal" class="small-box-footer">
                                 Ingresar  <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
@@ -123,7 +123,7 @@
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
         <div class='control-sidebar-bg'></div>
-        
+
         <!-- jQuery 2.1.4 -->
         <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <!-- Bootstrap 3.3.2 JS -->

@@ -43,8 +43,14 @@ public class CDireccionar extends HttpServlet {
             if (opc.equals("Series")) {
                 response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Series");
             }
+            if (opc.equals("Programar_Juego")) {
+                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Series");
+            }
+            if (opc.equals("Programar_Futsal")) {
+                response.sendRedirect("Vistas/Partido/Programacion_Partido/Programar_Juego.jsp");
+            }
             if (opc.equals("Principal")) {
-                  RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
                 dispatcher.forward(request, response);
             }
         } finally {

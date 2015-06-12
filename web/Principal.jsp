@@ -330,12 +330,10 @@
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Programación Partido</span> <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-dashboard"></i> <span>Programación Torneo</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="direccionar?opc=Champion_FIA"  target="myframe" ><i class="fa fa-circle-o"></i> Champion FIA</a></li>
-                                <li class="active"><a  href="direccionar?opc=Eliminatorias" target="myframe" ><i class="fa fa-circle-o"></i> Eliminatorias</a></li>
-                                <li class="active"><a h href="direccionar?opc=Series" target="myframe" ><i class="fa fa-circle-o"></i> Series</a></li>
+                                <li class="active"><a href="direccionar?opc=Programar_Juego"  target="myframe" ><i class="fa fa-circle-o"></i> Programar Juegos</a></li>
                             </ul>
                         </li>
                         <!--  <li class="active treeview">-->
