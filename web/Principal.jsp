@@ -334,6 +334,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="direccionar?opc=Champion_FIA"  target="myframe" ><i class="fa fa-circle-o"></i> Champion FIA</a></li>
+                                <li class="active"><a href="torneo?opc=Listar_Torneos"  target="myframe2" ><i class="fa fa-circle-o"></i> Torneos</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Eliminatorias</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Series</a></li>
                             </ul>
@@ -341,10 +342,10 @@
                         <!--  <li class="active treeview">-->
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-dashboard"></i> <span>Control de Partidos</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                                <li class="active"><a href="Vistas/Control_Partido/Control_Partido.jsp"><i class="fa fa-circle-o"></i> Control Partidos</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                             </ul>
                         </li>

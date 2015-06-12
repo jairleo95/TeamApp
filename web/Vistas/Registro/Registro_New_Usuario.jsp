@@ -36,25 +36,10 @@
             <div class="register-logo">
                 <a href="../../Principal.jsp"><b>TEAM</b>App</a>
             </div>
-            <form action="../../nuevousuario"class="form-horizontal">
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Email:</label>
-                    <div class="col-xs-9">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Password:</label>
-                    <div class="col-xs-9">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Confirmar Password:</label>
-                    <div class="col-xs-9">
-                        <input type="password" class="form-control" placeholder="Confirmar Password">
-                    </div>
-                </div>
+            <div class="page-header">
+                <h1>Registro de Nuevos Usuarios</h1>
+            </div>
+            <form action="../../nuevousuario" class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-xs-3">Nombres:</label>
                     <div class="col-xs-9">
@@ -74,28 +59,34 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Celular:</label>
+                    <label class="control-label col-xs-3" id="numero">Celular:</label>
                     <div class="col-xs-9">
-                        <input type="tel" class="form-control" name="cell"placeholder="Celular" >
+                        <input type="number" class="form-control" onkeypress="return  solonumeros(event)" name="cell"placeholder="Celular" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-xs-3">N. Documento:</label>
                     <div class="col-xs-9">
-                        <input type="tel" class="form-control" name="dni" placeholder="N° Documento">
+                        <input type="number" class="form-control" onkeypress="return solonumeros(event)" onpaste="return false" name="dni" required="" placeholder="N° Documento">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-xs-3">Dirección:</label>
+                    <label class="control-label col-xs-3">Email:</label>
                     <div class="col-xs-9">
-                        <textarea rows="3" class="form-control" placeholder="Dirección"></textarea>
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-xs-offset-3 col-xs-9">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" value="agree">  Accepto <a href="#">Terminos y condiciones</a>.
-                        </label>
+                    <label class="control-label col-xs-3">Tipo de Persona</label>
+                    <div class="form-group">
+                        <div class="control-label col-xs-3">
+                            <select name="puesto" class="form-control"> 
+                                <option value="">[Seleccione]</option>
+                                <option value="01">Delegado</option>
+                                <option value="02">Administrador</option>
+                                <option value="03">Secretaria</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -111,18 +102,41 @@
 
             </form>
         </div>
-    </div>
-    <!-- Js vinculados -->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/responsive.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Js vinculados -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/responsive.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 
 
-    <div id="window-resizer-tooltip" style="display: none;">
-        <a href="#" title="Edit settings"></a>
-        <span class="tooltipTitle">Window size: </span>
-        <span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">1050</span>
-        <br><span class="tooltipTitle">Viewport size: </span>
-        <span class="tooltipWidth" id="vpWidth">1362</span> x <span class="tooltipHeight" id="vpHeight">989</span>
-    </div></body>
+        <div id="window-resizer-tooltip" style="display: none;">
+            <a href="#" title="Edit settings"></a>
+            <span class="tooltipTitle">Window size: </span>
+            <span class="tooltipWidth" id="winWidth">1920</span> x <span class="tooltipHeight" id="winHeight">1050</span>
+            <br><span class="tooltipTitle">Viewport size: </span>
+            <span class="tooltipWidth" id="vpWidth">1362</span> x <span class="tooltipHeight" id="vpHeight">989</span>
+        </div>
+    </body>
+    <script>
+                            function validarSiNumero(object)
+                            {
+                                numero = object.value;
+                                if (!/^([0-9])*$/.test(numero))
+                                    object.value = numero.substring(0, numero.length - 1);
+                            }
+                            function solonumeros(e) {
+                                key = e.keyCode || e.which;
+                                teclado = String.fromCharCode(key);
+                                numeros = "0123456789";
+                                especiales = "8-37-38-46";//array
+                                teclado_especial = false;
+                                for (var i in especiales) {
+                                    if (key == especiales[i]) {
+                                        teclado_especial = true;
+                                    }
+                                }
+                                if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+                                    return false;
+                                }
+                            }
+    </script>
 </html>

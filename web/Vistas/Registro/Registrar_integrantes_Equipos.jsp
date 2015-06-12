@@ -23,11 +23,14 @@
     </head>
     <body class="box box-primary">
         <div class="box box-primary">
-            <div class="register-logo">
-                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
-            </div>
+
             <div class="container">
-                <p align="center">Registrar Nuevos Integrantes</p>
+                <div class="register-logo">
+                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                </div>
+                <div class="page-header">
+                    <h1>Registro de Integrantes de Equipos</h1>
+                </div>
                 <form action="../../integrantes" id="checkout-form" class="form-horizontal">
                     <div class="form-group">
                         <label class="control-label col-xs-3">Nombres:</label>
