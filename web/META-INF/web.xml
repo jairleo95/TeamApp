@@ -28,6 +28,10 @@
         <servlet-name>CValidar</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CValidar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CControl_Partido</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CControl_Partido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -45,19 +49,20 @@
         <url-pattern>/equipos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>CControl_Punto</servlet-name>
         <url-pattern>/control_punto</url-pattern>
-        
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CIntegrantes</servlet-name>
         <url-pattern>/integrantes</url-pattern>
-
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CValidar</servlet-name>
         <url-pattern>/validar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CControl_Partido</servlet-name>
+        <url-pattern>/control_partido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
