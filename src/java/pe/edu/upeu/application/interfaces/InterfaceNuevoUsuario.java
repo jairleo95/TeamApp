@@ -12,5 +12,7 @@ import pe.edu.upeu.application.DTO.persona;
  *
  * @author Jose
  */
-public interface InterfaceNuevoUsuario {
+public interface InterfaceNuevoUsuario{
+    public void Insert_USUARIOS(String id, String nombre, String ap_pater,String c_uni, String cel, String dni,String  id_ti_p, String ap_mater, String correo,String id_user,String corre_use,String pss);
+            
 }
