@@ -43,11 +43,11 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
     }
 
     @Override
-    public List<Map<String, ?>> Listar_Cronograma() {
+    public List<Map<String, ?>> Listar_Cronograma(String id_torneo, String id_cat_juego) {
         List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS order by ID_LOZA_DEPORTIVA, id_juego asc";
+            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS where id_categoria_juego='"+id_cat_juego+"' and id_torneo='"+id_torneo+"' order by ID_LOZA_DEPORTIVA, id_juego asc";
 
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {

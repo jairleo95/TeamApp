@@ -49,7 +49,9 @@ public class CProgramacion_Partido extends HttpServlet {
                 // out.print(can_equipos);
             }
             if ("ListarLozas_Horario".equals(opc)) {
-                List<Map<String, ?>> list = iq.Listar_Cronograma();
+                String id_torneo = request.getParameter("id_torneo");
+                String id_cat_juego = request.getParameter("id_cat_juego");
+                List<Map<String, ?>> list = iq.Listar_Cronograma(id_torneo, id_cat_juego);
                 rpta.put("rpta", "1");
                 rpta.put("lista", list);
             }
