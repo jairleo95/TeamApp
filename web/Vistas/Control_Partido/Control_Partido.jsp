@@ -4,11 +4,13 @@
     Author     : YW
 --%>
 
+<%@page import="pe.edu.upeu.application.dao.Control_PartidoDAO"%>
+<%@page import="pe.edu.upeu.application.interfaces.InterfaceControl_Partido"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html >
-
+    <% InterfaceControl_Partido p = new Control_PartidoDAO();%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Control de Partidos</title>
@@ -153,37 +155,17 @@
         </head>
         <body style="background: #E6E6E6">
                 <section class="content">
-                    <input type="hidden" value="<%=request.getParameter("id_juego")%>">
+                    <input type="hidden" class="id_jue" value="<%=request.getParameter("id_juego")%>">
+                    <input type="hidden" class="id_e_cat1" value="<%=request.getParameter("id_eq_1")%>">
+                    <input type="hidden" class="id_e_cat2" value="<%=request.getParameter("id_eq_2")%>">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="box-body"  style="background: #E0F8F7" align="center">
                                 <div class="row" align="center">
-                                    <label>sasasa<br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label>
-                                </div>
-                                <table border="1" align="Center" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">EQUIPO1</th>
+                                    <label><%out.print(p.Mostrar_nombre(request.getParameter("id_eq_1")));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
+                                    <label><%out.print(p.Mostrar_categoria_juego(request.getParameter("id_juego")));%></label>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Categoria de Equipo</td>
-                                            <td>Nombre Equipo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div id="wins">
-                                                    <th1>Futsal</th1>
-                                                </div>
-                                            </td>
-                                            <td>
-                                    <th2>Ing Ambiental</th2>
-                                    </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                </div>
                                 <br>
                                 <br>
                                 <button type="button" class="btn btn-primary">Sumar gol</button>
@@ -252,15 +234,15 @@
                             <div class="box-body"  style="background: #E0F8F7" align="center">
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #81DAF5" align="center">
-                                        <h1 id="nroGol">
+                                        <h1 id="nroGol" class="cant-e-1">
                                             0
                                         </h1>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #81DAF5" align="center">
-                                        <h1 id="nroGol2">
-                                           0
+                                        <h1 id="nroGol2" class="cant-e-2">
+                                            0
                                         </h1>
                                     </div>
                                 </div>
@@ -269,33 +251,10 @@
                         <div class="col-md-3">
                             <div class="box-body"  style="background: #E0F8F7" align="center">
                                 <div class="row" align="center">
-                                    <label>sasasa<br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
-                                    </label>
+                                    <label><%out.print(p.Mostrar_nombre(request.getParameter("id_eq_2")));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
+                                    </label><br>
+                                    <label><%out.print(p.Mostrar_categoria_juego(request.getParameter("id_juego")));%></label>
                                 </div>
-                                <table class="table table-hover table-responsive" border="1" align="Center" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">EQUIPO2</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Categoria de Equipo</td>
-                                            <td>Nombre Equipo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div id="wins">
-                                                    <th1>Futsal</th1>
-                                                </div>
-                                            </td>
-                                            <td>
-                                    <th2>Ing Sistemas</th2>
-                                    </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
                                 <br>
                                 <br>
                                 <button type="button" class="btn btn-primary btn-sum-gol">Sumar gol</button>
@@ -391,10 +350,10 @@
             <!-- AdminLTE for demo purposes -->
             <script src="../../dist/js/demo.js" type="text/javascript"></script>
             <script>
-                            var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                            var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
-                            var f = new Date();
-                            document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                var f = new Date();
+                document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
             </script>
             <script>
                 var goles = 0;
@@ -419,5 +378,18 @@
                     tarRoja = tarRoja + 1;
                     $("#tarRoja").val(tarRoja);
                 }
+            </script>
+            <script>
+                function Listar_puntos(){
+                    var a=$(".cant-e-1");
+                    var a=$(".cant-e-2");
+                    var a=$(".cant-e-2");
+                    $.post("../../con_part_json","opc=Listar_puntos&id_cat_equipo="+$(".id_e_cat1").val()+"&id_juego="+$(".id_jue").val(),function (objJson){
+                        
+                    });
+                }
+                $(document).ready(function (){
+                    
+                });
             </script>
         </html>

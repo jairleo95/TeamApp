@@ -335,6 +335,7 @@
                             <ul class="treeview-menu">
                                 <li class="active"><a href="direccionar?opc=Champion_FIA"  target="myframe" ><i class="fa fa-circle-o"></i> Champion FIA</a></li>
                                 <li class="active"><a href="torneo?opc=Listar_Torneos"  target="myframe2" ><i class="fa fa-circle-o"></i> Torneos</a></li>
+                                <li class="active"><a href="control_partido?opc=listar_partido"  target="myframe2" ><i class="fa fa-circle-o"></i> Listar_partido</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Eliminatorias</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Series</a></li>
                             </ul>

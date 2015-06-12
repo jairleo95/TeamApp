@@ -32,6 +32,10 @@
         <servlet-name>CControl_Partido</servlet-name>
         <servlet-class>pe.edu.upeu.application.web.controller.CControl_Partido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CControl_Partido_json</servlet-name>
+        <servlet-class>pe.edu.upeu.application.web.controller.CControl_Partido_json</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CMenu</servlet-name>
         <url-pattern>/menu</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>CControl_Partido</servlet-name>
         <url-pattern>/control_partido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CControl_Partido_json</servlet-name>
+        <url-pattern>/con_part_json</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

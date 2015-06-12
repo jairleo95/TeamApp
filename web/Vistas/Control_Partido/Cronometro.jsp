@@ -3,7 +3,7 @@
     Created on : 07/06/2015, 05:36:34 PM
     Author     : alum.fial7
 --%>
-
+<jsp:useBean class="java.util.ArrayList" scope="application"  id="Listar_Requerimiento"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
