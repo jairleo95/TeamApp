@@ -20,6 +20,12 @@
         <div class="alert alert-info" role="alert">
             <a href="12Equipos_Voley.jsp" class="alert-link"><center>Grupos de 12 Equipos</center></a>
         </div>
+        <div class="alert alert-info" role="alert">
+            <a href="24Equipos_Voley.jsp" class="alert-link"><center>Grupos de 24 Equipos</center></a>
+        </div>
+        <div class="alert alert-info" role="alert">
+            <center><a href="javascript:window.history.back();">&laquo; Volver atrás</a></center>
+        </div>
         <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
    </body>
 </html>
