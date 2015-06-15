@@ -349,7 +349,17 @@
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                             </ul>
                         </li>
-
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>Puntos por Grupos</span> <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active"><a href="Vistas/Control_Puntos/GruposFutbol.jsp"  target="myframe" ><i class="fa fa-circle-o"></i> Futbol</a></li>
+                                <li class="active"><a href="Vistas/Control_Puntos/GruposVoley.jsp"  target="myframe" ><i class="fa fa-circle-o"></i> Voley</a></li>
+                                <li class="active"><a href="Vistas/Control_Puntos/GruposBasquet.jsp"  target="myframe" ><i class="fa fa-circle-o"></i> Basquetball</a></li>
+                                
+                            </ul>
+                        </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-files-o"></i>

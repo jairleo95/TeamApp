@@ -15,12 +15,12 @@ import java.sql.DriverManager;
  */
 public class ConexPuntos {
     public static Connection getConex() throws Exception {
-        String usuario = "brandon256505";
-        String password = "Micronics135";
+        String usuario = "BD_FIXTURE";
+        String password = "fixture";
         //String host = "localhost";
         String host = "localhost";
         String puerto = "1521";
-        String sid = "orcl";
+        String sid = "xe";
         //String sid = "";
         /**
          * String usuario = "TeamApp"; String password = "TeamApp"; String host

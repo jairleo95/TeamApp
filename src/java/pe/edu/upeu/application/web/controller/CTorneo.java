@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pe.edu.upeu.application.web.controller;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,15 +33,36 @@ public class CTorneo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceTorneo to= new TorneoDAO();
+    InterfaceTorneo to = new TorneoDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-        if (opc.equals("Listar_Torneos")) {
-            getServletContext().setAttribute("Listar_Torneo", to.Listar_Torneo());
-            response.sendRedirect("Vistas/Registro/Listar_Torneo.jsp")  ;
+        Map<String, Object> rpta = new HashMap<String, Object>();
+
+        try {
+
+            if (opc.equals("Listar_Torneos")) {
+                getServletContext().setAttribute("Listar_Torneo", to.Listar_Torneo());
+                response.sendRedirect("Vistas/Registro/Listar_Torneo.jsp");
+            }
+            if (opc.equals("Ver_Torneo")) {
+                List<Map<String, ?>> list = to.List_Torneo();
+                rpta.put("rpta", "1");
+                rpta.put("lista", list);
+
+            }
+        } catch (Exception e) {
+            rpta.put("rpta", "-1");
+            rpta.put("mensaje", e.getMessage());
+        } finally {
+            Gson gson = new Gson();
+            out.println(gson.toJson(rpta));
+            out.flush();
+            out.close();
         }
     }
 
