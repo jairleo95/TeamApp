@@ -8,7 +8,9 @@ package pe.edu.upeu.application.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import pe.edu.upeu.application.factory.ConexionBD;
 import pe.edu.upeu.application.factory.FactoryConnectionDB;
 import pe.edu.upeu.application.interfaces.InterfaceTorneo;
@@ -49,6 +51,35 @@ public class TorneoDAO implements InterfaceTorneo {
         }
 
         return list;
+    }
+    
+    @Override
+    public List<Map<String, ?>> List_Torneo() {
+        List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            String sql = "select ID_TORNEO, NO_TORNEO ||' - '|| LU_TORNEO ||' ('|| FE_INICIO||' - '|| FE_FIN||') ' as nombre from tatm_torneo where es_torneo='1' ";
+            ResultSet rs = this.conn.query(sql);
+            while (rs.next()) {
+                Map<String, Object> rec = new HashMap<String, Object>();
+                rec.put("id", rs.getString("id_torneo"));
+                rec.put("nombre", rs.getString("nombre"));
+                lista.add(rec);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("ERROR: " + e.getMessage());
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+                throw new RuntimeException(e.getMessage());
+            }
+        }
+        return lista;
+
     }
 
 }
