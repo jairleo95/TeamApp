@@ -1,7 +1,7 @@
 <%-- 
-    Document   : GruposFutbol
-    Created on : 14/06/2015, 12:32:01 PM
-    Author     : SAMUEL
+    Document   : Principal
+    Created on : 15-jun-2015, 10:05:55
+    Author     : Brandon
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,16 +15,13 @@
     <body>
         <h1>Grupos Futbol</h1>
         <div class="alert alert-success" role="alert">
-            <a href="6Equipos_Fut.jsp" class="alert-link"><center>Grupos de 6 Equipos</center></a>
+            <a href="GruposFutbol.jsp" class="alert-link"><center>FUTBOL</center></a>
         </div>
         <div class="alert alert-info" role="alert">
-            <a href="12Equipos_Fut.jsp" class="alert-link"><center>Grupos de 12 Equipos</center></a>
+            <a href="GruposVoley.jsp" class="alert-link"><center>VOLEY</center></a>
         </div>
         <div class="alert alert-warning" role="alert">
-            <a href="24Equipos_Fut.jsp" class="alert-link"><center>Grupos de 24 Equipos</center></a>
-        </div>
-        <div class="alert alert-info" role="alert">
-            <center><a href="javascript:window.history.back();">&laquo; Volver atrás</a></center>
+            <a href="GruposBasquet.jsp" class="alert-link"><center>BASQUETBOLL</center></a>
         </div>
         <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
    </body>
