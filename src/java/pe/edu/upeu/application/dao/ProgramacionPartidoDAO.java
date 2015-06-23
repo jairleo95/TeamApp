@@ -47,7 +47,7 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
         List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            String sql = "SELECT * FROM CRONOGRAMA_PARTIDOS_JUEGOS where id_categoria_juego='"+id_cat_juego+"' and id_torneo='"+id_torneo+"' order by ID_LOZA_DEPORTIVA, id_juego asc";
+            String sql = "SELECT CRONOGRAMA_PARTIDOS_JUEGOS.*,RHFU_DETERMINAR_FIANLISTAS (ID_CATEGORIA_JUEGO,ID_TORNEO,ID_JUEGO) AS FINALISTA FROM CRONOGRAMA_PARTIDOS_JUEGOS where id_categoria_juego='"+id_cat_juego+"' and id_torneo='"+id_torneo+"' order by ID_LOZA_DEPORTIVA, id_juego asc";
 
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {
@@ -64,6 +64,8 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
                 rec.put("id_equi_2", rs.getString("ID_EQUIPO_2"));
                 rec.put("no_equipo_1", rs.getString("no_equipo_1"));
                 rec.put("no_equipo_2", rs.getString("no_equipo_2"));
+                rec.put("finalista", rs.getString("finalista"));
+                rec.put("id_serie", rs.getString("ID_SERIE"));
                 lista.add(rec);
             }
             rs.close();
