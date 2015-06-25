@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PuntosEquipoBasquet
-    Created on : 28/05/2015, 11:38:34 PM
+    Document   : PuntosEquipoVoley
+    Created on : 28/05/2015, 11:38:07 PM
     Author     : SAMUEL
 --%>
 
@@ -10,12 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@include file="../WEB-INF/jspf/jscss.jspf" %>
+        <%@include file="../../WEB-INF/jspf/jscss.jspf" %>
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../css/TablaPosicionamiento.css"/>
     </head>
     <body>
-        <%@include file="../WEB-INF/jspf/top2.jspf" %>
+        <%@include file="../../WEB-INF/jspf/top1.jspf" %>
         <div class="jumbotron">
         <center>
         <div style="width: 800px;">
@@ -29,7 +28,9 @@
             %>
             
             CANTIDAD DE EQUIPOS: <% out.println(equipos[cant_equipos]);%>
-            <%                               
+            <%
+               
+                
                 if (equipos[cant_equipos] == 6){
                    cant_tablas = 2;
                 }
@@ -41,8 +42,11 @@
                 }
                 if (equipos[cant_equipos] == 48){
                    cant_tablas = 8;
-                }                
-                for (int i=0;i<cant_tablas;i++){       
+                }
+                
+                for (int i=0;i<cant_tablas;i++){         
+                    
+                    
             %>
             <div>
                 
@@ -53,9 +57,9 @@
                         <th>PJ</th>
                         <th>PG</th>
                         <th>PP</th>
-                        <th>PF</th>
-                        <th>PC</th>
-                        <th>DP</th>
+                        <th>SF</th>
+                        <th>SC</th>
+                        <th>DS</th>
                         <th>Puntos</th>
                     </tr>
                     <%                  
@@ -87,9 +91,10 @@
                         <td></td>                        
                     </tr><%}%>
                         </table>
-                </div>  <%}%>                         
-        </div></center>
+                </div>  <%}%>
         </div>
-        <%@include file="../WEB-INF/jspf/bottom.jspf" %>
+        </center>
+        </div>
+        <%@include file="../../WEB-INF/jspf/bottom.jspf" %>
         </body>
 </html>

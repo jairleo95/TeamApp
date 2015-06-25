@@ -11,15 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
-import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
+import pe.edu.upeu.application.dao.Control_PartidoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceControl_Partido;
 
 /**
  *
- * @author Erick Alexander
+ * @author Laptop Sistemas
  */
-public class CIntegrantes extends HttpServlet {
+public class CControl_Partido extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,35 +29,26 @@ public class CIntegrantes extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
+    InterfaceControl_Partido cl = new Control_PartidoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
-
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            if (opc.equals("Registrar_Integrantes")) {
-                String nombre = request.getParameter("nombre");
-                String ap_pater = request.getParameter("ape_paterno");
-                String ap_mater = request.getParameter("ape_materno");
-                String co_est = request.getParameter("co_estudiante");
-                String cel = request.getParameter("cell");
-                String nu_cam = request.getParameter("nu_camiseta");
-                String dni = request.getParameter("dni");
-                String correo = request.getParameter("email");
-                String id_ti_pe = null;
-                String id_cat_equi = "categoria";
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
-                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            }if (opc.equals("listar_integrantes")) {
-                
-            }
-
-        } finally {
-            out.close();
+        if (opc.equals("listar_partido")) {
+            getServletContext().setAttribute("Listar_Partido", cl.Listar_Partido());
+            response.sendRedirect("Vistas/Partido/Listar_partidos.jsp");
+        }
+        if (opc.equals("Comenzar_partido")) {
+            String id_juego = request.getParameter("id_juego");
+            String id_eq_1 = request.getParameter("id_eq_1");
+            String id_eq_2 = request.getParameter("id_eq_2");
+            out.print(id_eq_1);
+            out.print(id_eq_2);
+            out.print(id_juego);
+            getServletContext().setAttribute("Listar_Partido", cl.Listar_Partido());
+            response.sendRedirect("Vistas/Control_Partido/Control_Partido.jsp?id_juego=" + id_juego + "&id_eq_1=" + id_eq_1 + "&id_eq_2=" + id_eq_2);
         }
     }
 

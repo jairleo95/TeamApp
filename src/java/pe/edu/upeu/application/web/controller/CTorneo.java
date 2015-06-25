@@ -5,21 +5,24 @@
  */
 package pe.edu.upeu.application.web.controller;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
-import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
+import pe.edu.upeu.application.dao.TorneoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceTorneo;
 
 /**
  *
- * @author Erick Alexander
+ * @author MILTON
  */
-public class CIntegrantes extends HttpServlet {
+public class CTorneo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,34 +33,35 @@ public class CIntegrantes extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
+    InterfaceTorneo to = new TorneoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
+        Map<String, Object> rpta = new HashMap<String, Object>();
 
         try {
-            /* TODO output your page here. You may use following sample code. */
-            if (opc.equals("Registrar_Integrantes")) {
-                String nombre = request.getParameter("nombre");
-                String ap_pater = request.getParameter("ape_paterno");
-                String ap_mater = request.getParameter("ape_materno");
-                String co_est = request.getParameter("co_estudiante");
-                String cel = request.getParameter("cell");
-                String nu_cam = request.getParameter("nu_camiseta");
-                String dni = request.getParameter("dni");
-                String correo = request.getParameter("email");
-                String id_ti_pe = null;
-                String id_cat_equi = "categoria";
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
-                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            }if (opc.equals("listar_integrantes")) {
-                
-            }
 
+            if (opc.equals("Listar_Torneos")) {
+                getServletContext().setAttribute("Listar_Torneo", to.Listar_Torneo());
+                response.sendRedirect("Vistas/Registro/Listar_Torneo.jsp");
+            }
+            if (opc.equals("Ver_Torneo")) {
+                List<Map<String, ?>> list = to.List_Torneo();
+                rpta.put("rpta", "1");
+                rpta.put("lista", list);
+
+            }
+        } catch (Exception e) {
+            rpta.put("rpta", "-1");
+            rpta.put("mensaje", e.getMessage());
         } finally {
+            Gson gson = new Gson();
+            out.println(gson.toJson(rpta));
+            out.flush();
             out.close();
         }
     }

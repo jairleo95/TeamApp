@@ -3,12 +3,13 @@
     Created on : 03/06/2015, 03:13:36 PM
     Author     : Alexander
 --%>
-
+<%@page import="pe.edu.upeu.application.model.V_Categoria_Juego"%>
+<jsp:useBean id="Listar_catgeria_juego" scope="application" class="java.util.ArrayList"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html><head>
         <meta charset="UTF-8">
-        <title>REGISTRO DE INTEGRANTE | RESGISTRAR</title>
+        <title>REGISTRO DE INTEGRANTE</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -23,12 +24,29 @@
     </head>
     <body class="box box-primary">
         <div class="box box-primary">
-            <div class="register-logo">
-                <a href="../../Principal.jsp"><b>TEAM</b>App</a>
-            </div>
+
             <div class="container">
-                <p align="center">Registrar Nuevos Integrantes</p>
+                <div class="register-logo">
+                    <a href="../../Principal.jsp"><b>TEAM</b>App</a>
+                </div>
+                <div class="page-header">
+                    <h1>Registro de Integrantes de Equipos</h1>
+                </div>
                 <form action="../../integrantes" id="checkout-form" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Categoria de Equipo</label>
+                        <div class="col-xs-9">
+                            <select name="categoria" class="form-control" > 
+                                <option value="">[Seleccione]</option>
+                                <%for (int i = 0; i < Listar_catgeria_juego.size(); i++) {
+                                        V_Categoria_Juego c = new V_Categoria_Juego();
+                                        c = (V_Categoria_Juego) Listar_catgeria_juego.get(i);
+                                %>
+                                <option value="<%=c.getId_categoria_juego()%>"><%=c.getNo_categoria()%></option>
+                                <%}%>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Nombres:</label>
                         <div class="col-xs-9">
@@ -89,6 +107,38 @@
                 </form>                  
             </div>
         </div>  
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Integrantes</h3>
+                <div class="box-tools">
+                    <div class="input-group">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <th>#</th>
+                    <th>Categoria de Equipo</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Codigo Estudiante</th>
+                    <th>N° Camiseta</th>
+                    <th>DNI</th>
+                    <th>N° Celular</th>
+                    <th>Email</th>
+                    </tbody>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div>
         <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
@@ -100,6 +150,21 @@
         <script src="../../js/jquery.datetimepicker.js"></script>
 
         <script>
+            function solonumeros(e) {
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key);
+                numeros = "0123456789";
+                especiales = "8-37-38-46";//array
+                teclado_especial = false;
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        teclado_especial = true;
+                    }
+                }
+                if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+                    return false;
+                }
+            }
             /* $(document).ready(function () {
              var b = $('#tbodys');
              $(".btnGuardar").click(function () {
@@ -128,9 +193,7 @@
              radioClass: 'iradio_square-blue',
              increaseArea: '20%' // optional
              });
-             });
-             
-             
+             });   
              */
         </script>
 

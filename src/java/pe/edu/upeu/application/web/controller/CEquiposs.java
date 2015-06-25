@@ -11,15 +11,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
-import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
+import pe.edu.upeu.application.dao.Cat_EquipoDAO;
+import pe.edu.upeu.application.dao.Categoria_JuegoDAO;
+import pe.edu.upeu.application.dao.EquipoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceCat_EquipoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceCategoria_Juego;
+import pe.edu.upeu.application.interfaces.InterfaceEquipo;
+import pe.edu.upeu.application.model.V_Categoria_Juego;
 
 /**
  *
- * @author Erick Alexander
+ * @author MILTON
  */
-public class CIntegrantes extends HttpServlet {
+public class CEquiposs extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,35 +34,40 @@ public class CIntegrantes extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
+        InterfaceEquipo cj = new EquipoDAO();
+        InterfaceCat_EquipoDAO cae = new Cat_EquipoDAO();
+        InterfaceCategoria_Juego j = new Categoria_JuegoDAO();
 
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            if (opc.equals("Registrar_Integrantes")) {
-                String nombre = request.getParameter("nombre");
-                String ap_pater = request.getParameter("ape_paterno");
-                String ap_mater = request.getParameter("ape_materno");
-                String co_est = request.getParameter("co_estudiante");
-                String cel = request.getParameter("cell");
-                String nu_cam = request.getParameter("nu_camiseta");
-                String dni = request.getParameter("dni");
-                String correo = request.getParameter("email");
-                String id_ti_pe = null;
-                String id_cat_equi = "categoria";
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
-                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            }if (opc.equals("listar_integrantes")) {
-                
+        if (opc.equals("Ingresar_registro")) {
+            String id_torneo = request.getParameter("id_torneo");
+            String es_equipo = request.getParameter("es_equipo");
+            String logo_equipo = null;
+            getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
+            response.sendRedirect("Vistas/Registro/Registar_Equipos.jsp?id_torneo=" + id_torneo);
+        }
+        if (opc.equals("Insertar_Equipo")) {
+            String nombre_equipo = request.getParameter("nombre_t");
+            String id_torneo = request.getParameter("id_torneo");
+            String es_equipo = "1";
+            String logo_equipo = null;
+            String id_equi = cj.INSERT_EQUIPO(null, nombre_equipo, id_torneo, es_equipo, logo_equipo);
+            String check2[] = request.getParameterValues("cat_juego");
+            for (int i = 0; i < check2.length; i++) {
+                String q = check2[i];
+                cae.Insertar_Cat_equipo(id_equi, q);
+                //out.print(check2[i]);
             }
-
-        } finally {
-            out.close();
+            //out.print(id_equi);
+            //getServletContext().setAttribute(id_equi);
+            getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
+            
+            response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
+            
         }
     }
 

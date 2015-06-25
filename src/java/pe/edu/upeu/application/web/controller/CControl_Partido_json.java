@@ -5,21 +5,25 @@
  */
 package pe.edu.upeu.application.web.controller;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
-import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
-import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
+import javax.servlet.http.HttpSession;
+import pe.edu.upeu.application.dao.Control_PartidoDAO;
+import pe.edu.upeu.application.interfaces.InterfaceControl_Partido;
 
 /**
  *
- * @author Erick Alexander
+ * @author Laptop Sistemas
  */
-public class CIntegrantes extends HttpServlet {
+public class CControl_Partido_json extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,36 +34,47 @@ public class CIntegrantes extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
+    InterfaceControl_Partido cl = new Control_PartidoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        HttpSession sesion = request.getSession(true);
+        String id_user = (String) sesion.getAttribute("ID_USER");
         PrintWriter out = response.getWriter();
+        Map<String, Object> rpta = new HashMap<String, Object>();
         String opc = request.getParameter("opc");
-
         try {
-            /* TODO output your page here. You may use following sample code. */
-            if (opc.equals("Registrar_Integrantes")) {
-                String nombre = request.getParameter("nombre");
-                String ap_pater = request.getParameter("ape_paterno");
-                String ap_mater = request.getParameter("ape_materno");
-                String co_est = request.getParameter("co_estudiante");
-                String cel = request.getParameter("cell");
-                String nu_cam = request.getParameter("nu_camiseta");
-                String dni = request.getParameter("dni");
-                String correo = request.getParameter("email");
-                String id_ti_pe = null;
-                String id_cat_equi = "categoria";
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
-                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            }if (opc.equals("listar_integrantes")) {
-                
+            if (opc.equals("Listar_puntos")) {
+                String id_equipo = request.getParameter("id_cat_equipo");
+                String id_juego = request.getParameter("id_juego");
+                String cant = cl.listar_goles(id_juego, id_equipo);
+                //List<Map<String, ?>> list = cc.List_centro_costo(iddep);
+                rpta.put("rpta", "1");
+                rpta.put("lista", cant);
             }
-
-        } finally {
-            out.close();
+            if (opc.equals("Agregar_gol")) {
+                String id_equipo = request.getParameter("id_cat_equipo");
+                String id_juego = request.getParameter("id_juego");
+                cl.Agregar_gol(id_equipo, id_juego, "1", id_user);
+                //String cant = cl.listar_goles(id_juego, id_equipo);
+                //List<Map<String, ?>> list = cc.List_centro_costo(iddep);
+            }
+            if (opc.equals("Listar_Jugadores")) {
+                String id_equipo = request.getParameter("id_cat_equipo");
+                List<Map<String, ?>> lista = cl.Listar_Jugadores(id_equipo);
+                rpta.put("rpta", "1");
+                rpta.put("lista", lista);
+            }
+        } catch (Exception e) {
+            rpta.put("rpta", "-1");
+            rpta.put("mensaje", e.getMessage());
         }
+        Gson gson = new Gson();
+        out.println(gson.toJson(rpta));
+        out.flush();
+        out.close();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
