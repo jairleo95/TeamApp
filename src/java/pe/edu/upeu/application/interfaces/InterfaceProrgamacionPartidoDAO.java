@@ -20,7 +20,7 @@ public interface InterfaceProrgamacionPartidoDAO {
 
     public String INSERT_EQUIPO(String ID_EQUIPO, String NO_EQUIPO, String ID_TORNEO, String ES_EQUIPO, String LOGO_EQUIPO);
 
-    public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego);
+    public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego,double tiempo_juego,double tiempo_espera);
 
     public boolean Eliminar_Programacion(String id_torneo, String id_cat_juego);
 }
