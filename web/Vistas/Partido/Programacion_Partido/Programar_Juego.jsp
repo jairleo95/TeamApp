@@ -58,10 +58,11 @@
             <!-- Main content -->
             <section class="content">
                 <div class="box">
-                    <br> Tipo Juego: <select class="tipo_juego">
+                    <br> Tipo Juego: 
+                    <select class="tipo_juego">
                         <option value="1">Eliminatorias</option>
                         <option value="2">Serie</option>
-                    </select>  
+                    </select>
                     <div class="col-lg-2 col-xs-10">
                         <input type="hidden" value="0" class="es_cronograma">
                         <button class="btn btn-block btn-success " id='btn_cal'>Calcular</button>
@@ -73,8 +74,8 @@
                     <div class="box-body tablas">
                         <table class="table table-bordered ">
                             <thead>
-                                <tr><th colspan="7"> CANCHA NRO 1 </th></tr>
-                                <tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th></tr>
+                                <tr><th colspan="8"> CANCHA NRO 1 </th></tr>
+                                <tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th></tr>
                                 <tr><th colspan=""> EQUIPO</th><th colspan=""> VS </th><th colspan=""> EQUIPO </th><th colspan=""> HORA INICIO</th><th colspan=""> HORA FIN </th>  </tr>
                             </thead>
                             <tbody class='tbodys'>
@@ -83,7 +84,7 @@
                     </div><!-- /.box-body -->
                     <br>
                     <div class="col-lg-2 col-xs-10">
-                        <button class="btn btn-block btn-primary btn_terminar">Terminar</button>
+                        <!--<button class="btn btn-block btn-primary btn_terminar">Terminar</button>-->
                     </div>
                     <br>
                 </div><!-- /.box -->
@@ -114,7 +115,7 @@
         function calcular_partidos() {
             if ($(".es_cronograma").val() == "1") {
                 if (confirm("se perderán los datos ya calculados anteriormente, ¿desea volver a calcular?")) {
-                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val(), function(objJson) {
+                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val()+"&tiempo_juego="+$(".tiempo_juego").val()+"&tiempo_espera="+$(".tiempo_espera").val(), function(objJson) {
                         listar_cronograma_loza();
                     });
                 }
@@ -133,8 +134,14 @@
                 $(".tbodys").empty();
                 for (var i = 0; i < lista.length; i++) {
                     $(".es_cronograma").val("1");
-                    texto += '<tr>';
-                    texto += '<td>' + (i + 1) + '</td>';
+
+                    if (lista[i].finalista == 1) {
+                        texto += '<tr class="success">';
+                        texto += '<td>' + (i + 1) + ' (FINAL)</td>';
+                    } else {
+                        texto += '<tr>';
+                        texto += '<td>' + (i + 1) + '</td>';
+                    }
                     if (typeof lista[i].id_equi_1 === 'undefined') {
                         texto += '<td>No definido</td>';
                     } else {
@@ -149,14 +156,19 @@
                     texto += '<td> 20 min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
                     texto += '<td>' + lista[i].ho_fin + '</td>';
+                    if (typeof lista[i].id_serie === 'undefined') {
+                        texto += '<td> - </td>';
+                    } else {
+                        texto += '<td>' + lista[i].id_serie + '</td>';
+                    }
                     texto += '</tr>';
                     if ((lista.length - 1) !== i) {
                         var cadena = lista[i + 1].id_loza;
                         var array = cadena.split("-");
                         var nro = parseInt(array[1]);
                         if (lista[i].id_loza + "" !== lista[i + 1].id_loza + "") {
-                            texto += '<tr><th colspan="7"><center> CANCHA NRO ' + nro + '<center> </th></tr>';
-                            texto += '<tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th>';
+                            texto += '<tr><th colspan="8"><center> CANCHA NRO ' + nro + '<center> </th></tr>';
+                            texto += '<tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th>';
                             texto += '</tr><tr><th colspan=""> EQUIPO</th><th colspan=""> VS </th><th colspan=""> EQUIPO </th><th colspan=""> HORA INICIO</th>';
                             texto += '<th colspan=""> HORA FIN </th> </tr>';
                         }
