@@ -27,11 +27,11 @@ public class Integrantes_EquiposDAO implements InterfaceIntegrantes_Equipos {
 
     @Override
 
-    public void INSERT_DATOS_Integrantes_equipo(String ID_PERSONA, String NO_PERSONA, String AP_PATERNO, String CO_ESTUDIANTE, String NU_CELULAR, String NU_DOC_DNI, String ID_TIPO_PERSONA, String AP_MATERNO, String CO_ELECTRONICO_PE, String ID_CATEGORIA_EQUIPO, String NU_CAMISETA) {
+    public void INSERT_DATOS_Integrantes_equipo(String ID_PERSONA, String NO_PERSONA, String AP_PATERNO, String CO_ESTUDIANTE, String NU_CELULAR, String NU_DOC_DNI, String ID_TIPO_PERSONA, String AP_MATERNO, String CO_ELECTRONICO_PE, String ID_CATEGORIA_EQUIPO, String NU_CAMISETA,String id_cat_juego) {
         CallableStatement cst;
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            cst = conn.conex.prepareCall("{CALL TASP_INSERT_JUGADOR(  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}");
+            cst = conn.conex.prepareCall("{CALL TASP_INSERT_JUGADOR(  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)}");
             cst.setString(1, null);
             cst.setString(2, NO_PERSONA);
             cst.setString(3, AP_PATERNO);
@@ -41,8 +41,9 @@ public class Integrantes_EquiposDAO implements InterfaceIntegrantes_Equipos {
             cst.setString(7, ID_TIPO_PERSONA);
             cst.setString(8, AP_MATERNO);
             cst.setString(9, CO_ELECTRONICO_PE);
-            cst.setString(10, null);
-            cst.setString(11, NU_CAMISETA);
+            cst.setString(10, ID_CATEGORIA_EQUIPO);
+            cst.setString(11, id_cat_juego.trim());
+            cst.setString(12, NU_CAMISETA);
             cst.execute();
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getMessage());
