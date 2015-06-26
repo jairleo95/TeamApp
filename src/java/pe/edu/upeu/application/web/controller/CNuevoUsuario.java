@@ -53,10 +53,12 @@ public class CNuevoUsuario extends HttpServlet {
                 String co_un = request.getParameter("c_uni");
                 String id_ti_p = null;
                 String id_user = null;
-                nuu.Insert_USUARIOS(null, nombre, ap_pater, co_un, cel, dni, id_ti_p, ap_mater, correo, id_user,correo_user, pss);
+                nuu.Insert_USUARIOS(null, nombre, ap_pater, co_un, cel, dni, id_ti_p, ap_mater, correo, id_user, correo_user, pss);
                 response.sendRedirect("index.jsp");
-            }
 
+            }
+        } catch (Exception e) {
+  throw new RuntimeException(e.getMessage());
         } finally {
             out.close();
         }
