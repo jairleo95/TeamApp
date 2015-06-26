@@ -37,7 +37,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="col-lg-12">
-                    <div class="form-group col-lg-4">
+                    <div class="form-group col-lg-12">
                         <h3>Seleccione Torneo:</h3>
                         <select class="form-control selec_torneo">
                         </select>
@@ -47,58 +47,8 @@
                 <!-- =========================================================== -->
 
                 <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-aqua">
-                            <div class="inner">
-                                <h3>Futsal</h3>
-                                <p >Futsal</p> 
-
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-soccer-ball-o"></i>
-                            </div>
-                            <a href="../../direccionar?opc=Programar_Futsal" class="small-box-footer">
-                                Ingresar  <i class="fa fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
-                    </div><!-- ./col -->
-                    <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-green">
-                            <div class="inner">
-                                <h3>Bolleyball</h3>
-                                <p>Bolleyball</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-life-saver "></i>
-                            </div>
-                            <a href="#" class="small-box-footer">
-                                Ingresar <i class="fa fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
-                    </div><!-- ./col -->
-                    <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-yellow">
-                            <div class="inner">
-                                <h3>Basqueball</h3>
-                                <p>Basqueball</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-trophy"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">
-                                Ingresar <i class="fa fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
-                    </div><!-- ./col -->
-
+                <div class="row cat_eq">
                 </div><!-- /.row -->
-
-
-
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
         <div class='control-sidebar-bg'></div>
@@ -117,8 +67,55 @@
         <script src="../../dist/js/demo.js" type="text/javascript"></script>
         <script src="../../js/Js_Form.js" type="text/javascript"></script>
         <script type="text/javascript">
+            function Listar_cat_juego() {
+                var Torneo = $(".selec_torneo").val();
+                $.post("../../programacion_partido", "opc=Listar_categorias&id_torneo=" + Torneo, function(objJson) {
+                    var torneo = $(".selec_torneo").val();
+                    var lista = objJson.lista;
+                    var div = $(".cat_eq");
+                    var texto = "";
+                    var tamano = 0;
+                    tamano = 12 / lista.length;
+                    for (var i = 0; i < lista.length; i++) {
+                        texto += '<div class="col-lg-' + tamano + ' col-xs-6">';
+                        texto += '<div class="small-box ' + lista[i].bg_color + '">';
+                        texto += '<div class="inner">';
+                        texto += '<h3>' + lista[i].no_cat + '</h3>';
+                        texto += '<p >' + lista[i].no_jue + '</p>';
+                        texto += '</div>';
+                        texto += '<div class="icon">';
+                        texto += '<i class="' + lista[i].de_icon + '"></i>';
+                        texto += '</div>';
+                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '&id_torneo=' + torneo + '" class="small-box-footer">';
+                        texto += 'Ingresar  <i class="fa fa-arrow-circle-right"></i>';
+                        texto += '</a>';
+                        texto += '</div>';
+                        texto += '</div>';
+                    }
+                    div.append(texto);
+                });
+            }
+            function Mostrar_nombre_Torneo() {
+                var Torneo = $(".selec_torneo").val();
+                var div = $(".cat_eq");
+                var texto = "";
+                $.post("../../programacion_partido", "opc=Mostrar_Nombre_torneo&id_torneo=" + Torneo, function(objJson) {
+                    var lista = objJson.lista;
+                    if (lista != null) {
+                        texto += '<center><h1>' + lista + '</h1></center>';
+                    } else {
+
+                    }
+                    div.append(texto);
+                    Listar_cat_juego()
+                });
+            }
             $(document).ready(function() {
                 list_select($(".selec_torneo"), "../../torneo", "opc=Ver_Torneo");
+                $(".selec_torneo").change(function() {
+                    $(".cat_eq").empty();
+                    Mostrar_nombre_Torneo().before();
+                });
             });
         </script>
     </body>

@@ -7,19 +7,21 @@ package pe.edu.upeu.application.web.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
+import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
  *
- * @author Jairleo95
+ * @author Erick Alexander
  */
-@WebServlet(name = "direccionar", urlPatterns = {"/direccionar"})
-public class CDireccionar extends HttpServlet {
+public class CReporte extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,42 +32,29 @@ public class CDireccionar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    InterfaceIntegrantes_Equipos ie = new Integrantes_EquiposDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         String opc = request.getParameter("opc");
+        Map<String, Object> rpta = new HashMap<String, Object>();
         try {
-            if (opc.equals("Champion_FIA")) {
-                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Champion_FIA");
-            }
-            if (opc.equals("Eliminatorias")) {
-                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Eliminatorias");
-            }
-            if (opc.equals("Series")) {
-                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Series");
-            }
-            if (opc.equals("Programar_Juego")) {
-                response.sendRedirect("Vistas/Partido/Torneo_Cat.jsp?opc=Series");
-            }
-            if (opc.equals("Programar_Futsal")) {
-                String id_cat_juego = request.getParameter("id_cat_juego");
-                String id_torneo = request.getParameter("id_torneo");
-                response.sendRedirect("Vistas/Partido/Programacion_Partido/Programar_Juego.jsp?id_cat_juego=" + id_cat_juego + "&id_torneo=" + id_torneo);
-            }
-            if (opc.equals("Programar_Basketball")) {
-                String id_cat_juego = request.getParameter("id_cat_juego");
-                String id_torneo = request.getParameter("id_torneo");
-                response.sendRedirect("Vistas/Partido/Programar_Partido_Basquet/Programar_Basquet.jsp?id_cat_juego=" + id_cat_juego + "&id_torneo=" + id_torneo);
-            }
-            if (opc.equals("Programar_Volleyball")) {
-                String id_cat_juego = request.getParameter("id_cat_juego");
-                String id_torneo = request.getParameter("id_torneo");
-                response.sendRedirect("Vistas/Partido/Programacion_Voley/Programar_Voley.jsp?id_cat_juego=" + id_cat_juego + "&id_torneo=" + id_torneo);
-            }
-            if (opc.equals("Principal")) {
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
-                dispatcher.forward(request, response);
+            if (opc.equals("listar_Integrantes")) {
+                String id = request.getParameter("");
+                String nombre =request.getParameter("nombre");
+                String ap_pat =request.getParameter("ape_paterno");
+                String ap_mat =request.getParameter("ape_materno");
+                String co_est =request.getParameter("co_estudiante");
+                String nu_cam =request.getParameter("nu_camiseta");
+                String dni =request.getParameter("dni");
+                String cell =request.getParameter("cell");
+                String email =request.getParameter("email");
+                List<Map<String, ?>> lista = ie.Listar_Integrantes(nombre,ap_pat,ap_mat,co_est,nu_cam,dni,cell,email);
+                rpta.put("rpta", "1");
+                rpta.put("lista", lista);
             }
         } finally {
             out.close();
