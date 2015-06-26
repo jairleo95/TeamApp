@@ -70,6 +70,7 @@
             function Listar_cat_juego() {
                 var Torneo = $(".selec_torneo").val();
                 $.post("../../programacion_partido", "opc=Listar_categorias&id_torneo=" + Torneo, function(objJson) {
+                    var torneo = $(".selec_torneo").val();
                     var lista = objJson.lista;
                     var div = $(".cat_eq");
                     var texto = "";
@@ -85,7 +86,7 @@
                         texto += '<div class="icon">';
                         texto += '<i class="' + lista[i].de_icon + '"></i>';
                         texto += '</div>';
-                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '" class="small-box-footer">';
+                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '&id_torneo=' + torneo + '" class="small-box-footer">';
                         texto += 'Ingresar  <i class="fa fa-arrow-circle-right"></i>';
                         texto += '</a>';
                         texto += '</div>';
