@@ -62,7 +62,7 @@ public class CIntegrantes extends HttpServlet {
                 String id_equi = request.getParameter("id_equipo");
                 String id_cat_juego = request.getParameter("categoria");
                 String id_cat_equi = eq.obt_id_cat_equi(id_cat_juego, id_equi);
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam, id_cat_juego);
+                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
                 out.print(id_cat_equi);
                 out.print(id_equi);
                 getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego_eq(id_torneo, id_equi));

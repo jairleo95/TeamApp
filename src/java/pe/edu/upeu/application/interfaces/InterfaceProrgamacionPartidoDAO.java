@@ -23,4 +23,8 @@ public interface InterfaceProrgamacionPartidoDAO {
     public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego,double tiempo_juego,double tiempo_espera);
 
     public boolean Eliminar_Programacion(String id_torneo, String id_cat_juego);
+    
+    public List<Map<String, ?>> Listar_Cat_juego(String id_torneo);
+    
+    public String Mostrar_Nombre_torneo(String id_torneo);
 }
