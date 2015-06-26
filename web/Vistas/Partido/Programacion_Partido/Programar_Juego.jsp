@@ -35,7 +35,7 @@
     <style>
         th{
             text-align: center;
-            background-color: #4682B4;
+            background-color: #333333;
             color: white;
         }
         td{
@@ -58,6 +58,8 @@
             <!-- Main content -->
             <section class="content">
                 <div class="box">
+                    <input type="hidden" value="<%=request.getParameter("id_cat_juego")%>" class="id_cat_juego" />
+                    <input type="hidden" value="<%=request.getParameter("id_torneo")%>" class="id_torneo" />
                     <br> Tipo Juego: 
                     <select class="tipo_juego" required="">
                         <option value="1">Eliminatorias</option>
@@ -78,9 +80,7 @@
                     <div class="box-body tablas">
                         <table class="table table-bordered ">
                             <thead>
-                                <tr><th colspan="8"> CANCHA NRO 1 </th></tr>
-                                <tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th></tr>
-                                <tr><th colspan=""> EQUIPO</th><th colspan=""> VS </th><th colspan=""> EQUIPO </th><th colspan=""> HORA INICIO</th><th colspan=""> HORA FIN </th>  </tr>
+
                             </thead>
                             <tbody class='tbodys'>
                             </tbody>
@@ -118,23 +118,26 @@
         function calcular_partidos() {
             if ($(".es_cronograma").val() == "1") {
                 if (confirm("se perderán los datos ya calculados anteriormente, ¿desea volver a calcular?")) {
-                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val() + "&tiempo_juego=" + $(".tiempo_juego").val() + "&tiempo_espera=" + $(".tiempo_espera").val(), function (objJson) {
+                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=" + $(".id_torneo").val() + "&id_cat_juego=" + $(".id_cat_juego").val() + "&tipo_juego=" + $(".tipo_juego").val() + "&tiempo_juego=" + $(".tiempo_juego").val() + "&tiempo_espera=" + $(".tiempo_espera").val(), function (objJson) {
                         listar_cronograma_loza();
                     });
                 }
             } else {
-                $.post("../../../programacion_partido", "opc=Progamar_Juego&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val(), function (objJson) {
+                $.post("../../../programacion_partido", "opc=Progamar_Juego&id_torneo=" + $(".id_torneo").val() + "&id_cat_juego=" + $(".id_cat_juego").val() + "&tipo_juego=" + $(".tipo_juego").val(), function (objJson) {
                     listar_cronograma_loza();
                 });
             }
         }
         function listar_cronograma_loza() {
-            var d = "opc=ListarLozas_Horario&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val();
+            var d = "opc=ListarLozas_Horario&id_torneo=" + $(".id_torneo").val() + "&id_cat_juego=" + $(".id_cat_juego").val() + "&tipo_juego=" + $(".tipo_juego").val();
             var texto = '';
             $.post("../../../programacion_partido", d, function (objJson) {
                 var lista = objJson.lista;
                 $(".tbodys").empty();
                 for (var i = 0; i < lista.length; i++) {
+                    if (i == 0) {
+                        texto += '<tr><th colspan="8"> <center> ' + lista[i].lu_loza + ' - ' + lista[i].no_loza + '<center>  </th></tr> <tr><th rowspan="2"> Nro Juego</th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th></tr><tr><th colspan=""> EQUIPO</th><th colspan=""> VS </th><th colspan=""> EQUIPO </th><th colspan=""> HORA INICIO</th><th colspan=""> HORA FIN </th>  </tr>';
+                    }
                     $(".es_cronograma").val("1");
                     if (lista[i].finalista == 1) {
                         texto += '<tr class="success">';
@@ -154,7 +157,7 @@
                     } else {
                         texto += '<td>' + lista[i].no_equipo_2 + '</td>';
                     }
-                    texto += '<td> 20 min</td>';
+                    texto += '<td> '+$(".tiempo_juego").val()+' min</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
                     texto += '<td>' + lista[i].ho_fin + '</td>';
                     if (typeof lista[i].id_serie === 'undefined') {
@@ -168,8 +171,9 @@
                         var array = cadena.split("-");
                         var nro = parseInt(array[1]);
                         if (lista[i].id_loza + "" !== lista[i + 1].id_loza + "") {
-                            texto += '<tr><th colspan="8"><center> CANCHA NRO ' + nro + '<center> </th></tr>';
-                            texto += '<tr><th rowspan="2"> NRO </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th>';
+                            //   texto += '<tr><th colspan="8"><center> CANCHA NRO ' + nro + '<center> </th></tr>';
+                            texto += '<tr><th colspan="8"><center> ' + lista[i+1].lu_loza + ' - ' + lista[i+1].no_loza + '<center> </th></tr>';
+                            texto += '<tr><th rowspan="2"> Nro Juego </th><th colspan="3"> ENCUENTROS </th><th rowspan="2"> TIEMPO </th><th colspan="2"> HORA </th><th rowspan="2"> SERIE </th>';
                             texto += '</tr><tr><th colspan=""> EQUIPO</th><th colspan=""> VS </th><th colspan=""> EQUIPO </th><th colspan=""> HORA INICIO</th>';
                             texto += '<th colspan=""> HORA FIN </th> </tr>';
                         }

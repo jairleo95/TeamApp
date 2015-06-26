@@ -66,6 +66,8 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
                 rec.put("no_equipo_2", rs.getString("no_equipo_2"));
                 rec.put("finalista", rs.getString("finalista"));
                 rec.put("id_serie", rs.getString("ID_SERIE"));
+                rec.put("lu_loza", rs.getString("lu_loza"));
+                rec.put("no_loza", rs.getString("NO_LOZA_DEPORTIVA"));
                 lista.add(rec);
             }
             rs.close();
