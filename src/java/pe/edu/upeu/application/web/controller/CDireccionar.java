@@ -51,7 +51,7 @@ public class CDireccionar extends HttpServlet {
             if (opc.equals("Programar_Futsal")) {
                 response.sendRedirect("Vistas/Partido/Programacion_Partido/Programar_Juego.jsp");
             }
-            if (opc.equals("Programar_Basketball")) {
+            if (opc.equals("Programar_Volleyball")) {
                 response.sendRedirect("Vistas/Partido/Programar_Partido_Basquet/Programar_Basquet.jsp");
             }
             if (opc.equals("Principal")) {
