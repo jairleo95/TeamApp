@@ -60,14 +60,12 @@ public class CEquiposs extends HttpServlet {
             for (int i = 0; i < check2.length; i++) {
                 String q = check2[i];
                 cae.Insertar_Cat_equipo(id_equi, q);
-                //out.print(check2[i]);
+                //  out.print(check2[i]);
             }
-            //out.print(id_equi);
+            // out.print(id_equi);
             //getServletContext().setAttribute(id_equi);
-            getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego(id_torneo));
-            
-            response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            
+            getServletContext().setAttribute("Listar_catgeria_juego_eq", j.Listar_catgeria_juego_eq(id_torneo, id_equi));
+            response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp?id_equipo=" + id_equi.trim() + "&id_torneo=" + id_torneo.trim());
         }
     }
 

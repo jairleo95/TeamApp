@@ -47,7 +47,7 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
         List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
-            String sql = "SELECT CRONOGRAMA_PARTIDOS_JUEGOS.*,RHFU_DETERMINAR_FIANLISTAS (ID_CATEGORIA_JUEGO,ID_TORNEO,ID_JUEGO) AS FINALISTA FROM CRONOGRAMA_PARTIDOS_JUEGOS where id_categoria_juego='"+id_cat_juego+"' and id_torneo='"+id_torneo+"' order by ID_LOZA_DEPORTIVA, id_juego asc";
+            String sql = "SELECT CRONOGRAMA_PARTIDOS_JUEGOS.*,RHFU_DETERMINAR_FIANLISTAS (ID_CATEGORIA_JUEGO,ID_TORNEO,ID_JUEGO) AS FINALISTA FROM CRONOGRAMA_PARTIDOS_JUEGOS where id_categoria_juego='" + id_cat_juego + "' and id_torneo='" + id_torneo + "' order by ID_LOZA_DEPORTIVA, id_juego asc";
 
             ResultSet rs = this.conn.query(sql);
             while (rs.next()) {
@@ -111,20 +111,24 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
     }
 
     @Override
-    public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego) {
+    public boolean Programar_Juego(String id_torneo, String id_cat_juego, String tipo_juego, double tiempo_juego, double tiempo_espera) {
         CallableStatement cst;
         try {
             this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
             if (tipo_juego.equals("1")) {
-                cst = this.conn.conex.prepareCall("{CALL TASP_PROGRAMAR_PARTIDOS( ?, ?,? )} ");
+                cst = this.conn.conex.prepareCall("{CALL TASP_PROGRAMAR_PARTIDOS( ?, ?,?,?,? )} ");
                 cst.setString(1, id_torneo);
                 cst.setString(2, id_cat_juego);
                 cst.setString(3, tipo_juego);
+                cst.setDouble(4, tiempo_juego);
+                cst.setDouble(5, tiempo_espera);
                 cst.execute();
             } else if (tipo_juego.equals("2")) {
-                cst = this.conn.conex.prepareCall("{CALL tasp_programar_partido_serie( ?, ? )} ");
+                cst = this.conn.conex.prepareCall("{CALL tasp_programar_partido_serie( ?, ?,?,? )} ");
                 cst.setString(1, id_torneo);
                 cst.setString(2, id_cat_juego);
+                cst.setDouble(3, tiempo_juego);
+                cst.setDouble(4, tiempo_espera);
                 cst.execute();
             }
         } catch (SQLException e) {

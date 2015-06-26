@@ -4,7 +4,7 @@
     Author     : Alexander
 --%>
 <%@page import="pe.edu.upeu.application.model.V_Categoria_Juego"%>
-<jsp:useBean id="Listar_catgeria_juego" scope="application" class="java.util.ArrayList"/>
+<jsp:useBean id="Listar_catgeria_juego_eq" scope="application" class="java.util.ArrayList"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html><head>
@@ -38,13 +38,15 @@
                         <div class="col-xs-9">
                             <select name="categoria" class="form-control" > 
                                 <option value="">[Seleccione]</option>
-                                <%for (int i = 0; i < Listar_catgeria_juego.size(); i++) {
+                                <%for (int i = 0; i < Listar_catgeria_juego_eq.size(); i++) {
                                         V_Categoria_Juego c = new V_Categoria_Juego();
-                                        c = (V_Categoria_Juego) Listar_catgeria_juego.get(i);
+                                        c = (V_Categoria_Juego) Listar_catgeria_juego_eq.get(i);
                                 %>
                                 <option value="<%=c.getId_categoria_juego()%>"><%=c.getNo_categoria()%></option>
                                 <%}%>
                             </select>
+                            <input type="hidden" value="<%=request.getParameter("id_equipo")%>" name="id_equipo">
+                            <input type="hidden" value="<%=request.getParameter("id_torneo")%>" name="id_torneo">
                         </div>
                     </div>
                     <div class="form-group">
@@ -164,6 +166,33 @@
                 if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
                     return false;
                 }
+            }
+            function listar_integrantes() {
+                var b = $("#listartodo");
+                var texto = '';
+                $.post("../../reporte", "opc=reporte_datos_genereales&" + b, function (objJson) {
+                    if (objJson.rpta == -1) {
+                        $('.div_t').empty();
+                        alert(objJson.mensaje);
+                        return;
+                    }
+                    b.empty();
+                    var lista = objJson.lista;
+                    if (lista.length > 0) {
+                        for (var i = 0; i < lista.length; i++) {
+                            texto += '<tr role="row" class="odd">';
+                            texto += '<td class>' + (i + 1) + '</td>';
+                           
+                            texto += '</tr>';
+                            $('.div_t').empty();
+                        }
+                        b.append(texto);
+                    } else {
+                        $('.div_t').empty();
+                        b.append("<td colspan='11' align='center'><strong>NO SE ENCONTRARON DATOS</strong></td>");
+                    }
+                });
+
             }
             /* $(document).ready(function () {
              var b = $('#tbodys');

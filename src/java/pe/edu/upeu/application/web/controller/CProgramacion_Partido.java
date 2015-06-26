@@ -59,14 +59,18 @@ public class CProgramacion_Partido extends HttpServlet {
                 String id_torneo = request.getParameter("id_torneo");
                 String id_cat_juego = request.getParameter("id_cat_juego");
                 String tipo_juego = request.getParameter("tipo_juego");
-                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego);
+                double tiempo_juego = Double.parseDouble(request.getParameter("tiempo_juego"));
+                double tiempo_espera = Double.parseDouble(request.getParameter("tiempo_espera"));
+                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego, tiempo_juego, tiempo_espera);
             }
             if (opc.equals("Nuevo_Calculo")) {
                 String id_torneo = request.getParameter("id_torneo");
                 String id_cat_juego = request.getParameter("id_cat_juego");
                 String tipo_juego = request.getParameter("tipo_juego");
                 iq.Eliminar_Programacion(id_torneo, id_cat_juego);
-                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego);
+                double tiempo_juego = Double.parseDouble(request.getParameter("tiempo_juego"));
+                double tiempo_espera = Double.parseDouble(request.getParameter("tiempo_espera"));
+                iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego, tiempo_juego, tiempo_espera);
             }
         } catch (Exception e) {
             rpta.put("rpta", "-1");
