@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ import pe.edu.upeu.application.interfaces.InterfaceProrgamacionPartidoDAO;
  *
  * @author Jairleo95
  */
+@WebServlet(name = "programacion_partido", urlPatterns = {"/programacion_partido"})
 public class CProgramacion_Partido extends HttpServlet {
 
     /**
@@ -71,6 +73,18 @@ public class CProgramacion_Partido extends HttpServlet {
                 double tiempo_juego = Double.parseDouble(request.getParameter("tiempo_juego"));
                 double tiempo_espera = Double.parseDouble(request.getParameter("tiempo_espera"));
                 iq.Programar_Juego(id_torneo, id_cat_juego, tipo_juego, tiempo_juego, tiempo_espera);
+            }
+            if ("Listar_categorias".equals(opc)) {
+                String id_torneo = request.getParameter("id_torneo");
+                List<Map<String, ?>> list = iq.Listar_Cat_juego(id_torneo);
+                rpta.put("rpta", "1");
+                rpta.put("lista", list);
+            }
+            if ("Mostrar_Nombre_torneo".equals(opc)) {
+                String id_torneo = request.getParameter("id_torneo");
+                String no_torneo = iq.Mostrar_Nombre_torneo(id_torneo);
+                rpta.put("rpta", "1");
+                rpta.put("lista", no_torneo);
             }
         } catch (Exception e) {
             rpta.put("rpta", "-1");

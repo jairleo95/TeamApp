@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,7 @@ import pe.edu.upeu.application.interfaces.InterfaceControl_Partido;
  *
  * @author Laptop Sistemas
  */
+@WebServlet(name = "con_part_json", urlPatterns = {"/con_part_json"})
 public class CControl_Partido_json extends HttpServlet {
 
     /**

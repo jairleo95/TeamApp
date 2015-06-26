@@ -16,13 +16,13 @@ public class Conexion {
 
     public static Connection getConex() throws Exception {
        
-        String usuario = "bd_fixture";
+        String usuario = "BD_FIXTURE";
         String password = "fixture";
         //String host = "localhost";
         String host = "localhost";
         String puerto = "1521";
         //String sid = "orcl";
-        String sid = "xe";
+        String sid = "orcl";
         /**
          * String usuario = "TeamApp"; String password = "TeamApp"; String host
          * = "localhost"; String puerto = "1521"; String sid = "xe";

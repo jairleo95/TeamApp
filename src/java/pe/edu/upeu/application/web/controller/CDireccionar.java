@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jairleo95
  */
+@WebServlet(name = "direccionar", urlPatterns = {"/direccionar"})
 public class CDireccionar extends HttpServlet {
 
     /**
@@ -48,6 +50,9 @@ public class CDireccionar extends HttpServlet {
             }
             if (opc.equals("Programar_Futsal")) {
                 response.sendRedirect("Vistas/Partido/Programacion_Partido/Programar_Juego.jsp");
+            }
+            if (opc.equals("Programar_Volleyball")) {
+                response.sendRedirect("Vistas/Partido/Programar_Partido_Basquet/Programar_Basquet.jsp");
             }
             if (opc.equals("Principal")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
