@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Categoria de Equipo</label>
                         <div class="col-xs-9">
-                            <select name="categoria" class="form-control" > 
+                            <select name="categoria" class="form-control" required="" > 
                                 <option value="">[Seleccione]</option>
                                 <%for (int i = 0; i < Listar_catgeria_juego_eq.size(); i++) {
                                         V_Categoria_Juego c = new V_Categoria_Juego();
@@ -52,43 +52,44 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Nombres:</label>
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombres" required="">
+                            <input type="text" class="form-control" name="nombre" onkeypress="return soloLetras(event)" placeholder="Nombres" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Apellido Paterno</label>
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" name="ape_paterno" placeholder="Apellido Paterno" required="">
+                            <input type="text" class="form-control" name="ape_paterno" onkeypress="return soloLetras(event)" placeholder="Apellido Paterno" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Apellido Materno:</label>
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" name="ape_materno" placeholder="Apellido Materno" required="">
+                            <input type="text" class="form-control" name="ape_materno" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required="">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="control-label col-xs-3">Codigo Estudiante:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="co_estudiante" placeholder="Codigo Estudiante" required="">
+                            <input type="number" class="form-control" name="co_estudiante" onkeypress="return Num9(event, this)" onkeyUp="return ValNumero(this);" placeholder="Codigo Estudiante" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° Camiseta:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="nu_camiseta" placeholder="N° Camiseta" required="">
+                            <input type="number" class="form-control" name="nu_camiseta" onkeypress="return Num3(event, this)" onkeyUp="return ValNumero(this);" placeholder="N° Camiseta" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° DNI:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="dni" placeholder="N° DNI" required="">
+                            <input type="number" class="form-control" name="dni" onkeypress="return Num(event, this)" onkeyUp="return ValNumero(this);" maxlength="8" size="20" placeholder="N° DNI" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° Celular:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="cell" placeholder="N° Celular" required="">
+                            <input type="number" class="form-control" name="cell" onkeypress="return Num9(event, this)" onkeyUp="return ValNumero(this);" maxlength="9"placeholder="N° Celular" required="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -151,19 +152,103 @@
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="../../js/jquery.datetimepicker.js"></script>
 
+        <SCRIPT LANGUAGE="JavaScript">
+                                function Num3(e, field) {
+                                    key = e.keyCode ? e.keyCode : e.which
+                                    // backspace
+                                    if (key == 8)
+                                        return true
+                                    // 0-9
+                                    if (key > 47 && key < 58) {
+                                        if (field.value == "")
+                                            return true
+                                        regexp = /.[0-9]{2}$/
+                                        return !(regexp.test(field.value))
+                                    }
+                                    // .
+                                    if (key == 46) {
+                                        if (field.value == "")
+                                            return false
+                                        regexp = /^[0-9]+$/
+                                        return regexp.test(field.value)
+                                    }
+                                    // other key
+                                    return false
+                                }
+                                function Num(e, field) {
+                                    key = e.keyCode ? e.keyCode : e.which
+                                    // backspace
+                                    if (key == 8)
+                                        return true
+                                    // 0-9
+                                    if (key > 47 && key < 58) {
+                                        if (field.value == "")
+                                            return true
+                                        regexp = /.[0-9]{7}$/
+                                        return !(regexp.test(field.value))
+                                    }
+                                    // .
+                                    if (key == 46) {
+                                        if (field.value == "")
+                                            return false
+                                        regexp = /^[0-9]+$/
+                                        return regexp.test(field.value)
+                                    }
+                                    // other key
+                                    return false
+                                }
+                                function Num9(e, field) {
+                                    key = e.keyCode ? e.keyCode : e.which
+                                    // backspace
+                                    if (key == 8)
+                                        return true
+                                    // 0-9
+                                    if (key > 47 && key < 58) {
+                                        if (field.value == "")
+                                            return true
+                                        regexp = /.[0-9]{8}$/
+                                        return !(regexp.test(field.value))
+                                    }
+                                    // .
+                                    if (key == 46) {
+                                        if (field.value == "")
+                                            return false
+                                        regexp = /^[0-9]+$/
+                                        return regexp.test(field.value)
+                                    }
+                                    // other key
+                                    return false
+                                }
+
+
+        </script>
         <script>
-            function solonumeros(e) {
+            function Solo_Numerico(variable) {
+                Numer = parseInt(variable);
+                if (isNaN(Numer)) {
+                    return "";
+                }
+                return Numer;
+            }
+            function ValNumero(Control) {
+                Control.value = Solo_Numerico(Control.value);
+            }
+
+            function soloLetras(e) {
                 key = e.keyCode || e.which;
-                teclado = String.fromCharCode(key);
-                numeros = "0123456789";
-                especiales = "8-37-38-46";//array
-                teclado_especial = false;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+                especiales = "8-37-39-46";
+
+                tecla_especial = false
                 for (var i in especiales) {
                     if (key == especiales[i]) {
-                        teclado_especial = true;
+                        tecla_especial = true;
+                        break;
                     }
                 }
-                if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
                     return false;
                 }
             }
@@ -182,7 +267,7 @@
                         for (var i = 0; i < lista.length; i++) {
                             texto += '<tr role="row" class="odd">';
                             texto += '<td class>' + (i + 1) + '</td>';
-                           
+
                             texto += '</tr>';
                             $('.div_t').empty();
                         }
