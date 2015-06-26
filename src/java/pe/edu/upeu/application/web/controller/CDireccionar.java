@@ -58,6 +58,11 @@ public class CDireccionar extends HttpServlet {
                 String id_torneo = request.getParameter("id_torneo");
                 response.sendRedirect("Vistas/Partido/Programar_Partido_Basquet/Programar_Basquet.jsp?id_cat_juego=" + id_cat_juego + "&id_torneo=" + id_torneo);
             }
+            if (opc.equals("Programar_Volleyball")) {
+                String id_cat_juego = request.getParameter("id_cat_juego");
+                String id_torneo = request.getParameter("id_torneo");
+                response.sendRedirect("Vistas/Partido/Programacion_Voley/Programar_Voley.jsp?id_cat_juego=" + id_cat_juego + "&id_torneo=" + id_torneo);
+            }
             if (opc.equals("Principal")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
                 dispatcher.forward(request, response);
