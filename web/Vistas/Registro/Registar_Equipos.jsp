@@ -29,7 +29,7 @@
     <body>
         <form action="../../equiposs" method="post">
             <div class="container">
-                <input type="hidden" value="<%=request.getParameter("id_torneo")%>" name="id_torneo">
+                <input type="hidden" value="<%=request.getParameter("id_torneo")%>" name="id_torneo" >
                 
                 <div class="register-logo">
                     <a><b>TEAM</b>App</a>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label class="control-label col-xs-3">Nombre:</label>
                     <div class="col-xs-9">
-                        <input type="text" class="form-control" name="nombre_t" placeholder="Nombre del equipo a participar">
+                        <input type="text" class="form-control" name="nombre_t" placeholder="Nombre del equipo a participar" required="">
                     </div>
                 </div>
                 <div class="form-group">

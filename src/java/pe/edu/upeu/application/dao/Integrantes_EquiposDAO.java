@@ -68,4 +68,40 @@ public class Integrantes_EquiposDAO implements InterfaceIntegrantes_Equipos {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<Map<String, ?>> Listar_Integrantes(String nombre,String ap_pat,String ap_mat,String co_est,String nu_cam,String dni,String cell,String email) {
+         List<Map<String, ?>> Lista = new ArrayList<Map<String, ?>>();
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            String sql = "SELECT * FROM TAVD_INTEGRANTES_EQUIPOS ";
+            //sql += (!aps.equals("")) ? "Where CO_APS='" + aps.trim() + "'" : "";
+            ResultSet rs = this.conn.query(sql);
+            while (rs.next()) {
+                Map<String, Object> rec = new HashMap<String, Object>();
+                rec.put("id", rs.getString("ID_EQUIPO"));
+                rec.put("nom_eq", rs.getString("NO_EQUIPO"));
+                rec.put("nombre", rs.getString("NO_PERSONA"));
+                rec.put("ap_pat", rs.getString("AP_PATERNO"));
+                rec.put("ap_mat", rs.getString("AP_MATERNO"));
+                rec.put("cod_es", rs.getString("CO_ESTUDIANTE"));
+                rec.put("num_cam", rs.getString("NU_CAMISETA"));
+                rec.put("dni", rs.getString("NU_DOC_DNI"));
+                rec.put("cell", rs.getString("NU_CELULAR"));
+                rec.put("correo", rs.getString("CO_ELECTRONICO_PE"));
+                Lista.add(rec);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("Error!");
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+            }
+        }
+        return Lista;
+    }
+
 }
