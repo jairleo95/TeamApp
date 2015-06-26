@@ -21,8 +21,8 @@ public class FactoryConnectionDB {
 
     public static String[] configMYSQL = {"bd_almacen", "root", "root"};
     //public static String[] configORACLE = {"teamapp", "alfa", "192.168.217.3", "1521", "orcl"};
-    //public static String[] configORACLE = {"BD_FIXTURE", "fixture", "localhost", "1521", "orcl"};
-    public static String[] configORACLE = {"BD_FIXTURE", "fixture", "localhost", "1521", "xe"};
+    public static String[] configORACLE = {"BD_FIXTURE", "fixture", "localhost", "1521", "orcl"};
+    //public static String[] configORACLE = {"BD_FIXTURE", "fixture", "localhost", "1521", "xe"};
 
     public static ConexionBD open(int typeDB) {
         switch (typeDB) {
