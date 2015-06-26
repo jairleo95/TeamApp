@@ -154,7 +154,7 @@
                     } else {
                         texto += '<td>' + lista[i].no_equipo_2 + '</td>';
                     }
-                    texto += '<td> 20 min</td>';
+                    texto += '<td> ' +$(".tiempo_juego").val() + '</td>';
                     texto += '<td>' + lista[i].ho_ini + '</td>';
                     texto += '<td>' + lista[i].ho_fin + '</td>';
                     if (typeof lista[i].id_serie === 'undefined') {

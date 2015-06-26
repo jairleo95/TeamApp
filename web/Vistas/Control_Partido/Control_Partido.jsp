@@ -153,7 +153,7 @@
             </style>
 
         </head>
-        <body style="background: #E6E6E6">
+        <body style="background: #DAE9F2">
             <%-- <%
                     String id_eq_1 = request.getParameter("id_eq_1");
                     String id_eq_2 = request.getParameter("id_eq_2");
@@ -165,7 +165,7 @@
                     <input type="hidden" class="id_e_cat2" value="<%=id_eq_2.trim()%>">--%>
                     <div class="row">
                         <div class="col-md-3">
-                             <div class="box-body"  style="background: #48D1CC;margin-left: 5px; margin-top: 290px" align="center">
+                             <div class="box-body"  style="background: #277EB4;margin-left: 5px; margin-top: 290px" align="center">
                                <div class="row" align="center">
                                   <%--  <label><%out.println(p.Mostrar_nombre(id_eq_1.trim()));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
                                     <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>--%>
@@ -183,7 +183,7 @@
                             </div>
                         </div>
                         <div class="col-md-6" >
-                            <div class="box box-primary"  style="background:#48D1CC">
+                            <div class="box box-primary"  style="background:#277EB4">
 
                                 <table class="table table-responsive" <%--border="1" --%>align="center">
                                     <thead>
@@ -242,9 +242,9 @@
 
                                 </table>
                             </div>
-                            <div class="box-body"  style="background:#2F4F4F" align="center">
+                            <div class="box-body"  style="background:#277EB4" align="center">
                                 <div class="col-md-6">
-                                    <div class="box-body"  style="background: #20B2AA" align="center">
+                                    <div class="box-body"  style="background: #5BB2E8" align="center">
                                         <h1 id="nroGol" class="cant-e-1">
 
                                         </h1>
@@ -252,7 +252,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="box-body"  style="background: #20B2AA" align="center">
+                                    <div class="box-body"  style="background: #5BB2E8" align="center">
                                         <h1 id="nroGol2" class="cant-e-2">0
 
                                         </h1>
@@ -260,7 +260,7 @@
                                 </div>
 
                             </div>
-                            <div class="box-body"  style="background: #2F4F4F" align="center">
+                            <div class="box-body"  style="background: #6CA1D0" align="center">
                                 <div class="col-md-6" ><button type="button" class="btn btn-primary" onclick="AddGol1()" style="width: 90px">Sumar gol</button>
                                     <button type="button" class="btn btn-warning" onclick="AddAnular1()" style="width: 90px">Anular</button>
                                 </div>
@@ -273,7 +273,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #48D1CC;margin-left: 5px; margin-top: 290px" align="center">
+                            <div class="box-body"  style="background: #277EB4;margin-left: 5px; margin-top: 290px" align="center">
                                 <div class="row" align="center">
                                     <%--  <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
                                     </label><br>
@@ -590,7 +590,7 @@
             <script src="../../dist/js/demo.js" type="text/javascript"></script>
             <script>
                                     var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+                                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "Mi?rcoles", "Jueves", "Viernes", "S?bado");
                                     var f = new Date();
                                     document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
             </script>

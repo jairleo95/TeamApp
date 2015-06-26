@@ -48,6 +48,7 @@
 
                 <!-- Small boxes (Stat box) -->
                 <div class="row cat_eq">
+                    <center><h2>Seleccione un Torneo</h2></center>
                 </div><!-- /.row -->
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
@@ -76,21 +77,26 @@
                     var texto = "";
                     var tamano = 0;
                     tamano = 12 / lista.length;
-                    for (var i = 0; i < lista.length; i++) {
-                        texto += '<div class="col-lg-' + tamano + ' col-xs-6">';
-                        texto += '<div class="small-box ' + lista[i].bg_color + '">';
-                        texto += '<div class="inner">';
-                        texto += '<h3>' + lista[i].no_cat + '</h3>';
-                        texto += '<p >' + lista[i].no_jue + '</p>';
-                        texto += '</div>';
-                        texto += '<div class="icon">';
-                        texto += '<i class="' + lista[i].de_icon + '"></i>';
-                        texto += '</div>';
-                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '&id_torneo=' + torneo + '" class="small-box-footer">';
-                        texto += 'Ingresar  <i class="fa fa-arrow-circle-right"></i>';
-                        texto += '</a>';
-                        texto += '</div>';
-                        texto += '</div>';
+                    if (lista.length > 0) {
+                        for (var i = 0; i < lista.length; i++) {
+                            texto += '<div class="col-lg-' + tamano + ' col-xs-6">';
+                            texto += '<div class="small-box ' + lista[i].bg_color + '">';
+                            texto += '<div class="inner">';
+                            texto += '<h3>' + lista[i].no_cat + '</h3>';
+                            texto += '<p >' + lista[i].no_jue + '</p>';
+                            texto += '</div>';
+                            texto += '<div class="icon">';
+                            texto += '<i class="' + lista[i].de_icon + '"></i>';
+                            texto += '</div>';
+                            texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '&id_torneo=' + torneo + '" class="small-box-footer">';
+                            texto += 'Ingresar  <i class="fa fa-arrow-circle-right"></i>';
+                            texto += '</a>';
+                            texto += '</div>';
+                            texto += '</div>';
+
+                        }
+                    } else {
+                        texto += '<center><h2>Seleccione un Torneo</h2></center>';
                     }
                     div.append(texto);
                 });

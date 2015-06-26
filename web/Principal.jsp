@@ -345,7 +345,7 @@
                                 <i class="fa fa-dashboard"></i> <span>Control de Partidos</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="Vistas/Control_Partido/Control_Partido.jsp"><i class="fa fa-circle-o"></i> Control Partidos</a></li>
+                                <li class="active"><a href="Vistas/Control_Partido/Control_Partido.jsp" target="myframe"><i class="fa fa-circle-o"></i> Control Partidos</a></li>
                                 <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                             </ul>
                         </li>

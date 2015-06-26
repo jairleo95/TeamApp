@@ -63,8 +63,8 @@
                         <option value="1">Eliminatorias</option>
                         <option value="2">Serie</option>
                     </select>
-                    <input class="id_cat_juego" value="<%=request.getParameter("id_cat_juego")%>">
-                    <input class="id_torneo" value="<%=request.getParameter("id_torneo")%>">
+                    <input type="hidden" class="id_cat_juego" value="<%=request.getParameter("id_cat_juego")%>">
+                    <input type="hidden" class="id_torneo" value="<%=request.getParameter("id_torneo")%>">
                     Tiempo espera: 
                     <input class="tiempo_espera" type="number"/>
                     Tiempo juego 
@@ -120,7 +120,9 @@
         function calcular_partidos() {
             if ($(".es_cronograma").val() == "1") {
                 if (confirm("se perderán los datos ya calculados anteriormente, ¿desea volver a calcular?")) {
-                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=TOR-00000000000001" + "" + "&id_cat_juego=CTJ-00000000000001" + "" + "&tipo_juego=" + $(".tipo_juego").val() + "&tiempo_juego=" + $(".tiempo_juego").val() + "&tiempo_espera=" + $(".tiempo_espera").val(), function(objJson) {
+                    var id_t = $(".id_torneo").val();
+                    var id_cj = $(".id_cat_juego").val();
+                    $.post("../../../programacion_partido", "opc=Nuevo_Calculo&id_torneo=" + id_t + "&id_cat_juego=" + id_cj + "&tipo_juego=" + $(".tipo_juego").val() + "&tiempo_juego=" + $(".tiempo_juego").val() + "&tiempo_espera=" + $(".tiempo_espera").val(), function(objJson) {
                         listar_cronograma_loza();
                     });
                 }
@@ -133,7 +135,6 @@
         function listar_cronograma_loza() {
             var id_t = $(".id_torneo").val();
             var id_cj = $(".id_cat_juego").val();
-            alert(id_t+id_cj);F
             var d = "opc=ListarLozas_Horario&id_torneo=" + id_t + "&id_cat_juego=" + id_cj + "&tipo_juego=" + $(".tipo_juego").val();
             var texto = '';
             $.post("../../../programacion_partido", d, function(objJson) {
