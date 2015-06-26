@@ -73,17 +73,19 @@
                     var lista = objJson.lista;
                     var div = $(".cat_eq");
                     var texto = "";
+                    var tamano = 0;
+                    tamano = 12 / lista.length;
                     for (var i = 0; i < lista.length; i++) {
-                        texto += '<div class="col-lg-4 col-xs-6">';
+                        texto += '<div class="col-lg-' + tamano + ' col-xs-6">';
                         texto += '<div class="small-box ' + lista[i].bg_color + '">';
                         texto += '<div class="inner">';
-                        texto += '<h3>' + lista[i].no_juego + '</h3>';
-                        texto += '<p >' + lista[i].no_juego + '</p>';
+                        texto += '<h3>' + lista[i].no_cat + '</h3>';
+                        texto += '<p >' + lista[i].no_jue + '</p>';
                         texto += '</div>';
                         texto += '<div class="icon">';
                         texto += '<i class="' + lista[i].de_icon + '"></i>';
                         texto += '</div>';
-                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_juego.trim() + '" class="small-box-footer">';
+                        texto += '<a href="../../direccionar?opc=Programar_' + lista[i].no_jue.trim() + '&id_cat_juego=' + lista[i].id_tipo_ju.trim() + '" class="small-box-footer">';
                         texto += 'Ingresar  <i class="fa fa-arrow-circle-right"></i>';
                         texto += '</a>';
                         texto += '</div>';
@@ -100,8 +102,8 @@
                     var lista = objJson.lista;
                     if (lista != null) {
                         texto += '<center><h1>' + lista + '</h1></center>';
-                    } else {    
-                        
+                    } else {
+
                     }
                     div.append(texto);
                     Listar_cat_juego()
