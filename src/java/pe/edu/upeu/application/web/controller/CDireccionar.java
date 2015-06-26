@@ -51,6 +51,9 @@ public class CDireccionar extends HttpServlet {
             if (opc.equals("Programar_Futsal")) {
                 response.sendRedirect("Vistas/Partido/Programacion_Partido/Programar_Juego.jsp");
             }
+            if (opc.equals("Programar_Basketball")) {
+                response.sendRedirect("Vistas/Partido/Programar_Partido_Basquet/Programar_Basquet.jsp");
+            }
             if (opc.equals("Principal")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Principal.jsp");
                 dispatcher.forward(request, response);

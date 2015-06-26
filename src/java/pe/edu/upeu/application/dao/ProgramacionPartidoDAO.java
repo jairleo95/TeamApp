@@ -166,4 +166,60 @@ public class ProgramacionPartidoDAO implements InterfaceProrgamacionPartidoDAO {
         }
         return true;
     }
+
+    @Override
+    public List<Map<String, ?>> Listar_Cat_juego(String id_torneo) {
+        List<Map<String, ?>> lista = new ArrayList<Map<String, ?>>();
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            String sql = "SELECT TJ.NO_TIPO_JUEGO,TJ.ID_TIPO_JUEGO,TJ.DE_ICONO,TJ.BG_COLOR  FROM TATM_CATEGORIA_JUEGO CJ,TATD_TIPO_JUEGO TJ WHERE TJ.ID_TIPO_JUEGO = CJ.ID_TIPO_JUEGO AND CJ.ID_TORNEO='" + id_torneo.trim() + "' GROUP BY (TJ.NO_TIPO_JUEGO,TJ.ID_TIPO_JUEGO,TJ.DE_ICONO,TJ.BG_COLOR )order by TJ.ID_TIPO_JUEGO";
+
+            ResultSet rs = this.conn.query(sql);
+            while (rs.next()) {
+                Map<String, Object> rec = new HashMap<String, Object>();
+                rec.put("id_tipo_ju", rs.getString("ID_TIPO_JUEGO"));
+                rec.put("no_juego", rs.getString("NO_TIPO_JUEGO"));
+                rec.put("de_icon", rs.getString("DE_ICONO"));
+                rec.put("bg_color", rs.getString("BG_COLOR"));
+                lista.add(rec);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("Error!");
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+            }
+        }
+        return lista;
+    }
+
+    @Override
+    public String Mostrar_Nombre_torneo(String id_torneo) {
+        String no_tor = null;
+        try {
+            this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+            String sql = "SELECT NO_TORNEO FROM TATM_TORNEO WHERE ID_TORNEO='" + id_torneo.trim() + "'";
+
+            ResultSet rs = this.conn.query(sql);
+            while (rs.next()) {
+                no_tor = rs.getString("NO_TORNEO");
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("Error!");
+        } finally {
+            try {
+                this.conn.close();
+            } catch (Exception e) {
+            }
+        }
+        return no_tor;
+    }
+
 }
