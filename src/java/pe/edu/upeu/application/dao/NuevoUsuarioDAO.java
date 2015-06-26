@@ -37,15 +37,16 @@ public class NuevoUsuarioDAO implements InterfaceNuevoUsuario {
             cst.setString(11, corre_user);
             cst.setString(12, CL_PASSWORD);
             cst.execute();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("Error!");
         } finally {
             try {
                 this.conn.close();
             } catch (Exception e) {
-                throw new RuntimeException(e.getMessage());
+                 throw new RuntimeException(e.getMessage());
             }
-
         }
 
     }
