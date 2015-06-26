@@ -4,13 +4,13 @@
     Author     : YW
 --%>
 
-<%@page import="pe.edu.upeu.application.dao.Control_PartidoDAO"%>
+<%--<%@page import="pe.edu.upeu.application.dao.Control_PartidoDAO"%>
 <%@page import="pe.edu.upeu.application.interfaces.InterfaceControl_Partido"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!DOCTYPE html>
 
 <html >
-    <% InterfaceControl_Partido p = new Control_PartidoDAO();%>
+   <%-- <% InterfaceControl_Partido p = new Control_PartidoDAO();%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Control de Partidos</title>
@@ -154,26 +154,32 @@
 
         </head>
         <body style="background: #E6E6E6">
-                <%
+            <%-- <%
                     String id_eq_1 = request.getParameter("id_eq_1");
                     String id_eq_2 = request.getParameter("id_eq_2");
                     String id_juego = request.getParameter("id_juego");
-                %>
+                %>--%>
                 <section class="content">
-                    <input type="hidden" class="id_jue" value="<%=id_juego.trim()%>">
+                  <%--  <input type="hidden" class="id_jue" value="<%=id_juego.trim()%>">
                     <input type="hidden" class="id_e_cat1" value="<%=id_eq_1.trim()%>">
-                    <input type="hidden" class="id_e_cat2" value="<%=id_eq_2.trim()%>">
+                    <input type="hidden" class="id_e_cat2" value="<%=id_eq_2.trim()%>">--%>
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #48D1CC" align="center">
-                                <div class="row" align="center">
-                                    <label><%out.println(p.Mostrar_nombre(id_eq_1.trim()));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
-                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>
+                             <div class="box-body"  style="background: #48D1CC;margin-left: 5px; margin-top: 290px" align="center">
+                               <div class="row" align="center">
+                                  <%--  <label><%out.println(p.Mostrar_nombre(id_eq_1.trim()));%><br><img src="../../Imagen/real.png" width="220" height="170" alt="real" align="right"/></label><br>
+                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>--%>
 
                                 </div>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary" onclick="AgregarGol(1)">Sumar gol</button>
+                                <div class="col-md-12">
+                                    <div class="col-md-12 box-body"  style="background: #81DAF5;margin-top: -30px;" align="center">
+                                        <a  data-toggle="modal" href="#myModal2" class="btn btn-labeled btn-danger">Tarjeta</a>
+                                        <a  data-toggle="modal" href="#newModal2" class="btn btn-labeled btn-default">Nuevo</a>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-6" >
@@ -182,7 +188,7 @@
                                 <table class="table table-responsive" <%--border="1" --%>align="center">
                                     <thead>
                                         <tr>
-                                            <th class="responsive" colspan="2">TIEMPO DE JUEGO</th>
+                                    <h1 style="text-align:center">TIEMPO DE JUEGO</h1>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -193,13 +199,13 @@
                                             <input id="stop" name="controls" type="radio" />
                                             <input id="reset" name="controls" type="radio" />
                                             <div class="timer">
-                                                <div class="cell">
+                                                <%-- <div class="cell">
                                                     <div class="numbers tenhour moveten">0 1 2 3 4 5 6 7 8 9</div>
                                                 </div>
                                                 <div class="cell">
                                                     <div class="numbers hour moveten">0 1 2 3 4 5 6 7 8 9</div>
                                                 </div>
-                                                <div class="cell divider"><div class="numbers">:</div></div>
+                                                <div class="cell divider"><div class="numbers">:</div></div>--%>
                                                 <div class="cell">
                                                     <div class="numbers tenminute movesix">0 1 2 3 4 5 6</div>
                                                 </div>
@@ -247,7 +253,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="box-body"  style="background: #20B2AA" align="center">
-                                        <h1 id="nroGol2" class="cant-e-2">
+                                        <h1 id="nroGol2" class="cant-e-2">0
 
                                         </h1>
                                     </div>
@@ -255,28 +261,33 @@
 
                             </div>
                             <div class="box-body"  style="background: #2F4F4F" align="center">
-                                <div class="col-md-6">
-                                    <div class="box-body"  style="background: #81DAF5" align="center">
-                                        <a  data-toggle="modal" href="#myModal1" class="btn btn-labeled btn-danger">Tarjeta</a>
-                                    </div>
+                                <div class="col-md-6" ><button type="button" class="btn btn-primary" onclick="AddGol1()" style="width: 90px">Sumar gol</button>
+                                    <button type="button" class="btn btn-warning" onclick="AddAnular1()" style="width: 90px">Anular</button>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="box-body"  style="background: #81DAF5" align="center">
-                                        <a  data-toggle="modal" href="#myModal2" class="btn btn-labeled btn-danger">Tarjeta</a>
-                                    </div>
+                                
+                                <div class="col-md-6" ><button type="button" class="btn btn-primary" onclick="AddGol2()" style="width: 90px">Sumar gol2</button>
+                                    <button type="button" class="btn btn-warning" onclick="AddAnular2()" style="width: 90px">Anular</button>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="box-body"  style="background: #48D1CC" align="center">
+                            <div class="box-body"  style="background: #48D1CC;margin-left: 5px; margin-top: 290px" align="center">
                                 <div class="row" align="center">
-                                    <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
+                                    <%--  <label><%out.println(p.Mostrar_nombre(id_eq_2.trim()));%><br><img src="../../Imagen/fc.png" width="150" height="160" alt="fc" align="left"/>
                                     </label><br>
-                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>
+                                    <label><%out.println(p.Mostrar_categoria_juego(id_juego.trim()));%></label>--%>
                                 </div>
                                 <br>
                                 <br>
-                                <button type="button" class="btn btn-primary btn-sum-gol" onclick="AgregarGol(2)" >Sumar gol</button>
+                                <div class="col-md-12">
+                                    <div class="box-body col-md-12"  style="background: #81DAF5;margin-top: -30px;" align="center">
+                                        <a  data-toggle="modal" href="#myModal1" class="btn btn-labeled btn-danger">Tarjeta</a>
+                                        <a  data-toggle="modal" href="#newModal" class="btn btn-labeled btn-default">Nuevo</a>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>  
                     </div>
@@ -363,11 +374,135 @@
                         </div>
                     </div>
                 </div>
-                <select >
-                    <label>tarjeta Amarila<input type="radio" name="gr"></label>
+                                
+                 <div class="modal fade" id="newModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content" align="center">
+                            <div class="smart-form">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body no-padding" align="center">
+                                   <form class="form-horizontal" role="form">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Registra Tarjeta</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="textinput">Nro Camiseta:</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Address Line 1" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Nombre:</label>
+            <div class="col-sm-8">
+              <input type="text" placeholder="Address Line 2" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="textinput">Tarjeta:</label>
+            <div class="col-sm-4">
+              <select type="text" placeholder="City" class="form-control">
+                  <option value="">Seleccionar</option>
+                  <option value="1">Roja</option>
+                  <option value="0">Amarilla</option>
+               <select>
+            </div>
+          </div>
+
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default"> Cancelar</button>
+                <button type="submit" class="btn btn-primary"> Guardar</button>
+              </div>
+            </div>
+          </div>         
+        </fieldset>
+      </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                   
+                                
+          <div class="modal fade" id="newModal2" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content" align="center">
+                            <div class="smart-form">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body no-padding" align="center">
+                                   <form class="form-horizontal" role="form">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Registra Tarjeta</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="textinput">Nro Camiseta:</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Address Line 1" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="textinput">Nombre:</label>
+            <div class="col-sm-8">
+              <input type="text" placeholder="Address Line 2" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="textinput">Tarjeta:</label>
+            <div class="col-sm-4">
+              <select type="text" placeholder="City" class="form-control">
+                  <option value="">Seleccionar</option>
+                  <option value="1">Roja</option>
+                  <option value="0">Amarilla</option>
+               <select>
+            </div>
+          </div>
+
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default"> Cancelar</button>
+                <button type="submit" class="btn btn-primary"> Guardar</button>
+              </div>
+            </div>
+          </div>         
+        </fieldset>
+      </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                                
+                
+                    <!--<label>tarjeta Amarila<input type="radio" name="gr"></label>
                     <label>tarjeta Amarila<input type="radio" name="gr"></label>
 
-                    <!-- <section class="content">
+                     <section class="content">
                          <div class="row">
                              <div class="col-md-3">
                                  <div class="box-body" align="center">
@@ -455,7 +590,7 @@
             <script src="../../dist/js/demo.js" type="text/javascript"></script>
             <script>
                                     var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "MiÃ©rcoles", "Jueves", "Viernes", "SÃ¡bado");
+                                    var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
                                     var f = new Date();
                                     document.write(diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
             </script>
@@ -479,13 +614,29 @@
                     });
                     Listar_puntos();
                 }
-                var goles2 = 0;
-                $("#nroGol2").val(0);
-                function AgregarGol2() {
-                    goles2 = goles2 + 1;
-                    $("#nroGol2").val(goles2);
+                //===================================
+                var gol1 = 0;
+                $("#nroGol").text(0);
+                function AddGol1() {
+                    gol1 = gol1 + 1;
+                    $("#nroGol").text(gol1);
+                }
+                var gol2 = 0;
+                ("#nroGol2").text(0);
+                function AddGol2() {
+                    gol2 = gol2 + 1;
+                    $("#nroGol2").text(gol2);
 
                 }
+                function AddAnular2(){
+                    gol2 = gol2 - 1;
+                    $("#nroGol2").text(gol2);
+                }
+                function AddAnular1(){
+                    gol1 = gol1 - 1;
+                    $("#nroGol").text(gol1);
+                }
+                //=======================================
                 var tarRoja = 0;
                 $("#tarRoja").val(0);
                 function TarjetaRoja() {

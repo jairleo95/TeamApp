@@ -32,11 +32,11 @@
                 <div class="page-header">
                     <h1>Registro de Integrantes de Equipos</h1>
                 </div>
-                <form action="../../integrantes" id="checkout-form" class="form-horizontal">
+                 <form action="../../integrantes" id="checkout-form" class="form-horizontal">
                     <div class="form-group">
                         <label class="control-label col-xs-3">Categoria de Equipo</label>
                         <div class="col-xs-9">
-                            <select name="categoria" class="form-control" required="" > 
+                            <select name="categoria" class="form-control" required=""> 
                                 <option value="">[Seleccione]</option>
                                 <%for (int i = 0; i < Listar_catgeria_juego_eq.size(); i++) {
                                         V_Categoria_Juego c = new V_Categoria_Juego();
@@ -64,10 +64,9 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Apellido Materno:</label>
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" name="ape_materno" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required="">
+                            <input type="text" class="form-control" name="ape_materno" placeholder="Apellido Materno" onkeypress="return soloLetras(event)" required="">
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="control-label col-xs-3">Codigo Estudiante:</label>
                         <div class="col-xs-9">
@@ -83,13 +82,13 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° DNI:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="dni" onkeypress="return Num(event, this)" onkeyUp="return ValNumero(this);" maxlength="8" size="20" placeholder="N° DNI" required="">
+                            <input type="number" class="form-control" name="dni" onkeypress="return Num(event, this)" onkeyUp="return ValNumero(this);" placeholder="N° DNI" required="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">N° Celular:</label>
                         <div class="col-xs-9">
-                            <input type="number" class="form-control" name="cell" onkeypress="return Num9(event, this)" onkeyUp="return ValNumero(this);" maxlength="9"placeholder="N° Celular" required="">
+                            <input type="number" class="form-control" name="cell" onkeypress="return Num9(event, this)" onkeyUp="return ValNumero(this);" placeholder="N° Celular" required="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -107,41 +106,11 @@
                             </div>
                         </footer>
                     </div>
-                </form>                  
+                </form>                
             </div>
         </div>  
 
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Lista de Integrantes</h3>
-                <div class="box-tools">
-                    <div class="input-group">
-                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tbody>
-                    <th>#</th>
-                    <th>Categoria de Equipo</th>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>Codigo Estudiante</th>
-                    <th>N° Camiseta</th>
-                    <th>DNI</th>
-                    <th>N° Celular</th>
-                    <th>Email</th>
-                    </tbody>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div><!-- /.box-body -->
-        </div>
+        
         <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../../plugins/iCheck/icheck.min.js" type="text/javascript"></script>
@@ -252,7 +221,41 @@
                     return false;
                 }
             }
-            function listar_integrantes() {
+           /*
+            * <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Integrantes</h3>
+                <div class="box-tools">
+                    <div class="input-group">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <th>#</th>
+                    <th>Categoria de Equipo</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Codigo Estudiante</th>
+                    <th>N° Camiseta</th>
+                    <th>DNI</th>
+                    <th>N° Celular</th>
+                    <th>Email</th>
+                    </tbody>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div>
+            * 
+            * 
+            *  function listar_integrantes() {
                 var b = $("#listartodo");
                 var texto = '';
                 $.post("../../reporte", "opc=reporte_datos_genereales&" + b, function (objJson) {
@@ -278,36 +281,6 @@
                     }
                 });
 
-            }
-            /* $(document).ready(function () {
-             var b = $('#tbodys');
-             $(".btnGuardar").click(function () {
-             alert()
-             $.post("../../integrantes", $(".form_int").serialize(), function (objJson) {
-             alert();
-             });
-             
-             });
-             
-             });
-             function re_Integrantes_equipos() {
-             var nombre = $(".Nombre").val();
-             var apellido = $(".Apellido").val();
-             var camiseta = $(".Camiseta").val();
-             var numero = $(".Numero").val();
-             var dni = $(".dni").val();
-             var Correo = $(".correro").val();
-             $.post("../")
-             // $.post("../../", "opc=reporte_datos_genereales&nombre=" + nombre + "&apellido=" + apellido + "&correo=" + correo + "&numero=" + numero, function (objJson) {
-             
-             }
-             $(function () {
-             $('input').iCheck({
-             checkboxClass: 'icheckbox_square-blue',
-             radioClass: 'iradio_square-blue',
-             increaseArea: '20%' // optional
-             });
-             });   
-             */
+            }*/
         </script>
 
