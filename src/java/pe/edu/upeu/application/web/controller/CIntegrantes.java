@@ -11,8 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upeu.application.dao.Categoria_JuegoDAO;
+import pe.edu.upeu.application.dao.EquipoDAO;
 //import jdk.nashorn.internal.runtime.regexp.joni.EncodingHelper;
 import pe.edu.upeu.application.dao.Integrantes_EquiposDAO;
+import pe.edu.upeu.application.interfaces.InterfaceCategoria_Juego;
+import pe.edu.upeu.application.interfaces.InterfaceEquipo;
 import pe.edu.upeu.application.interfaces.InterfaceIntegrantes_Equipos;
 
 /**
@@ -31,6 +35,8 @@ public class CIntegrantes extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     InterfaceIntegrantes_Equipos iie = new Integrantes_EquiposDAO();
+    InterfaceEquipo eq = new EquipoDAO();
+    InterfaceCategoria_Juego j = new Categoria_JuegoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -41,6 +47,7 @@ public class CIntegrantes extends HttpServlet {
         try {
             /* TODO output your page here. You may use following sample code. */
             if (opc.equals("Registrar_Integrantes")) {
+                String id_torneo = request.getParameter("id_torneo");
                 String nombre = request.getParameter("nombre");
                 String ap_pater = request.getParameter("ape_paterno");
                 String ap_mater = request.getParameter("ape_materno");
@@ -50,11 +57,17 @@ public class CIntegrantes extends HttpServlet {
                 String dni = request.getParameter("dni");
                 String correo = request.getParameter("email");
                 String id_ti_pe = null;
-                String id_cat_equi = "categoria";
-                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam);
-                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp");
-            }if (opc.equals("listar_integrantes")) {
-                
+                String id_equi = request.getParameter("id_equipo");
+                String id_cat_juego = request.getParameter("categoria");
+                String id_cat_equi = eq.obt_id_cat_equi(id_cat_juego, id_equi);
+                iie.INSERT_DATOS_Integrantes_equipo(null, nombre, ap_pater, co_est, cel, dni, id_ti_pe, ap_mater, correo, id_cat_equi, nu_cam, id_cat_juego);
+                out.print(id_cat_equi);
+                out.print(id_equi);
+                getServletContext().setAttribute("Listar_catgeria_juego", j.Listar_catgeria_juego_eq(id_torneo, id_equi));
+                response.sendRedirect("Vistas/Registro/Registrar_integrantes_Equipos.jsp?id_equipo=" + id_equi.trim() + "&id_torneo=" + id_torneo.trim());
+            }
+            if (opc.equals("listar_integrantes")) {
+
             }
 
         } finally {

@@ -6,6 +6,7 @@
 package pe.edu.upeu.application.dao;
 
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import pe.edu.upeu.application.factory.ConexionBD;
@@ -46,6 +47,23 @@ public class EquipoDAO implements InterfaceEquipo {
             }
         }
         return id;
+    }
+
+    @Override
+    public String obt_id_cat_equi(String id_juego, String id_equipo) {
+        this.conn = FactoryConnectionDB.open(FactoryConnectionDB.ORACLE);
+        String sql = "SELECT ID_CATEGORIA_EQUIPO FROM TATD_CATEGORIA_EQUIPO WHERE ID_EQUIPO='" + id_equipo.trim() + "' and ID_CATEGORIA_JUEGO='" + id_juego.trim() + "'";
+        String nom = null;
+        try {
+            ResultSet rs = this.conn.query(sql);
+            while (rs.next()) {
+                nom = rs.getString("ID_CATEGORIA_EQUIPO");
+            }
+        } catch (SQLException e) {
+        } finally {
+            this.conn.close();
+        }
+        return nom;
     }
 
 }
